@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Air — Boarding pass · AU 207 LIS → HND</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ───────────── Night sky (static art) ───────────── -->
+  <svg class="sky" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="skyFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#040817"/>
+        <stop offset=".55" stop-color="#0A1631"/>
+        <stop offset="1" stop-color="#132A52"/>
+      </linearGradient>
+      <linearGradient id="aurA" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#3BE3A6" stop-opacity="0"/>
+        <stop offset=".28" stop-color="#3BE3A6" stop-opacity=".6"/>
+        <stop offset=".62" stop-color="#4FD1FF" stop-opacity=".38"/>
+        <stop offset="1" stop-color="#8A6BFF" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="aurB" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#8A6BFF" stop-opacity="0"/>
+        <stop offset=".45" stop-color="#8A6BFF" stop-opacity=".45"/>
+        <stop offset=".8" stop-color="#FF7AB8" stop-opacity=".25"/>
+        <stop offset="1" stop-color="#FF7AB8" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#7CF5C8" stop-opacity="0"/>
+        <stop offset=".7" stop-color="#7CF5C8" stop-opacity=".5"/>
+        <stop offset="1" stop-color="#7CF5C8" stop-opacity="0"/>
+      </linearGradient>
+      <filter id="soft" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="30"/></filter>
+      <filter id="haze" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="6"/></filter>
+    </defs>
+    <rect width="1440" height="900" fill="url(#skyFill)"/>
+    <g fill="#fff">
+      <circle cx="729" cy="543" r="0.7" opacity="0.77"/>
+      <circle cx="35" cy="34" r="0.9" opacity="0.84"/>
+      <circle cx="85" cy="45" r="0.8" opacity="0.65"/>
+      <circle cx="663" cy="510" r="1.1" opacity="0.35"/>
+      <circle cx="152" cy="479" r="1.3" opacity="0.32"/>
+      <circle cx="1236" cy="370" r="0.9" opacity="0.71"/>
+      <circle cx="183" cy="139" r="0.9" opacity="0.51"/>
+      <circle cx="521" cy="183" r="0.8" opacity="0.85"/>
+      <circle cx="1094" cy="369" r="0.7" opacity="0.61"/>
+      <circle cx="739" cy="297" r="0.8" opacity="0.89"/>
+      <circle cx="718" cy="596" r="0.6" opacity="0.66"/>
+      <circle cx="1010" cy="19" r="0.8" opacity="0.94"/>
+      <circle cx="784" cy="643" r="1.3" opacity="0.92"/>
+      <circle cx="971" cy="333" r="0.6" opacity="0.45"/>
+      <circle cx="525" cy="238" r="1.3" opacity="0.52"/>
+      <circle cx="565" cy="347" r="0.6" opacity="0.32"/>
+      <circle cx="997" cy="185" r="0.8" opacity="0.46"/>
+      <circle cx="818" cy="34" r="1.6" opacity="0.36"/>
+      <circle cx="1264" cy="574" r="0.7" opacity="0.4"/>
+      <circle cx="1406" cy="118" r="1.1" opacity="0.38"/>
+      <circle cx="1294" cy="460" r="0.7" opacity="0.85"/>
+      <circle cx="735" cy="57" r="0.6" opacity="0.36"/>
+      <circle cx="1015" cy="119" r="0.6" opacity="0.68"/>
+      <circle cx="878" cy="691" r="0.8" opacity="0.95"/>
+      <circle cx="1280" cy="137" r="1.6" opacity="0.9"/>
+      <circle cx="314" cy="271" r="1.3" opacity="0.6"/>
+      <circle cx="145" cy="508" r="1.1" opacity="0.37"/>
+      <circle cx="1285" cy="12" r="0.8" opacity="0.61"/>
+      <circle cx="62" cy="634" r="0.7" opacity="0.28"/>
+      <circle cx="79" cy="226" r="0.6" opacity="0.41"/>
+      <circle cx="39" cy="10" r="0.6" opacity="0.76"/>
+      <circle cx="881" cy="538" r="1.1" opacity="0.93"/>
+      <circle cx="407" cy="249" r="1.3" opacity="0.33"/>
+      <circle cx="195" cy="406" r="1.1" opacity="0.62"/>
+      <circle cx="1333" cy="9" r="0.9" opacity="0.33"/>
+      <circle cx="243" cy="437" r="0.9" opacity="0.9"/>
+      <circle cx="936" cy="451" r="1.3" opacity="0.27"/>
+      <circle cx="989" cy="346" r="1.6" opacity="0.58"/>
+      <circle cx="1275" cy="112" r="0.8" opacity="0.84"/>
+      <circle cx="1430" cy="632" r="0.8" opacity="0.71"/>
+      <circle cx="4" cy="286" r="0.9" opacity="0.9"/>
+      <circle cx="376" cy="385" r="1.6" opacity="0.35"/>
+      <circle cx="752" cy="611" r="0.8" opacity="0.84"/>
+      <circle cx="531" cy="476" r="1.6" opacity="0.26"/>
+      <circle cx="13" cy="112" r="1.1" opacity="0.51"/>
+      <circle cx="75" cy="140" r="0.7" opacity="0.72"/>
+      <circle cx="537" cy="12" r="0.8" opacity="0.35"/>
+      <circle cx="1300" cy="576" r="0.8" opacity="0.67"/>
+      <circle cx="658" cy="533" r="0.6" opacity="0.82"/>
+      <circle cx="1359" cy="428" r="0.6" opacity="0.84"/>
+      <circle cx="593" cy="6" r="0.6" opacity="0.78"/>
+      <circle cx="789" cy="152" r="0.8" opacity="0.46"/>
+      <circle cx="334" cy="13" r="1.6" opacity="0.74"/>
+      <circle cx="1238" cy="645" r="1.6" opacity="0.79"/>
+      <circle cx="1115" cy="17" r="0.8" opacity="0.51"/>
+      <circle cx="595" cy="545" r="1.1" opacity="0.29"/>
+      <circle cx="680" cy="692" r="1.3" opacity="0.52"/>
+      <circle cx="1091" cy="58" r="0.8" opacity="0.48"/>
+      <circle cx="46" cy="472" r="0.6" opacity="0.88"/>
+      <circle cx="46" cy="371" r="1.6" opacity="0.45"/>
+      <circle cx="250" cy="356" r="1.3" opacity="0.79"/>
+      <circle cx="369" cy="11" r="1.1" opacity="0.42"/>
+      <circle cx="427" cy="96" r="1.3" opacity="0.29"/>
+      <circle cx="1048" cy="181" r="1.3" opacity="0.53"/>
+      <circle cx="1120" cy="225" r="1.1" opacity="0.29"/>
+      <circle cx="502" cy="77" r="0.6" opacity="0.62"/>
+      <circle cx="398" cy="28" r="1.3" opacity="0.86"/>
+      <circle cx="928" cy="400" r="1.1" opacity="0.84"/>
+      <circle cx="978" cy="178" r="0.6" opacity="0.59"/>
+      <circle cx="316" cy="51" r="1.3" opacity="0.27"/>
+      <circle cx="431" cy="582" r="0.8" opacity="0.92"/>
+      <circle cx="252" cy="60" r="1.3" opacity="0.71"/>
+      <circle cx="1260" cy="35" r="0.8" opacity="0.78"/>
+      <circle cx="480" cy="409" r="0.6" opacity="0.55"/>
+      <circle cx="246" cy="308" r="0.7" opacity="0.93"/>
+      <circle cx="1056" cy="357" r="1.6" opacity="0.63"/>
+      <circle cx="1398" cy="305" r="1.3" opacity="0.71"/>
+      <circle cx="135" cy="74" r="1.1" opacity="0.87"/>
+      <circle cx="278" cy="151" r="1.1" opacity="0.3"/>
+      <circle cx="691" cy="419" r="0.6" opacity="0.39"/>
+      <circle cx="1014" cy="66" r="1.1" opacity="0.52"/>
+      <circle cx="203" cy="437" r="0.6" opacity="0.7"/>
+      <circle cx="1286" cy="475" r="0.7" opacity="0.32"/>
+      <circle cx="293" cy="443" r="0.9" opacity="0.27"/>
+      <circle cx="1225" cy="510" r="0.9" opacity="0.45"/>
+      <circle cx="1070" cy="204" r="0.8" opacity="0.38"/>
+      <circle cx="492" cy="1" r="1.3" opacity="0.45"/>
+      <circle cx="867" cy="210" r="0.9" opacity="0.92"/>
+      <circle cx="641" cy="510" r="1.6" opacity="0.89"/>
+      <circle cx="840" cy="447" r="0.6" opacity="0.28"/>
+    </g>
+    <g filter="url(#soft)">
+      <path d="M-80 250 C 220 110 520 330 820 200 S 1290 80 1520 190 L1520 330 C 1250 240 1010 400 760 340 S 250 250 -80 410 Z" fill="url(#aurA)"/>
+      <path d="M-80 120 C 300 40 600 210 940 120 S 1340 30 1520 90 L1520 170 C 1300 120 1040 250 800 220 S 260 130 -80 220 Z" fill="url(#aurB)"/>
+    </g>
+    <g filter="url(#haze)" opacity=".55">
+      <rect x="82" y="133" width="7.4" height="257" fill="url(#ray)" opacity="0.62" transform="skewX(-10.8)"/>
+      <rect x="136" y="101" width="7.0" height="211" fill="url(#ray)" opacity="0.34" transform="skewX(-9.6)"/>
+      <rect x="175" y="106" width="8.7" height="188" fill="url(#ray)" opacity="0.79" transform="skewX(-9.0)"/>
+      <rect x="225" y="148" width="5.5" height="158" fill="url(#ray)" opacity="0.49" transform="skewX(-5.5)"/>
+      <rect x="283" y="67" width="4.2" height="233" fill="url(#ray)" opacity="0.42" transform="skewX(-5.0)"/>
+      <rect x="340" y="93" width="5.5" height="184" fill="url(#ray)" opacity="0.31" transform="skewX(-9.9)"/>
+      <rect x="396" y="94" width="5.8" height="244" fill="url(#ray)" opacity="0.61" transform="skewX(-9.2)"/>
+      <rect x="453" y="104" width="7.7" height="247" fill="url(#ray)" opacity="0.39" transform="skewX(-6.0)"/>
+      <rect x="506" y="64" width="9.6" height="251" fill="url(#ray)" opacity="0.79" transform="skewX(-6.5)"/>
+      <rect x="541" y="124" width="7.5" height="223" fill="url(#ray)" opacity="0.58" transform="skewX(-7.2)"/>
+      <rect x="613" y="110" width="9.9" height="204" fill="url(#ray)" opacity="0.49" transform="skewX(-11.0)"/>
+      <rect x="653" y="78" width="6.2" height="175" fill="url(#ray)" opacity="0.79" transform="skewX(-7.8)"/>
+      <rect x="707" y="60" width="8.8" height="194" fill="url(#ray)" opacity="0.56" transform="skewX(-4.8)"/>
+      <rect x="763" y="93" width="7.2" height="219" fill="url(#ray)" opacity="0.28" transform="skewX(-7.1)"/>
+      <rect x="821" y="138" width="9.4" height="207" fill="url(#ray)" opacity="0.78" transform="skewX(-11.6)"/>
+      <rect x="867" y="116" width="6.4" height="213" fill="url(#ray)" opacity="0.33" transform="skewX(-4.2)"/>
+      <rect x="901" y="67" width="6.9" height="159" fill="url(#ray)" opacity="0.30" transform="skewX(-10.2)"/>
+      <rect x="968" y="109" width="5.4" height="162" fill="url(#ray)" opacity="0.78" transform="skewX(-11.8)"/>
+      <rect x="1010" y="85" width="7.4" height="154" fill="url(#ray)" opacity="0.65" transform="skewX(-8.1)"/>
+      <rect x="1054" y="87" width="8.1" height="160" fill="url(#ray)" opacity="0.76" transform="skewX(-8.9)"/>
+      <rect x="1111" y="107" width="8.6" height="173" fill="url(#ray)" opacity="0.60" transform="skewX(-4.1)"/>
+      <rect x="1172" y="99" width="4.0" height="180" fill="url(#ray)" opacity="0.71" transform="skewX(-9.7)"/>
+      <rect x="1235" y="140" width="8.9" height="243" fill="url(#ray)" opacity="0.65" transform="skewX(-6.4)"/>
+      <rect x="1281" y="64" width="6.9" height="208" fill="url(#ray)" opacity="0.33" transform="skewX(-11.3)"/>
+      <rect x="1319" y="121" width="5.9" height="158" fill="url(#ray)" opacity="0.27" transform="skewX(-8.0)"/>
+      <rect x="1381" y="88" width="9.5" height="183" fill="url(#ray)" opacity="0.58" transform="skewX(-10.3)"/>
+    </g>
+    <path d="M0 900 L0 760 L90 730 L170 752 L260 704 L350 740 L430 716 L540 758 L640 722 L760 748 L860 700 L960 742 L1060 720 L1170 754 L1270 712 L1360 738 L1440 724 L1440 900 Z" fill="#081329"/>
+    <path d="M0 900 L0 800 L120 782 L260 806 L420 778 L600 804 L780 784 L960 808 L1140 786 L1300 802 L1440 790 L1440 900 Z" fill="#050C1E"/>
+  </svg>
+
+  <!-- ───────────── Top bar ───────────── -->
+  <header class="top">
+    <a href="#" class="logo" aria-label="Aurora Air — home">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <linearGradient id="logoG" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#3BE3A6"/>
+            <stop offset=".55" stop-color="#4FD1FF"/>
+            <stop offset="1" stop-color="#8A6BFF"/>
+          </linearGradient>
+        </defs>
+        <path d="M5 30 C 11 14, 25 8, 36 9" stroke="url(#logoG)" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+        <path d="M9 34 C 15 22, 26 17, 35 17" stroke="url(#logoG)" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
+        <path d="M14 37 C 19 29, 27 25, 34 25" stroke="url(#logoG)" stroke-width="2" stroke-linecap="round" fill="none" opacity=".45"/>
+      </svg>
+      <span>Aurora<b>Air</b></span>
+    </a>
+    <nav class="top__nav" aria-label="Main">
+      <a href="#">Book</a>
+      <a href="#" aria-current="page">Manage</a>
+      <a href="#">Check-in</a>
+      <a href="#">Help</a>
+    </nav>
+    <span class="top__user"><i>IC</i> Inês C.</span>
+  </header>
+
+  <main class="stage">
+    <div class="greeting">
+      <div>
+        <p class="greeting__eyebrow"><span class="greeting__dot"></span> Check-in complete</p>
+        <h1 class="greeting__title">Boa viagem, <em>Inês.</em></h1>
+      </div>
+      <p class="greeting__meta">Terminal 1 · Boarding closes 06:50<br><span>Have this pass ready at security and the gate.</span></p>
+    </div>
+
+    <!-- ───────────── The boarding pass ───────────── -->
+    <article class="pass" aria-label="Boarding pass, Lisbon to Tokyo Haneda, seat 2A, gate B12, boarding 06:40">
+      <div class="pass__main">
+        <header class="pass__header">
+          <div class="pass__brand">
+            <svg viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M5 30 C 11 14, 25 8, 36 9" stroke="#fff" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+              <path d="M9 34 C 15 22, 26 17, 35 17" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
+              <path d="M14 37 C 19 29, 27 25, 34 25" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" opacity=".45"/>
+            </svg>
+            <span>Aurora Air</span>
+          </div>
+          <div class="pass__title"><span>Boarding pass</span><b>First · Zone 1</b></div>
+        </header>
+
+        <div class="route">
+          <div class="route__end">
+            <span class="mask"><span class="route__code">LIS</span></span>
+            <span class="route__city">Lisbon · 07:10</span>
+          </div>
+          <div class="route__path">
+            <svg class="route__svg" viewBox="0 0 360 120" aria-hidden="true">
+              <defs>
+                <mask id="arcMask" maskUnits="userSpaceOnUse" x="0" y="0" width="360" height="120">
+                  <path class="route__trace" d="M12 100 Q180 -20 348 100" stroke="#fff" stroke-width="10" fill="none"/>
+                </mask>
+              </defs>
+              <path class="route__ghost" d="M12 100 Q180 -20 348 100"/>
+              <path class="route__arc" d="M12 100 Q180 -20 348 100" mask="url(#arcMask)"/>
+              <circle class="route__dot" cx="12" cy="100" r="5"/>
+              <circle class="route__dot" cx="348" cy="100" r="5"/>
+              <g class="route__plane" transform="translate(180 40)">
+                <path d="M13 0 C13 -1.6 11.6 -2.2 10 -2.2 L4 -2.2 L-4 -12 L-7.5 -12 L-3 -2.2 L-9 -2.2 L-12 -6 L-14.5 -6 L-12.5 0 L-14.5 6 L-12 6 L-9 2.2 L-3 2.2 L-7.5 12 L-4 12 L4 2.2 L10 2.2 C11.6 2.2 13 1.6 13 0 Z"/>
+              </g>
+            </svg>
+            <span class="route__duration">14 h 25 m · nonstop</span>
+          </div>
+          <div class="route__end route__end--to">
+            <span class="mask"><span class="route__code">HND</span></span>
+            <span class="route__city">Tokyo Haneda · 06:35<sup>+1</sup></span>
+          </div>
+        </div>
+
+        <dl class="details">
+          <div class="detail"><dt class="detail__label">Passenger</dt><dd class="detail__value">Inês Carvalho</dd></div>
+          <div class="detail"><dt class="detail__label">Flight</dt><dd class="detail__value">AU 207</dd></div>
+          <div class="detail"><dt class="detail__label">Date</dt><dd class="detail__value">21 Nov 2026</dd></div>
+          <div class="detail detail--hot"><dt class="detail__label">Gate</dt><dd class="detail__value">B12</dd></div>
+          <div class="detail detail--hot"><dt class="detail__label">Seat</dt><dd class="detail__value">2A</dd></div>
+          <div class="detail detail--hot"><dt class="detail__label">Boarding</dt><dd class="detail__value">06:40</dd></div>
+        </dl>
+      </div>
+
+      <div class="pass__stub">
+        <div class="stub__top">
+          <span class="stub__flight">AU 207</span>
+          <span class="stub__route">LIS <i>→</i> HND</span>
+        </div>
+        <div class="stub__seat"><span>Seat</span><b>2A</b></div>
+        <div class="barcode" aria-hidden="true">
+          <i class="barcode__bar b3"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b3"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b4"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b3"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b3"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b4"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b3"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b4"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b3"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b3"></i>
+          <i class="barcode__bar b2"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b4"></i>
+          <i class="barcode__bar b1"></i>
+          <i class="barcode__bar b3"></i>
+        </div>
+        <span class="barcode__num">0207 2111 002A 0640</span>
+        <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="stampRing" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs>
+          <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="3"/>
+          <circle cx="60" cy="60" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <text font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" letter-spacing="1.9" fill="currentColor"><textPath href="#stampRing">CHECKED IN · AURORA AIR · LISBON ·</textPath></text>
+          <text x="60" y="57" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600" fill="currentColor">21</text>
+          <text x="60" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" letter-spacing="1.5" fill="currentColor">NOV</text>
+        </svg>
+      </div>
+    </article>
+
+    <!-- ───────────── Transport bar ─────────────
+         Every control talks to ONE master timeline. CSS for the states
+         you'll toggle is ready: .is-paused (play button), .is-active
+         (reverse / speed / chapter buttons), and --p (scrubber fill, 0%–100%). -->
+    <div class="transport" role="group" aria-label="Animation controls">
+      <div class="transport__buttons">
+        <button class="ctrl ctrl--play" type="button" aria-label="Play / pause">
+          <svg class="icon-pause" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 4h3v12h-3zM11.5 4h3v12h-3z"/></svg>
+          <svg class="icon-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 3.8v12.4L16 10z"/></svg>
+        </button>
+        <button class="ctrl ctrl--reverse" type="button" aria-label="Reverse">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12L2 10zM18 4v12l-8-6z"/></svg>
+        </button>
+        <button class="ctrl ctrl--restart" type="button" aria-label="Restart">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.2 7.2A6.6 6.6 0 1 1 3.6 12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M2.6 3.4v5h5z"/></svg>
+        </button>
+      </div>
+      <input class="scrubber" type="range" min="0" max="100" step="0.1" value="0" aria-label="Timeline progress">
+      <output class="time"><span class="time__now">0.00</span><span class="time__sep">/</span><span class="time__total">0.00</span>s</output>
+      <button class="ctrl ctrl--speed" type="button" aria-label="Playback speed">1×</button>
+      <div class="chapters" aria-label="Chapters">
+        <button class="chapter" type="button" data-chapter="route">Route</button>
+        <button class="chapter" type="button" data-chapter="details">Details</button>
+        <button class="chapter" type="button" data-chapter="barcode">Barcode</button>
+      </div>
+    </div>
+  </main>
+
+<script src="ref.js"></script>
+</body>
+</html>

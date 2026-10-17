@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modular — a tiny web synth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Space+Grotesk:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top">
+    <a href="#" class="brand" aria-label="Modular home">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="1" y="1" width="30" height="30" rx="8" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M5 17 C 8 6, 11 6, 13 16 S 18 27, 21 16 S 25 8, 27 14" fill="none" stroke="#FF7A1F" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span>Modular</span>
+    </a>
+    <nav class="top__nav" aria-label="Main">
+      <a href="#">Manual</a>
+      <a href="#">Presets</a>
+      <a href="#">Patch notes</a>
+      <a href="#" class="top__cta">Pre-order the kit</a>
+    </nav>
+  </header>
+
+  <main class="stage">
+    <!-- ───────────── The instrument ───────────── -->
+    <section class="panel" aria-label="Modular M-16 synthesiser panel">
+      <div class="panel__cheek panel__cheek--l" aria-hidden="true"></div>
+
+      <div class="face">
+        <span class="screw screw--tl" aria-hidden="true"></span>
+        <span class="screw screw--tr" aria-hidden="true"></span>
+        <span class="screw screw--bl" aria-hidden="true"></span>
+        <span class="screw screw--br" aria-hidden="true"></span>
+
+        <!-- left column: nameplate, power, patch bay -->
+        <div class="face__left">
+          <div class="plate">
+            <p class="plate__name">Modular</p>
+            <p class="plate__model"><b>M-16</b> Mono web voice</p>
+            <p class="plate__serial">SN 0016-WEB · made of pixels</p>
+          </div>
+
+          <div class="power">
+            <span class="section-label">Power</span>
+            <div class="power__row">
+              <span class="power__state power__state--off">Off</span>
+              <button class="power__switch" type="button" role="switch" aria-checked="false" aria-label="Power">
+                <span class="power__thumb"></span>
+              </button>
+              <span class="power__state power__state--on">On</span>
+              <span class="power__led" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="jacks" aria-hidden="true">
+            <span class="section-label">Patch</span>
+            <div class="jacks__row">
+              <span class="jack"><i></i><b>In</b></span>
+              <span class="jack"><i></i><b>CV</b></span>
+              <span class="jack"><i></i><b>Out</b></span>
+            </div>
+            <svg class="cable" viewBox="0 0 200 130" aria-hidden="true">
+              <path class="cable__shadow" d="M15 18 C 22 118, 178 118, 185 18"/>
+              <path class="cable__wire" d="M15 14 C 22 112, 178 112, 185 14"/>
+              <path class="cable__shine" d="M18 26 C 30 100, 170 100, 182 26"/>
+              <rect class="cable__plug" x="8" y="2" width="14" height="20" rx="3"/>
+              <rect class="cable__plug" x="178" y="2" width="14" height="20" rx="3"/>
+              <rect class="cable__ring" x="10" y="16" width="10" height="3" rx="1"/>
+              <rect class="cable__ring" x="180" y="16" width="10" height="3" rx="1"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- middle: screen + knobs -->
+        <div class="face__main">
+          <div class="screen">
+            <div class="screen__head">
+              <span>Spectrum · 16 band</span>
+              <span class="screen__status"><i class="screen__standby">Standby</i><i class="screen__live">Live</i></span>
+            </div>
+            <div class="screen__body">
+              <ul class="screen__db" aria-hidden="true"><li>0</li><li>-12</li><li>-24</li><li>-48</li></ul>
+              <div class="viz" aria-hidden="true"><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span><span class="viz__bar"></span></div>
+            </div>
+            <ul class="screen__hz" aria-hidden="true"><li>31</li><li>125</li><li>500</li><li>2k</li><li>8k</li><li>16k Hz</li></ul>
+          </div>
+
+          <div class="controls">
+            <div class="group group--filter">
+              <span class="group__label">Filter</span>
+              <div class="group__knobs">
+        <div class="knob knob--cutoff">
+          <span class="knob__label">Cutoff</span>
+          <div class="knob__body">
+          <svg class="knob__scale" viewBox="0 0 150 150" aria-hidden="true">
+            <circle class="knob__well" cx="75" cy="75" r="49"/>
+            <g class="knob__ticks"><line x1="36.11" y1="113.89" x2="29.75" y2="120.25" class="major"/><line x1="25.12" y1="105.57" x2="20.43" y2="108.44"/><line x1="22.69" y1="92" x2="14.13" y2="94.78" class="major"/><line x1="16.68" y1="79.59" x2="11.2" y2="80.02"/><line x1="20.68" y1="66.4" x2="11.79" y2="64.99" class="major"/><line x1="20.95" y1="52.61" x2="15.87" y2="50.51"/><line x1="30.5" y1="42.67" x2="23.22" y2="37.38" class="major"/><line x1="37.01" y1="30.52" x2="33.44" y2="26.33"/><line x1="50.03" y1="25.99" x2="45.94" y2="17.98" class="major"/><line x1="61.34" y1="18.12" x2="60.06" y2="12.77"/><line x1="75" y1="20" x2="75" y2="11" class="major"/><line x1="88.66" y1="18.12" x2="89.94" y2="12.77"/><line x1="99.97" y1="25.99" x2="104.06" y2="17.98" class="major"/><line x1="112.99" y1="30.52" x2="116.56" y2="26.33"/><line x1="119.5" y1="42.67" x2="126.78" y2="37.38" class="major"/><line x1="129.05" y1="52.61" x2="134.13" y2="50.51"/><line x1="129.32" y1="66.4" x2="138.21" y2="64.99" class="major"/><line x1="133.32" y1="79.59" x2="138.8" y2="80.02"/><line x1="127.31" y1="92" x2="135.87" y2="94.78" class="major"/><line x1="124.88" y1="105.57" x2="129.57" y2="108.44"/><line x1="113.89" y1="113.89" x2="120.25" y2="120.25" class="major"/></g>
+            <g class="knob__nums"><text x="24.8" y="128.2">0</text><text x="75" y="7">5</text><text x="125.2" y="128.2">10</text></g>
+          </svg>
+            <div class="knob__dial" role="slider" tabindex="0" aria-label="Cutoff" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72" style="transform: rotate(59.4deg)">
+              <span class="knob__pointer"></span>
+            </div>
+            <span class="knob__sheen" aria-hidden="true"></span>
+          </div>
+          <div class="lcd knob__readout"><output class="knob__value">72</output></div>
+          <span class="knob__hint">brightness</span>
+        </div>
+        <div class="knob knob--resonance">
+          <span class="knob__label">Resonance</span>
+          <div class="knob__body">
+          <svg class="knob__scale" viewBox="0 0 150 150" aria-hidden="true">
+            <circle class="knob__well" cx="75" cy="75" r="49"/>
+            <g class="knob__ticks"><line x1="36.11" y1="113.89" x2="29.75" y2="120.25" class="major"/><line x1="25.12" y1="105.57" x2="20.43" y2="108.44"/><line x1="22.69" y1="92" x2="14.13" y2="94.78" class="major"/><line x1="16.68" y1="79.59" x2="11.2" y2="80.02"/><line x1="20.68" y1="66.4" x2="11.79" y2="64.99" class="major"/><line x1="20.95" y1="52.61" x2="15.87" y2="50.51"/><line x1="30.5" y1="42.67" x2="23.22" y2="37.38" class="major"/><line x1="37.01" y1="30.52" x2="33.44" y2="26.33"/><line x1="50.03" y1="25.99" x2="45.94" y2="17.98" class="major"/><line x1="61.34" y1="18.12" x2="60.06" y2="12.77"/><line x1="75" y1="20" x2="75" y2="11" class="major"/><line x1="88.66" y1="18.12" x2="89.94" y2="12.77"/><line x1="99.97" y1="25.99" x2="104.06" y2="17.98" class="major"/><line x1="112.99" y1="30.52" x2="116.56" y2="26.33"/><line x1="119.5" y1="42.67" x2="126.78" y2="37.38" class="major"/><line x1="129.05" y1="52.61" x2="134.13" y2="50.51"/><line x1="129.32" y1="66.4" x2="138.21" y2="64.99" class="major"/><line x1="133.32" y1="79.59" x2="138.8" y2="80.02"/><line x1="127.31" y1="92" x2="135.87" y2="94.78" class="major"/><line x1="124.88" y1="105.57" x2="129.57" y2="108.44"/><line x1="113.89" y1="113.89" x2="120.25" y2="120.25" class="major"/></g>
+            <g class="knob__nums"><text x="24.8" y="128.2">0</text><text x="75" y="7">5</text><text x="125.2" y="128.2">10</text></g>
+          </svg>
+            <div class="knob__dial" role="slider" tabindex="0" aria-label="Resonance" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" style="transform: rotate(-40.5deg)">
+              <span class="knob__pointer"></span>
+            </div>
+            <span class="knob__sheen" aria-hidden="true"></span>
+          </div>
+          <div class="lcd knob__readout"><output class="knob__value">35</output></div>
+          <span class="knob__hint">squelch</span>
+        </div>
+              </div>
+            </div>
+            <div class="group group--amp">
+              <span class="group__label">Amp</span>
+              <div class="group__knobs">
+        <div class="knob knob--drive">
+          <span class="knob__label">Drive</span>
+          <div class="knob__body">
+          <svg class="knob__scale" viewBox="0 0 150 150" aria-hidden="true">
+            <circle class="knob__well" cx="75" cy="75" r="49"/>
+            <g class="knob__ticks"><line x1="36.11" y1="113.89" x2="29.75" y2="120.25" class="major"/><line x1="25.12" y1="105.57" x2="20.43" y2="108.44"/><line x1="22.69" y1="92" x2="14.13" y2="94.78" class="major"/><line x1="16.68" y1="79.59" x2="11.2" y2="80.02"/><line x1="20.68" y1="66.4" x2="11.79" y2="64.99" class="major"/><line x1="20.95" y1="52.61" x2="15.87" y2="50.51"/><line x1="30.5" y1="42.67" x2="23.22" y2="37.38" class="major"/><line x1="37.01" y1="30.52" x2="33.44" y2="26.33"/><line x1="50.03" y1="25.99" x2="45.94" y2="17.98" class="major"/><line x1="61.34" y1="18.12" x2="60.06" y2="12.77"/><line x1="75" y1="20" x2="75" y2="11" class="major"/><line x1="88.66" y1="18.12" x2="89.94" y2="12.77"/><line x1="99.97" y1="25.99" x2="104.06" y2="17.98" class="major"/><line x1="112.99" y1="30.52" x2="116.56" y2="26.33"/><line x1="119.5" y1="42.67" x2="126.78" y2="37.38" class="major"/><line x1="129.05" y1="52.61" x2="134.13" y2="50.51"/><line x1="129.32" y1="66.4" x2="138.21" y2="64.99" class="major"/><line x1="133.32" y1="79.59" x2="138.8" y2="80.02"/><line x1="127.31" y1="92" x2="135.87" y2="94.78" class="major"/><line x1="124.88" y1="105.57" x2="129.57" y2="108.44"/><line x1="113.89" y1="113.89" x2="120.25" y2="120.25" class="major"/></g>
+            <g class="knob__nums"><text x="24.8" y="128.2">0</text><text x="75" y="7">5</text><text x="125.2" y="128.2">10</text></g>
+          </svg>
+            <div class="knob__dial" role="slider" tabindex="0" aria-label="Drive" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="transform: rotate(0deg)">
+              <span class="knob__pointer"></span>
+            </div>
+            <span class="knob__sheen" aria-hidden="true"></span>
+          </div>
+          <div class="lcd knob__readout"><output class="knob__value">50</output></div>
+          <span class="knob__hint">grit</span>
+        </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- right: the fader -->
+        <div class="fader">
+          <span class="section-label">Volume</span>
+          <div class="fader__body">
+            <ol class="fader__notches" aria-hidden="true">
+              <li class="fader__notch" style="--i: 0"><span>100</span></li>
+              <li class="fader__notch" style="--i: 1"><span>75</span></li>
+              <li class="fader__notch" style="--i: 2"><span>50</span></li>
+              <li class="fader__notch" style="--i: 3"><span>25</span></li>
+              <li class="fader__notch" style="--i: 4"><span>0</span></li>
+            </ol>
+            <div class="fader__track">
+              <span class="fader__slot"></span>
+              <button class="fader__thumb" type="button" aria-label="Volume"><span class="fader__grip"></span></button>
+            </div>
+          </div>
+          <div class="lcd fader__readout"><output class="fader__value">75</output></div>
+        </div>
+      </div>
+
+      <div class="panel__cheek panel__cheek--r" aria-hidden="true"></div>
+    </section>
+
+    <p class="caption"><strong>Turn it on. Turn it up. Hear absolutely nothing.</strong> Modular is a silent synth for your browser — all of the knob feel, none of the noise complaints.</p>
+  </main>
+
+<script src="ref.js"></script>
+</body>
+</html>

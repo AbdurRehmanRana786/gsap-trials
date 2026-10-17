@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ridgeline — Saddle Loop · 11.4 km</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ───────────── Header ───────────── -->
+  <header class="nav">
+    <a href="#" class="nav__logo" aria-label="Ridgeline">
+      <svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 21 L12 8 L17 14 L24 4 L38 21" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="31" cy="6" r="3" fill="#E2572B"/></svg>
+      Ridgeline
+    </a>
+    <nav class="nav__links">
+      <a href="#">Trails</a>
+      <a href="#">Maps</a>
+      <a href="#">Field notes</a>
+      <a href="#">Huts</a>
+    </nav>
+    <a href="#" class="nav__cta">Download GPX</a>
+  </header>
+
+  <!-- ───────────── Hero ───────────── -->
+  <section class="hero">
+    <img class="hero__rings" src="hero-rings.svg" alt="">
+
+    <div class="hero__copy">
+      <p class="hero__eyebrow"><span>Trail guide No. 14</span><span>Hollin Fells</span></p>
+      <h1 class="hero__title">Saddle<br><em>Loop</em></h1>
+      <p class="hero__lead">A long, honest day out: beckside woods, a tarn that holds the whole sky, one lung-busting pull to the col and a lazy, larch-lined stroll back to the car. Bring a flask.</p>
+      <dl class="hero__facts">
+        <div><dt>Distance</dt><dd>11.4<small>km</small></dd></div>
+        <div><dt>Ascent</dt><dd>590<small>m</small></dd></div>
+        <div><dt>Time</dt><dd>4–5<small>h</small></dd></div>
+        <div><dt>Grade</dt><dd>Moderate</dd></div>
+      </dl>
+    </div>
+
+    <svg class="hero__sign" viewBox="0 0 460 560" aria-hidden="true">
+      <defs>
+        <linearGradient id="post" x1="0" x2="1">
+          <stop offset="0" stop-color="#7A5536"/><stop offset=".55" stop-color="#6A4A2E"/><stop offset="1" stop-color="#4E3520"/>
+        </linearGradient>
+        <linearGradient id="board" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FBF7EC"/><stop offset="1" stop-color="#EDE4CF"/>
+        </linearGradient>
+      </defs>
+      <!-- ground -->
+      <ellipse cx="232" cy="528" rx="170" ry="16" fill="#1F2A24" opacity=".09"/>
+      <path d="M96 528 C120 500 136 520 150 528 Z M300 528 C318 494 340 512 352 528 Z" fill="#6C8E55"/>
+      <path d="M118 528 C124 506 132 504 136 528 M326 528 C330 500 338 498 342 528 M182 528 C186 512 194 512 196 528" stroke="#3E5A37" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- cairn -->
+      <g fill="#B7AC98" stroke="#1F2A24" stroke-width="3" stroke-linejoin="round">
+        <path d="M330 528 C326 512 344 504 362 506 C380 508 388 520 384 528 Z"/>
+        <path d="M338 506 C336 494 350 488 362 490 C374 492 378 502 374 506 Z" fill="#CBC2B0"/>
+        <path d="M348 490 C348 480 358 476 364 478 C372 480 372 488 370 490 Z" fill="#A79B86"/>
+      </g>
+      <!-- post -->
+      <rect x="214" y="96" width="34" height="434" rx="3" fill="url(#post)" stroke="#1F2A24" stroke-width="3"/>
+      <path d="M222 130 C224 210 220 300 224 400 M238 160 C236 250 240 340 236 480" stroke="#3B2715" stroke-width="2" opacity=".45" fill="none"/>
+      <path d="M208 98 L231 78 L254 98 Z" fill="#4E3520" stroke="#1F2A24" stroke-width="3" stroke-linejoin="round"/>
+      <!-- waymark disc -->
+      <g transform="translate(231 438)">
+        <circle r="13" fill="#E2572B" stroke="#1F2A24" stroke-width="2.5"/>
+        <path d="M-7 4 L-2 -3 L1 1 L4 -4 L8 4" fill="none" stroke="#FBF7EC" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+      </g>
+      <!-- board 1 → Saddle Col -->
+      <g transform="rotate(-4 231 170)">
+        <path d="M244 136 L408 136 L440 168 L408 200 L244 200 Z" fill="url(#board)" stroke="#1F2A24" stroke-width="3" stroke-linejoin="round"/>
+        <text x="262" y="164" class="sign__place">Saddle Col</text>
+        <text x="262" y="188" class="sign__dist">6.0 km · 1 h 50</text>
+        <circle cx="252" cy="148" r="2.5" fill="#1F2A24"/><circle cx="252" cy="188" r="2.5" fill="#1F2A24"/>
+      </g>
+      <!-- board 2 ← Mirror Tarn -->
+      <g transform="rotate(3 231 248)">
+        <path d="M218 216 L46 216 L14 248 L46 280 L218 280 Z" fill="#E2572B" stroke="#1F2A24" stroke-width="3" stroke-linejoin="round"/>
+        <text x="200" y="244" text-anchor="end" class="sign__place sign__place--light">Mirror Tarn</text>
+        <text x="200" y="268" text-anchor="end" class="sign__dist sign__dist--light">3.8 km · 1 h 10</text>
+        <circle cx="210" cy="228" r="2.5" fill="#1F2A24"/><circle cx="210" cy="268" r="2.5" fill="#1F2A24"/>
+      </g>
+      <!-- board 3 → Larch Hut -->
+      <g transform="rotate(-2 231 324)">
+        <path d="M244 296 L392 296 L420 326 L392 356 L244 356 Z" fill="url(#board)" stroke="#1F2A24" stroke-width="3" stroke-linejoin="round"/>
+        <text x="262" y="322" class="sign__place">Larch Hut</text>
+        <text x="262" y="345" class="sign__dist">tea &amp; flapjacks</text>
+        <circle cx="252" cy="308" r="2.5" fill="#1F2A24"/><circle cx="252" cy="344" r="2.5" fill="#1F2A24"/>
+      </g>
+    </svg>
+
+    <p class="hero__cue"><span>Scroll to start walking</span><svg viewBox="0 0 16 24" aria-hidden="true"><path d="M8 2 V20 M2 14 L8 20 L14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+  </section>
+
+  <!-- ───────────── The map (pin this section) ───────────── -->
+  <section class="trail">
+    <div class="trail__stage">
+      <!-- the base map is a static picture… -->
+      <img class="trail__art" src="map-art.svg" alt="Contour map of the Hollin Fells: Hollin Pike and Gable Knott with Mirror Tarn below them">
+
+      <!-- …and everything you animate lives in this SVG, in the same coordinates as the art -->
+      <svg class="trail__map" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <path id="beck-line" d="M842 438C830.8 445.5 822.4 449.5 800 466C777.6 482.5 773.5 478.1 758 500C742.5 521.9 753.2 522.4 742 548C730.8 573.6 734.1 571.5 716 596C697.9 620.5 694.3 614.9 674 640C653.7 665.1 656.5 661.2 640 690C623.5 718.8 626.4 715.5 612 748C597.6 780.5 598.3 778.4 586 812C573.7 845.6 575.1 839.9 566 874C556.9 908.1 557.3 903.7 552 940C546.7 976.3 547.6 991.3 546 1010"/>
+        </defs>
+
+        <g class="map__labels">
+          <text class="lbl lbl--peak" x="1076" y="230">Hollin Pike</text>
+          <text class="lbl lbl--height" x="1076" y="276">1131 m</text>
+          <text class="lbl lbl--peak" x="1402" y="584">Gable Knott</text>
+          <text class="lbl lbl--height" x="1402" y="630">959 m</text>
+          <text class="lbl lbl--water" x="843" y="424">Mirror Tarn</text>
+          <text class="lbl lbl--water lbl--small"><textPath href="#beck-line" startOffset="58%">Hollin Beck</textPath></text>
+          <text class="lbl lbl--wood" x="968" y="640">Beckside Wood</text>
+          <text class="lbl lbl--wood lbl--caps" x="1334" y="884">Larchwood</text>
+          <text class="lbl lbl--crag" x="800" y="286">Raven Crag</text>
+          <text class="lbl lbl--place" x="566" y="992">Hollin Bridge</text>
+        </g>
+
+        <!-- the whole route, faintly — so you can see where the hiker is heading -->
+        <path class="trail__ghost" d="M600 925C600.6 917.7 601 899.7 603 885C605 870.3 606.8 859.5 611 845C615.2 830.5 620.7 819.4 626 806C631.3 792.6 633.4 785 640 772C646.6 759 653.6 749.3 662 735C670.4 720.7 678.7 707.4 686 694C693.3 680.6 694.5 673.2 702 662C709.5 650.8 716.9 642.2 727 633C737.1 623.8 745.5 618.8 757 612C768.6 605.2 775.5 602.2 790 596C804.5 589.8 825.7 584.2 836 578C846.3 571.8 852.6 569 846 562C839.4 555 809.2 547.3 800 540C790.8 532.7 788.3 529.3 796 522C803.7 514.7 827 508.8 842 500C857 491.2 863.7 480.2 878 474C892.3 467.8 905 470 920 466C935 462 945.3 453.7 960 452C974.7 450.4 984.2 457.2 1000 457C1015.8 456.8 1029.1 450.3 1046 451C1062.9 451.7 1076.2 460.8 1092 461C1107.8 461.2 1117.7 454.8 1132 452C1146.3 449.3 1156.8 449.7 1170 446C1183.2 442.3 1191.5 435.9 1204 432C1216.5 428.2 1228.1 421.3 1238 425C1247.9 428.7 1253.6 438.6 1258 452C1262.4 465.4 1263.5 481 1262 498C1260.5 515.1 1252.9 528.1 1250 545C1247.1 561.9 1250 574.1 1246 590C1242 606 1232.4 616.2 1228 632C1223.6 647.8 1226.2 660.2 1222 676C1217.8 691.8 1210.9 704.1 1205 718C1199.1 731.9 1196.8 739.2 1190 752C1183.2 764.8 1178.6 776.3 1168 788C1157.4 799.7 1144.5 805.4 1132 816C1119.5 826.6 1113.9 837.9 1100 846C1086.1 854.1 1072.1 854.5 1056 860C1039.9 865.5 1029.2 871.6 1012 876C994.8 880.4 979.8 880.9 962 884C944.2 887.1 932.6 890.6 915 893C897.4 895.4 883.4 894.3 866 897C848.6 899.8 836.5 904.9 820 908C803.5 911.1 791.8 910.9 776 914C760.2 917.1 748.7 921 734 925C719.3 929 708.1 932.9 696 936C683.9 939.1 673.1 940.9 668 942"/>
+
+        <!-- the walked line: this is the one that draws -->
+        <path class="trail__path" d="M600 925C600.6 917.7 601 899.7 603 885C605 870.3 606.8 859.5 611 845C615.2 830.5 620.7 819.4 626 806C631.3 792.6 633.4 785 640 772C646.6 759 653.6 749.3 662 735C670.4 720.7 678.7 707.4 686 694C693.3 680.6 694.5 673.2 702 662C709.5 650.8 716.9 642.2 727 633C737.1 623.8 745.5 618.8 757 612C768.6 605.2 775.5 602.2 790 596C804.5 589.8 825.7 584.2 836 578C846.3 571.8 852.6 569 846 562C839.4 555 809.2 547.3 800 540C790.8 532.7 788.3 529.3 796 522C803.7 514.7 827 508.8 842 500C857 491.2 863.7 480.2 878 474C892.3 467.8 905 470 920 466C935 462 945.3 453.7 960 452C974.7 450.4 984.2 457.2 1000 457C1015.8 456.8 1029.1 450.3 1046 451C1062.9 451.7 1076.2 460.8 1092 461C1107.8 461.2 1117.7 454.8 1132 452C1146.3 449.3 1156.8 449.7 1170 446C1183.2 442.3 1191.5 435.9 1204 432C1216.5 428.2 1228.1 421.3 1238 425C1247.9 428.7 1253.6 438.6 1258 452C1262.4 465.4 1263.5 481 1262 498C1260.5 515.1 1252.9 528.1 1250 545C1247.1 561.9 1250 574.1 1246 590C1242 606 1232.4 616.2 1228 632C1223.6 647.8 1226.2 660.2 1222 676C1217.8 691.8 1210.9 704.1 1205 718C1199.1 731.9 1196.8 739.2 1190 752C1183.2 764.8 1178.6 776.3 1168 788C1157.4 799.7 1144.5 805.4 1132 816C1119.5 826.6 1113.9 837.9 1100 846C1086.1 854.1 1072.1 854.5 1056 860C1039.9 865.5 1029.2 871.6 1012 876C994.8 880.4 979.8 880.9 962 884C944.2 887.1 932.6 890.6 915 893C897.4 895.4 883.4 894.3 866 897C848.6 899.8 836.5 904.9 820 908C803.5 911.1 791.8 910.9 776 914C760.2 917.1 748.7 921 734 925C719.3 929 708.1 932.9 696 936C683.9 939.1 673.1 940.9 668 942"/>
+
+        <!-- waypoints, in trail order. Each one sits on the path at its km mark;
+             the pin's tip is the point (0 0) of the .waypoint's own coordinates -->
+        <g transform="translate(703.6 659.7)">
+          <g class="waypoint" data-km="1.7">
+            <path class="waypoint__pin" d="M0 0 C-3 -6.5 -12 -12.5 -12 -22 A12 12 0 1 1 12 -22 C12 -12.5 3 -6.5 0 0 Z"/>
+            <text class="waypoint__num" x="0" y="-18">1</text>
+            <text class="waypoint__name" x="17" y="10" text-anchor="start">Fern Gully</text>
+            <text class="waypoint__km" x="17" y="25" text-anchor="start">km 1.7 · 265 m</text>
+          </g>
+        </g>
+        <g transform="translate(882.8 472.2)">
+          <g class="waypoint" data-km="3.8">
+            <path class="waypoint__pin" d="M0 0 C-3 -6.5 -12 -12.5 -12 -22 A12 12 0 1 1 12 -22 C12 -12.5 3 -6.5 0 0 Z"/>
+            <text class="waypoint__num" x="0" y="-18">2</text>
+            <text class="waypoint__name" x="15" y="20" text-anchor="start">Mirror Tarn</text>
+            <text class="waypoint__km" x="15" y="35" text-anchor="start">km 3.8 · 281 m</text>
+          </g>
+        </g>
+        <g transform="translate(1244.2 428.5)">
+          <g class="waypoint" data-km="6.0">
+            <path class="waypoint__pin" d="M0 0 C-3 -6.5 -12 -12.5 -12 -22 A12 12 0 1 1 12 -22 C12 -12.5 3 -6.5 0 0 Z"/>
+            <text class="waypoint__num" x="0" y="-18">3</text>
+            <text class="waypoint__name" x="17" y="-16" text-anchor="start">Saddle Col</text>
+            <text class="waypoint__km" x="17" y="-1" text-anchor="start">km 6.0 · 771 m</text>
+          </g>
+        </g>
+        <g transform="translate(1162.7 793.3)">
+          <g class="waypoint" data-km="8.3">
+            <path class="waypoint__pin" d="M0 0 C-3 -6.5 -12 -12.5 -12 -22 A12 12 0 1 1 12 -22 C12 -12.5 3 -6.5 0 0 Z"/>
+            <text class="waypoint__num" x="0" y="-18">4</text>
+            <text class="waypoint__name" x="-17" y="-12" text-anchor="end">Larch Hut</text>
+            <text class="waypoint__km" x="-17" y="3" text-anchor="end">km 8.3 · 378 m</text>
+          </g>
+        </g>
+
+        <!-- the hiker, drawn around its own centre (0,0) and parked at the trailhead -->
+        <g class="trail__hiker" transform="translate(600 925)">
+          <circle class="trail__hiker-halo" r="21"/>
+          <circle class="trail__hiker-dot" r="11"/>
+          <path class="trail__hiker-arrow" d="M-4.5 -5.5 L6.5 0 L-4.5 5.5 L-1.8 0 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <aside class="panel">
+      <div class="panel__head">
+        <p class="panel__no">Ridgeline · Guide 14</p>
+        <h2 class="panel__title">Saddle Loop</h2>
+        <p class="panel__meta">Hollin Bridge (P) · anticlockwise · moderate</p>
+      </div>
+
+      <div class="readouts">
+        <div class="readout">
+          <span class="readout__label">Walked</span>
+          <span class="readout__value"><span class="readout__km">0.0</span><small>km</small></span>
+          <span class="readout__of">of 11.4 km</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Climbed</span>
+          <span class="readout__value"><span class="readout__gain">0</span><small>m</small></span>
+          <span class="readout__of">of 590 m</span>
+        </div>
+      </div>
+
+      <figure class="profile">
+        <svg class="profile__chart" viewBox="0 0 280 56" preserveAspectRatio="none" aria-hidden="true">
+          <defs><clipPath id="walked"><rect class="profile__clip" x="0" y="0" width="280" height="56"/></clipPath></defs>
+          <path class="profile__area" d="M0 50.1L2.3 49.4L4.7 49.2L7 48.9L9.3 48.8L11.7 48.4L14 48.2L16.3 48.7L18.7 48.6L21 48.1L23.3 48L25.7 48.5L28 48.8L30.3 49.4L32.7 49.4L35 49.7L37.3 49.9L39.7 49.8L42 49.7L44.3 49.8L46.7 50.1L49 49.7L51.3 49.8L53.7 49.7L56 50.1L58.3 49.5L60.7 49.4L63 49.5L65.3 49.6L67.7 49.1L70 49.2L72.3 48.8L74.7 48.9L77 48.6L79.3 48.5L81.7 48.8L84 49L86.3 48.8L88.7 48.8L91 48.7L93.3 48.4L95.7 47.5L98 46.1L100.3 45.1L102.7 43.7L105 41.6L107.3 39.6L109.7 37.8L112 36.1L114.3 33.8L116.7 32.2L119 32.1L121.3 32.8L123.7 33L126 32.1L128.3 28.8L130.7 26L133 23.9L135.3 21.2L137.7 17.8L140 14.4L142.3 10.6L144.7 8.2L147 8L149.3 8.2L151.7 8.6L154 9.1L156.3 10.5L158.7 13L161 15.9L163.3 19.6L165.7 23L168 25.5L170.3 27L172.7 28.9L175 31L177.3 33.2L179.7 34.3L182 34.7L184.3 34.9L186.7 35.8L189 36.8L191.3 38.2L193.7 39L196 40.1L198.3 40.2L200.7 40.2L203 40.3L205.3 40.1L207.7 40.8L210 41.6L212.3 42.2L214.7 42.5L217 43.6L219.3 44.7L221.7 46L224 46.7L226.3 47.3L228.7 47.7L231 47.9L233.3 48.1L235.7 48.4L238 48.6L240.3 48.8L242.7 48.9L245 49L247.3 49.1L249.7 49.6L252 50L254.3 50.3L256.7 50.4L259 50.8L261.3 51L263.7 51.3L266 51.7L268.3 51.9L270.7 52L273 51.2L275.3 50.5L277.7 50.4L280 50.9L280 56L0 56Z"/>
+          <path class="profile__line" d="M0 50.1L2.3 49.4L4.7 49.2L7 48.9L9.3 48.8L11.7 48.4L14 48.2L16.3 48.7L18.7 48.6L21 48.1L23.3 48L25.7 48.5L28 48.8L30.3 49.4L32.7 49.4L35 49.7L37.3 49.9L39.7 49.8L42 49.7L44.3 49.8L46.7 50.1L49 49.7L51.3 49.8L53.7 49.7L56 50.1L58.3 49.5L60.7 49.4L63 49.5L65.3 49.6L67.7 49.1L70 49.2L72.3 48.8L74.7 48.9L77 48.6L79.3 48.5L81.7 48.8L84 49L86.3 48.8L88.7 48.8L91 48.7L93.3 48.4L95.7 47.5L98 46.1L100.3 45.1L102.7 43.7L105 41.6L107.3 39.6L109.7 37.8L112 36.1L114.3 33.8L116.7 32.2L119 32.1L121.3 32.8L123.7 33L126 32.1L128.3 28.8L130.7 26L133 23.9L135.3 21.2L137.7 17.8L140 14.4L142.3 10.6L144.7 8.2L147 8L149.3 8.2L151.7 8.6L154 9.1L156.3 10.5L158.7 13L161 15.9L163.3 19.6L165.7 23L168 25.5L170.3 27L172.7 28.9L175 31L177.3 33.2L179.7 34.3L182 34.7L184.3 34.9L186.7 35.8L189 36.8L191.3 38.2L193.7 39L196 40.1L198.3 40.2L200.7 40.2L203 40.3L205.3 40.1L207.7 40.8L210 41.6L212.3 42.2L214.7 42.5L217 43.6L219.3 44.7L221.7 46L224 46.7L226.3 47.3L228.7 47.7L231 47.9L233.3 48.1L235.7 48.4L238 48.6L240.3 48.8L242.7 48.9L245 49L247.3 49.1L249.7 49.6L252 50L254.3 50.3L256.7 50.4L259 50.8L261.3 51L263.7 51.3L266 51.7L268.3 51.9L270.7 52L273 51.2L275.3 50.5L277.7 50.4L280 50.9"/>
+          <g clip-path="url(#walked)">
+            <path class="profile__area profile__area--walked" d="M0 50.1L2.3 49.4L4.7 49.2L7 48.9L9.3 48.8L11.7 48.4L14 48.2L16.3 48.7L18.7 48.6L21 48.1L23.3 48L25.7 48.5L28 48.8L30.3 49.4L32.7 49.4L35 49.7L37.3 49.9L39.7 49.8L42 49.7L44.3 49.8L46.7 50.1L49 49.7L51.3 49.8L53.7 49.7L56 50.1L58.3 49.5L60.7 49.4L63 49.5L65.3 49.6L67.7 49.1L70 49.2L72.3 48.8L74.7 48.9L77 48.6L79.3 48.5L81.7 48.8L84 49L86.3 48.8L88.7 48.8L91 48.7L93.3 48.4L95.7 47.5L98 46.1L100.3 45.1L102.7 43.7L105 41.6L107.3 39.6L109.7 37.8L112 36.1L114.3 33.8L116.7 32.2L119 32.1L121.3 32.8L123.7 33L126 32.1L128.3 28.8L130.7 26L133 23.9L135.3 21.2L137.7 17.8L140 14.4L142.3 10.6L144.7 8.2L147 8L149.3 8.2L151.7 8.6L154 9.1L156.3 10.5L158.7 13L161 15.9L163.3 19.6L165.7 23L168 25.5L170.3 27L172.7 28.9L175 31L177.3 33.2L179.7 34.3L182 34.7L184.3 34.9L186.7 35.8L189 36.8L191.3 38.2L193.7 39L196 40.1L198.3 40.2L200.7 40.2L203 40.3L205.3 40.1L207.7 40.8L210 41.6L212.3 42.2L214.7 42.5L217 43.6L219.3 44.7L221.7 46L224 46.7L226.3 47.3L228.7 47.7L231 47.9L233.3 48.1L235.7 48.4L238 48.6L240.3 48.8L242.7 48.9L245 49L247.3 49.1L249.7 49.6L252 50L254.3 50.3L256.7 50.4L259 50.8L261.3 51L263.7 51.3L266 51.7L268.3 51.9L270.7 52L273 51.2L275.3 50.5L277.7 50.4L280 50.9L280 56L0 56Z"/>
+            <path class="profile__line profile__line--walked" d="M0 50.1L2.3 49.4L4.7 49.2L7 48.9L9.3 48.8L11.7 48.4L14 48.2L16.3 48.7L18.7 48.6L21 48.1L23.3 48L25.7 48.5L28 48.8L30.3 49.4L32.7 49.4L35 49.7L37.3 49.9L39.7 49.8L42 49.7L44.3 49.8L46.7 50.1L49 49.7L51.3 49.8L53.7 49.7L56 50.1L58.3 49.5L60.7 49.4L63 49.5L65.3 49.6L67.7 49.1L70 49.2L72.3 48.8L74.7 48.9L77 48.6L79.3 48.5L81.7 48.8L84 49L86.3 48.8L88.7 48.8L91 48.7L93.3 48.4L95.7 47.5L98 46.1L100.3 45.1L102.7 43.7L105 41.6L107.3 39.6L109.7 37.8L112 36.1L114.3 33.8L116.7 32.2L119 32.1L121.3 32.8L123.7 33L126 32.1L128.3 28.8L130.7 26L133 23.9L135.3 21.2L137.7 17.8L140 14.4L142.3 10.6L144.7 8.2L147 8L149.3 8.2L151.7 8.6L154 9.1L156.3 10.5L158.7 13L161 15.9L163.3 19.6L165.7 23L168 25.5L170.3 27L172.7 28.9L175 31L177.3 33.2L179.7 34.3L182 34.7L184.3 34.9L186.7 35.8L189 36.8L191.3 38.2L193.7 39L196 40.1L198.3 40.2L200.7 40.2L203 40.3L205.3 40.1L207.7 40.8L210 41.6L212.3 42.2L214.7 42.5L217 43.6L219.3 44.7L221.7 46L224 46.7L226.3 47.3L228.7 47.7L231 47.9L233.3 48.1L235.7 48.4L238 48.6L240.3 48.8L242.7 48.9L245 49L247.3 49.1L249.7 49.6L252 50L254.3 50.3L256.7 50.4L259 50.8L261.3 51L263.7 51.3L266 51.7L268.3 51.9L270.7 52L273 51.2L275.3 50.5L277.7 50.4L280 50.9"/>
+          </g>
+          <line class="profile__tick" x1="41.7" y1="0" x2="41.7" y2="56"/>
+          <line class="profile__tick" x1="93.3" y1="0" x2="93.3" y2="56"/>
+          <line class="profile__tick" x1="147.4" y1="0" x2="147.4" y2="56"/>
+          <line class="profile__tick" x1="203.9" y1="0" x2="203.9" y2="56"/>
+        </svg>
+        <figcaption><span>237 m</span><span>Elevation</span><span>771 m</span></figcaption>
+      </figure>
+
+      <ol class="stops">
+        <li class="stop"><span class="stop__n">1</span><span class="stop__name">Fern Gully<small>Stepping stones and a green tunnel of ferns.</small></span><span class="stop__km">1.7 km</span></li>
+        <li class="stop"><span class="stop__n">2</span><span class="stop__name">Mirror Tarn<small>Lunch. On a still day it holds the whole Pike.</small></span><span class="stop__km">3.8 km</span></li>
+        <li class="stop"><span class="stop__n">3</span><span class="stop__name">Saddle Col<small>Top of the climb: wind, views, a cairn.</small></span><span class="stop__km">6.0 km</span></li>
+        <li class="stop"><span class="stop__n">4</span><span class="stop__name">Larch Hut<small>Tea, flapjacks, a fire if you’re lucky.</small></span><span class="stop__km">8.3 km</span></li>
+      </ol>
+
+      <div class="panel__foot">
+        <p><span>Forecast</span>Dry till 16:00, breezy on the col</p>
+        <p><span>Sunset</span>19:42</p>
+      </div>
+      <p class="panel__hint">Keep scrolling to walk the loop</p>
+    </aside>
+
+    <div class="trail__key" aria-hidden="true">
+      <svg class="key__north" viewBox="0 0 40 52"><path d="M20 4 L30 40 L20 33 L10 40 Z" fill="#1F2A24"/><path d="M20 4 L20 33 L10 40 Z" fill="#E2572B"/><text x="20" y="51" text-anchor="middle">N</text></svg>
+      <div class="key__scale">
+        <div class="key__bar"><span></span><span></span><span></span><span></span></div>
+        <div class="key__nums"><span>0</span><span>500 m</span><span>1 km</span></div>
+        <p>Sheet 14 · 1:25 000 · contours every 40 m</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── After the walk ───────────── -->
+  <section class="outro">
+    <div class="outro__head">
+      <p class="outro__eyebrow">11.4 km later</p>
+      <h2 class="outro__title">Back at Hollin<br>Bridge by teatime.</h2>
+      <svg class="outro__stamp" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><path id="stamp-ring" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/></defs>
+        <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="3"/>
+        <circle cx="100" cy="100" r="58" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <text class="stamp__ring"><textPath href="#stamp-ring" textLength="452" lengthAdjust="spacing">SADDLE LOOP · HOLLIN FELLS · WALKED ·</textPath></text>
+        <path d="M72 106 L88 84 L97 94 L110 74 L128 106" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+        <text class="stamp__km" x="100" y="134">11.4 km</text>
+      </svg>
+    </div>
+    <div class="notes">
+      <article class="note">
+        <span class="note__n">01</span>
+        <h3>Best season</h3>
+        <p>May to October. The col holds snow into April and the Beck floods the footbridge after a wet week — check our conditions page before you go.</p>
+      </article>
+      <article class="note">
+        <span class="note__n">02</span>
+        <h3>Water</h3>
+        <p>Refill at Mirror Tarn's outflow, then filter it: the sheep got there first. Nothing after the col until Larch Hut (cash only, closes 16:00).</p>
+      </article>
+      <article class="note">
+        <span class="note__n">03</span>
+        <h3>Getting there</h3>
+        <p>Bus 78 stops at Hollin Bridge four times a day. The car park fills by 9 on Saturdays; the honesty box takes coins, cards and flapjack.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>© Ridgeline Trail Guides — maps drawn by hand, walked by foot.</span>
+    <span>Leave only footprints.</span>
+  </footer>
+
+<script src="ref.js"></script>
+</body>
+</html>

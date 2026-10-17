@@ -1,0 +1,473 @@
+/* ─────────────────────────────────────────────
+   Modular — a tiny web synth
+   Styles are done for you. Your job is the motion (main.js).
+   ───────────────────────────────────────────── */
+
+:root {
+  --room: #0E0D0C;
+  --metal-hi: #34353A;
+  --metal: #26272B;
+  --metal-lo: #1B1C1F;
+  --engrave: #BDB6AA;
+  --engrave-dim: #7E786F;
+  --orange: #FF7A1F;
+  --orange-deep: #E2580A;
+  --amber: #FFB55E;
+  --lcd: #0A0908;
+  --label: 'Michroma', 'Eurostile', sans-serif;
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+  --mono: 'Share Tech Mono', ui-monospace, monospace;
+
+  /* fader geometry — the grader reads the notches, so keep these in sync */
+  --thumb-h: 44px;
+  --step: 54px;              /* distance between two notches */
+  --travel: calc(var(--step) * 4);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  font-family: var(--sans);
+  color: var(--engrave);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 46%, #2B241E 0%, rgba(43, 36, 30, 0) 70%),
+    radial-gradient(circle at 50% 120%, #1A1512 0%, var(--room) 60%);
+  background-color: var(--room);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a, button { color: inherit; font: inherit; }
+a { text-decoration: none; }
+button { border: 0; padding: 0; background: none; }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+
+/* ───────────── Header ───────────── */
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 26px 32px 0;
+}
+.brand { display: flex; align-items: center; gap: 12px; font-family: var(--label); font-size: 16px; letter-spacing: .32em; text-transform: uppercase; color: #EDE6DA; }
+.brand__mark { width: 30px; height: 30px; color: #EDE6DA; }
+.top__nav { display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 500; color: #9C958B; }
+.top__nav a:not(.top__cta):hover { color: #EDE6DA; }
+.top__cta {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #1A0E05;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(255, 122, 31, .25);
+  transition: transform .2s, box-shadow .2s;
+}
+.top__cta:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(255, 122, 31, .35); }
+
+/* ───────────── Stage + panel ───────────── */
+
+.stage {
+  display: grid;
+  justify-items: center;
+  gap: 26px;
+  padding: 34px 24px 40px;
+}
+
+.panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  width: min(1080px, 100%);
+  border-radius: 20px;
+  box-shadow:
+    0 50px 80px -30px rgba(0, 0, 0, .8),
+    0 24px 40px -20px rgba(0, 0, 0, .6),
+    0 0 0 1px rgba(0, 0, 0, .6);
+}
+
+/* walnut end cheeks */
+.panel__cheek {
+  background:
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0) 0 7px, rgba(0, 0, 0, .14) 7px 9px, rgba(0, 0, 0, 0) 9px 19px, rgba(255, 220, 180, .05) 19px 20px),
+    repeating-linear-gradient(176deg, rgba(0, 0, 0, 0) 0 23px, rgba(30, 12, 2, .22) 23px 27px),
+    linear-gradient(90deg, #3A2414, #6B4426 45%, #5A381F 70%, #34200F);
+}
+.panel__cheek--l { border-radius: 20px 0 0 20px; box-shadow: inset -3px 0 6px rgba(0, 0, 0, .45), inset 2px 0 0 rgba(255, 210, 160, .12); }
+.panel__cheek--r { border-radius: 0 20px 20px 0; box-shadow: inset 3px 0 6px rgba(0, 0, 0, .45), inset -2px 0 0 rgba(255, 210, 160, .12); }
+
+/* brushed, anodised aluminium face */
+.face {
+  position: relative;
+  display: grid;
+  grid-template-columns: 236px minmax(0, 1fr) 132px;
+  gap: 34px;
+  padding: 34px 36px 30px;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .018) 0 1px, rgba(0, 0, 0, .025) 1px 2px, rgba(255, 255, 255, 0) 2px 3px),
+    linear-gradient(180deg, var(--metal-hi) 0%, var(--metal) 38%, var(--metal-lo) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .09), inset 0 -2px 0 rgba(0, 0, 0, .5);
+}
+
+.screw {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #8C8A85, #3B3A38 60%, #1E1E1D);
+  box-shadow: 0 1px 1px rgba(255, 255, 255, .08), inset 0 -1px 2px rgba(0, 0, 0, .6);
+}
+.screw::after {
+  content: '';
+  position: absolute;
+  left: 2px; right: 2px; top: 6px;
+  height: 2px;
+  background: #151514;
+  border-radius: 1px;
+  transform: rotate(var(--r, 35deg));
+}
+.screw--tl { left: 12px; top: 12px; }
+.screw--tr { right: 12px; top: 12px; --r: -20deg; }
+.screw--bl { left: 12px; bottom: 12px; --r: 80deg; }
+.screw--br { right: 12px; bottom: 12px; --r: 10deg; }
+
+/* engraved type */
+.section-label, .group__label, .knob__label, .plate__model, .plate__serial, .power__state, .jack b {
+  font-family: var(--label);
+  text-transform: uppercase;
+  color: var(--engrave);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .7), 0 1px 0 rgba(255, 255, 255, .07);
+}
+.section-label { display: block; font-size: 9.5px; letter-spacing: .3em; color: var(--engrave-dim); }
+
+/* ───────────── Left column ───────────── */
+
+.face__left { display: grid; grid-template-rows: auto auto 1fr; gap: 30px; align-content: start; }
+
+.plate { padding-bottom: 22px; border-bottom: 1px solid rgba(0, 0, 0, .5); box-shadow: 0 1px 0 rgba(255, 255, 255, .05); }
+.plate__name {
+  margin: 0;
+  font-family: var(--label);
+  font-size: 25px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: #E9E2D6;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .8), 0 1px 0 rgba(255, 255, 255, .08);
+}
+.plate__model { margin: 10px 0 0; font-size: 8.5px; letter-spacing: .2em; color: var(--engrave-dim); }
+.plate__model b { margin-right: 8px; padding: 2px 6px; border-radius: 3px; background: var(--orange); color: #1A0E05; text-shadow: none; font-weight: 400; }
+.plate__serial { margin: 8px 0 0; font-size: 7.5px; letter-spacing: .24em; color: #6E685F; }
+
+.power__row { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.power__state { font-size: 8.5px; letter-spacing: .2em; color: var(--engrave-dim); transition: color .3s; }
+
+.power__switch {
+  position: relative;
+  width: 74px;
+  height: 34px;
+  border-radius: 17px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #0B0B0C, #1B1B1D);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, .8), inset 0 -1px 0 rgba(255, 255, 255, .06), 0 1px 0 rgba(255, 255, 255, .06);
+}
+/* the thumb starts on the OFF side. Moving it is your job. */
+.power__thumb {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(rgba(0, 0, 0, .18) 0 6deg, rgba(255, 255, 255, .04) 6deg 12deg),
+    radial-gradient(circle at 40% 30%, #A9A6A0, #55534F 60%, #2E2D2B);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .6), inset 0 1px 0 rgba(255, 255, 255, .25);
+}
+
+.power__led {
+  width: 12px;
+  height: 12px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background-color: #3A1A0C;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .8), 0 1px 0 rgba(255, 255, 255, .07);
+  transition: background-color .25s, box-shadow .35s;
+}
+
+/* Power state — toggle .is-on on .panel and these light up for you. */
+.panel.is-on .power__led {
+  background-color: #FF9A3D;
+  box-shadow: inset 0 -1px 2px rgba(150, 50, 0, .5), 0 0 10px 2px rgba(255, 122, 31, .85), 0 0 28px 6px rgba(255, 110, 20, .35);
+}
+.panel.is-on .power__state--on { color: var(--amber); }
+.panel.is-on .screen__standby { display: none; }
+.panel:not(.is-on) .screen__live { display: none; }
+
+.jacks { position: relative; }
+.jacks__row { position: relative; z-index: 1; display: flex; justify-content: space-between; width: 200px; margin-top: 16px; }
+.jack { display: grid; justify-items: center; gap: 10px; }
+.jack i {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #050505 0 5px, #5D5B57 5.5px 7px, #2C2B29 7.5px 10px, #9A968F 10.5px 12px, #3D3C39 12.5px);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+}
+.jack b { order: -1; font-size: 8px; font-weight: 400; letter-spacing: .24em; color: var(--engrave-dim); }
+.cable { position: absolute; z-index: 2; left: 0; top: 54px; width: 200px; height: 130px; overflow: visible; pointer-events: none; }
+.cable path { fill: none; stroke-linecap: round; }
+.cable__shadow { stroke: rgba(0, 0, 0, .3); stroke-width: 11; }
+.cable__wire { stroke: var(--orange-deep); stroke-width: 7; }
+.cable__shine { stroke: rgba(255, 210, 160, .35); stroke-width: 1.5; }
+.cable__plug { fill: #1C1C1E; stroke: #4A4946; stroke-width: 1; }
+.cable__ring { fill: var(--orange); opacity: .8; }
+
+/* ───────────── Screen ───────────── */
+
+.face__main { display: grid; grid-template-rows: auto 1fr; gap: 26px; }
+
+.screen {
+  padding: 14px 18px 12px;
+  border-radius: 12px;
+  background:
+    linear-gradient(rgba(255, 122, 31, .05) 1px, transparent 1px) 0 0 / 100% 25%,
+    radial-gradient(ellipse at 50% 0%, #1B1410, var(--lcd) 70%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .9), inset 0 6px 18px rgba(0, 0, 0, .8), 0 1px 0 rgba(255, 255, 255, .07), 0 0 0 5px #141416;
+}
+.screen__head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 168, 90, .55); }
+.screen__status i { font-style: normal; }
+.screen__live { color: var(--amber); text-shadow: 0 0 8px rgba(255, 140, 40, .8); }
+.screen__live::before { content: '● '; }
+
+.screen__body { display: grid; grid-template-columns: 26px 1fr; gap: 8px; margin-top: 10px; }
+.screen__db, .screen__hz { margin: 0; padding: 0; list-style: none; font-family: var(--mono); font-size: 9.5px; color: rgba(255, 168, 90, .35); }
+.screen__db { display: flex; flex-direction: column; justify-content: space-between; height: 150px; text-align: right; }
+.screen__hz { display: flex; justify-content: space-between; margin: 8px 0 0 34px; }
+
+/* the visualiser: 16 bars that rest collapsed at the bottom.
+   Animate their height (or scaleY from the bottom — your call). */
+.viz {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 150px;
+}
+.viz__bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 2px 2px 0 0;
+  background: linear-gradient(to top, var(--orange-deep), var(--orange) 40%, var(--amber) 72%, #FFE7B8) bottom / 100% 150px no-repeat;
+  box-shadow: 0 0 14px rgba(255, 122, 31, .28);
+  opacity: .9;
+}
+/* LED-meter segments + scanlines painted over the bars */
+.viz::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(to top, transparent 0 5px, rgba(10, 9, 8, .92) 5px 7px);
+}
+
+/* ───────────── Knobs ───────────── */
+
+.controls { display: grid; grid-template-columns: 2fr 1fr; gap: 22px; align-items: start; }
+.group { position: relative; padding-top: 22px; }
+.group__label {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 8.5px;
+  letter-spacing: .34em;
+  color: var(--engrave-dim);
+}
+.group__label::before, .group__label::after { content: ''; flex: 1; height: 1px; background: rgba(0, 0, 0, .55); box-shadow: 0 1px 0 rgba(255, 255, 255, .06); }
+.group__knobs { display: flex; justify-content: space-around; gap: 10px; }
+
+.knob { display: grid; justify-items: center; gap: 8px; width: 150px; }
+.knob__label { font-size: 10px; letter-spacing: .22em; }
+.knob__body { position: relative; width: 150px; height: 150px; margin-top: -6px; }
+.knob__scale { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.knob__well { fill: rgba(0, 0, 0, .35); stroke: rgba(255, 255, 255, .04); }
+.knob__ticks line { stroke: #6F6A62; stroke-width: 1.2; stroke-linecap: round; }
+.knob__ticks line.major { stroke: var(--engrave); stroke-width: 1.8; }
+.knob__nums text { font-family: var(--label); font-size: 8px; fill: var(--engrave-dim); text-anchor: middle; }
+
+/* the part that turns (it carries the orange pointer) */
+.knob__dial {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  border-radius: 50%;
+  cursor: grab;
+  touch-action: none;
+  background:
+    radial-gradient(circle, #2B2C30 0 31px, rgba(0, 0, 0, 0) 32px),
+    repeating-conic-gradient(#121214 0 3deg, #303136 3deg 6deg);
+  box-shadow: 0 12px 18px rgba(0, 0, 0, .6), 0 3px 4px rgba(0, 0, 0, .7), inset 0 0 0 1px rgba(255, 255, 255, .05);
+}
+.knob__dial:active { cursor: grabbing; }
+.knob__dial::before {
+  content: '';
+  position: absolute;
+  inset: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #2E2F33, #1A1B1D 72%);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .14), inset 0 -3px 6px rgba(0, 0, 0, .6), 0 0 0 1px rgba(0, 0, 0, .6);
+}
+.knob__pointer {
+  position: absolute;
+  left: 50%;
+  top: 13px;
+  width: 4px;
+  height: 22px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: var(--orange);
+  box-shadow: 0 0 8px rgba(255, 122, 31, .7);
+}
+/* fixed specular highlight — it does NOT turn, which sells the metal */
+.knob__sheen {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: conic-gradient(from 300deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .12) 40deg, rgba(255, 255, 255, 0) 80deg, rgba(255, 255, 255, 0) 180deg, rgba(255, 255, 255, .05) 220deg, rgba(255, 255, 255, 0) 260deg);
+}
+
+.lcd {
+  position: relative;
+  min-width: 64px;
+  padding: 5px 10px 4px;
+  border-radius: 6px;
+  background: var(--lcd);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, .9), 0 1px 0 rgba(255, 255, 255, .07);
+  font-family: var(--mono);
+  font-size: 21px;
+  line-height: 1;
+  text-align: right;
+}
+.lcd::before { /* ghost segments */
+  content: '888';
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: rgba(255, 122, 31, .08);
+}
+.lcd output { position: relative; color: var(--amber); text-shadow: 0 0 10px rgba(255, 140, 40, .65); }
+.knob__hint { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: #5E5850; }
+
+/* ───────────── Fader ───────────── */
+
+.fader { display: grid; justify-items: center; align-content: start; gap: 14px; }
+.fader .section-label { justify-self: center; }
+.fader__body { position: relative; width: 120px; height: calc(var(--travel) + var(--thumb-h)); margin-top: 6px; }
+
+.fader__notches { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; }
+.fader__notch {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--thumb-h) / 2 + var(--step) * var(--i));
+  height: 0;
+}
+.fader__notch::before { /* engraved tick, passes behind the slot */
+  content: '';
+  position: absolute;
+  left: 34px;
+  right: 0;
+  top: -1px;
+  height: 2px;
+  background: rgba(0, 0, 0, .55);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .07);
+}
+.fader__notch span {
+  position: absolute;
+  left: 0;
+  top: -6px;
+  width: 26px;
+  font-family: var(--label);
+  font-size: 8px;
+  line-height: 12px;
+  text-align: right;
+  color: var(--engrave-dim);
+}
+
+.fader__track {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 44px;
+  width: 64px;
+}
+.fader__slot {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--thumb-h) / 2 - 6px);
+  bottom: calc(var(--thumb-h) / 2 - 6px);
+  width: 8px;
+  margin-left: -4px;
+  border-radius: 4px;
+  background: #050505;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, .9), 0 1px 0 rgba(255, 255, 255, .08);
+}
+/* starts on the 75 notch (one step down from the top) */
+.fader__thumb {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--thumb-h);
+  border-radius: 7px;
+  cursor: grab;
+  touch-action: none;
+  transform: translateY(var(--step));
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 46%, var(--orange) 46% 54%, rgba(0, 0, 0, 0) 54%),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, .07) 0 2px, rgba(0, 0, 0, .25) 2px 4px),
+    linear-gradient(180deg, #4A4B50, #2A2B2F 55%, #1E1F22);
+  box-shadow: 0 10px 16px rgba(0, 0, 0, .6), 0 2px 3px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .16), inset 0 -2px 0 rgba(0, 0, 0, .4);
+}
+.fader__thumb:active { cursor: grabbing; }
+.fader__grip { position: absolute; inset: 6px 8px; border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35); }
+
+/* ───────────── Caption ───────────── */
+
+.caption { max-width: 640px; margin: 0; text-align: center; font-size: 14px; line-height: 1.6; color: #8A8379; }
+.caption strong { color: #EDE6DA; font-weight: 600; }
+
+/* ───────────── Smaller screens ───────────── */
+
+@media (max-width: 1000px) {
+  .face { grid-template-columns: 1fr 132px; }
+  .face__left { grid-column: 1 / -1; grid-template-columns: repeat(3, auto); grid-template-rows: none; justify-content: space-between; }
+  .plate { border: 0; box-shadow: none; padding: 0; }
+  .cable { display: none; }
+}
+
+@media (max-width: 640px) {
+  .top { padding: 20px 18px 0; }
+  .top__nav a:not(.top__cta) { display: none; }
+  .stage { padding: 22px 12px 32px; }
+  .panel { grid-template-columns: 14px minmax(0, 1fr) 14px; }
+  .face { grid-template-columns: 1fr; padding: 30px 18px 26px; gap: 28px; }
+  .face__left { grid-template-columns: 1fr; gap: 22px; }
+  .jacks { display: none; }
+  .controls { grid-template-columns: 1fr; }
+  .group__knobs { flex-wrap: wrap; justify-content: center; }
+  .knob { width: 140px; }
+}

@@ -1,0 +1,503 @@
+/* ─────────────────────────────────────────────
+   Ridgeline — Saddle Loop. Styles are done for you.
+   Your job is the motion (main.js).
+   ───────────────────────────────────────────── */
+
+:root {
+  --paper: #F3EEDF;
+  --paper-2: #FBF7EC;
+  --ink: #1F2A24;
+  --pine: #2F4A3A;
+  --moss: #6C8E55;
+  --ember: #E2572B;
+  --tarn: #2F6C7C;
+  --bark: #7A3E26;
+  --line: rgba(31, 42, 36, .14);
+  --mono: 'DM Mono', ui-monospace, monospace;
+  --sans: 'Archivo', system-ui, sans-serif;
+  --serif: 'Newsreader', Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ───────────── Header ───────────── */
+
+.nav {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 56px;
+}
+
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: 21px;
+  letter-spacing: -0.01em;
+}
+.nav__logo svg { width: 34px; height: 22px; }
+
+.nav__links { display: flex; gap: 34px; font-size: 14px; font-weight: 500; }
+.nav__links a { opacity: .72; transition: opacity .2s; }
+.nav__links a:hover { opacity: 1; }
+
+.nav__cta {
+  padding: 11px 20px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transition: background .2s, color .2s;
+}
+.nav__cta:hover { background: var(--ink); color: var(--paper); }
+
+a:focus-visible { outline: 3px solid var(--ember); outline-offset: 4px; border-radius: 6px; }
+
+/* ───────────── Hero ───────────── */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+  min-height: 100vh;
+  padding: 110px 56px 80px;
+  overflow: hidden;
+}
+
+.hero__rings {
+  position: absolute;
+  right: -6vw;
+  top: 50%;
+  width: min(62vw, 900px);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.hero__copy { position: relative; }
+
+.hero__eyebrow {
+  display: flex;
+  gap: 14px;
+  margin: 0 0 22px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.hero__eyebrow span + span { color: var(--bark); }
+.hero__eyebrow span + span::before { content: '/'; margin-right: 14px; color: var(--ink); opacity: .35; }
+
+.hero__title {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 125%;
+  font-size: clamp(76px, 10.6vw, 164px);
+  line-height: .84;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+.hero__title em {
+  font-style: normal;
+  color: var(--ember);
+  -webkit-text-stroke: 0;
+}
+
+.hero__lead {
+  max-width: 470px;
+  margin: 30px 0 34px;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.5;
+  color: rgba(31, 42, 36, .82);
+}
+
+.hero__facts {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 0;
+  margin: 0;
+  border-top: 2px solid var(--ink);
+}
+.hero__facts div { padding: 14px 34px 0 0; margin-right: 22px; border-right: 1px solid var(--line); }
+.hero__facts div:last-child { border-right: 0; }
+.hero__facts dt {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+.hero__facts dd {
+  margin: 6px 0 0;
+  font-weight: 700;
+  font-stretch: 110%;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+.hero__facts small { margin-left: 3px; font-size: 14px; font-weight: 500; opacity: .6; }
+
+.hero__sign {
+  position: relative;
+  justify-self: center;
+  width: min(34vw, 440px);
+  height: auto;
+  overflow: visible;
+}
+.sign__place { font-family: var(--sans); font-weight: 800; font-stretch: 104%; font-size: 19px; letter-spacing: -0.01em; text-transform: uppercase; fill: var(--ink); }
+.sign__dist { font-family: var(--mono); font-size: 12.5px; fill: var(--ink); opacity: .7; }
+.sign__place--light, .sign__dist--light { fill: var(--paper-2); }
+
+.hero__cue {
+  position: absolute;
+  left: 56px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.hero__cue svg { width: 12px; height: 18px; color: var(--ember); }
+
+/* ───────────── The map ───────────── */
+
+.trail {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #D3DBB8;
+}
+
+.trail__stage { position: absolute; inset: 0; }
+
+/* The art and the overlay SVG share one coordinate system:
+   object-fit: cover === preserveAspectRatio="xMidYMid slice". */
+.trail__art,
+.trail__map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.trail__art { object-fit: cover; object-position: 50% 50%; }
+
+/* map lettering */
+.lbl { font-family: var(--sans); paint-order: stroke; stroke: rgba(251, 247, 236, .75); stroke-width: 3px; stroke-linejoin: round; }
+.lbl--peak { font-size: 15px; font-weight: 800; font-stretch: 118%; letter-spacing: .16em; text-transform: uppercase; text-anchor: middle; fill: #3C2E22; }
+.lbl--height { font-family: var(--mono); font-size: 12px; text-anchor: middle; fill: #5F432B; }
+.lbl--water { font-family: var(--serif); font-style: italic; font-size: 16px; fill: var(--tarn); text-anchor: middle; stroke: rgba(220, 238, 240, .7); }
+.lbl--small { font-size: 13px; text-anchor: start; }
+.lbl--wood { font-family: var(--serif); font-style: italic; font-size: 15px; fill: #3E5A37; text-anchor: middle; }
+.lbl--caps { font-family: var(--sans); font-style: normal; font-size: 12px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; }
+.lbl--crag { font-family: var(--serif); font-style: italic; font-size: 14px; fill: #5F432B; }
+.lbl--place { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; fill: var(--ink); }
+
+/* the route */
+.trail__ghost {
+  fill: none;
+  stroke: var(--bark);
+  stroke-width: 2.4;
+  stroke-dasharray: 2 7;
+  stroke-linecap: round;
+  opacity: .75;
+}
+
+.trail__path {
+  fill: none;
+  stroke: var(--ember);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* waypoint pins — the tip of each pin (0,0) touches the trail */
+.waypoint__pin { fill: var(--ink); stroke: var(--paper-2); stroke-width: 2.5; }
+.waypoint__num { font-family: var(--mono); font-size: 12.5px; font-weight: 500; fill: var(--paper-2); text-anchor: middle; }
+.waypoint__name {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 800;
+  font-stretch: 112%;
+  fill: var(--ink);
+  paint-order: stroke;
+  stroke: var(--paper-2);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+.waypoint__km {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--bark);
+  paint-order: stroke;
+  stroke: var(--paper-2);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+/* the hiker */
+.trail__hiker-halo { fill: var(--ember); opacity: .22; }
+.trail__hiker-dot { fill: var(--ink); stroke: var(--paper-2); stroke-width: 3; }
+.trail__hiker-arrow { fill: var(--ember); }
+
+/* ───────────── Sidebar panel ───────────── */
+
+.panel {
+  position: absolute;
+  z-index: 2;
+  top: 24px;
+  left: 24px;
+  bottom: 24px;
+  width: 336px;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 26px 22px;
+  border-radius: 18px;
+  background: rgba(251, 247, 236, .94);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 0 24px 60px rgba(47, 74, 58, .22), 0 2px 6px rgba(47, 74, 58, .12);
+  backdrop-filter: blur(6px);
+}
+
+.panel__no {
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--bark);
+}
+.panel__title {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 125%;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.panel__meta { margin: 8px 0 0; font-family: var(--serif); font-style: italic; font-size: 15px; opacity: .7; }
+
+.readouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 22px 0 18px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+.readout { display: flex; flex-direction: column; padding: 14px 0 14px; }
+.readout + .readout { padding-left: 18px; border-left: 1px solid var(--line); }
+.readout__label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; opacity: .6; }
+.readout__value {
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.readout__value small { margin-left: 4px; font-size: 15px; letter-spacing: 0; opacity: .55; }
+.readout__of { margin-top: 2px; font-size: 12px; opacity: .55; }
+
+.profile { margin: 0 0 16px; }
+.profile__chart { display: block; width: 100%; height: 56px; overflow: visible; }
+.profile__area { fill: rgba(31, 42, 36, .08); }
+.profile__line { fill: none; stroke: rgba(31, 42, 36, .35); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.profile__area--walked { fill: rgba(226, 87, 43, .22); }
+.profile__line--walked { stroke: var(--ember); stroke-width: 2; }
+.profile__tick { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 2 3; opacity: .35; vector-effect: non-scaling-stroke; }
+.profile figcaption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+
+.stops { list-style: none; margin: 0; padding: 0; }
+.stop {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+.stop__n {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  transition: background .3s, color .3s, border-color .3s;
+}
+.stop__name small { display: block; margin-top: 2px; font-family: var(--serif); font-style: italic; font-size: 13.5px; font-weight: 400; line-height: 1.3; opacity: .62; }
+.stop__km { padding-top: 3px; font-family: var(--mono); font-size: 12px; font-weight: 400; opacity: .6; }
+/* optional: toggle .is-reached on a .stop once the hiker has passed it */
+.stop.is-reached .stop__n { background: var(--ember); border-color: var(--ember); color: var(--paper-2); }
+
+.panel__foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: auto;
+  padding: 14px 0 0;
+  border-top: 2px solid var(--ink);
+}
+.panel__foot p { margin: 0; font-size: 13px; font-weight: 600; line-height: 1.35; }
+.panel__foot p:last-child { text-align: right; }
+.panel__foot span { display: block; margin-bottom: 3px; font-family: var(--mono); font-size: 10px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; opacity: .55; }
+
+.panel__hint {
+  margin: 0;
+  padding-top: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .5;
+}
+
+/* compass + scale */
+.trail__key {
+  position: absolute;
+  z-index: 2;
+  right: 28px;
+  bottom: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(251, 247, 236, .9);
+  box-shadow: 0 12px 30px rgba(47, 74, 58, .16);
+}
+.key__north { width: 26px; height: 34px; }
+.key__north text { font-family: var(--sans); font-weight: 800; font-size: 11px; fill: var(--ink); }
+.key__bar { display: flex; width: 150px; height: 7px; border: 1.5px solid var(--ink); }
+.key__bar span { flex: 1; }
+.key__bar span:nth-child(odd) { background: var(--ink); }
+.key__nums { display: flex; justify-content: space-between; margin-top: 4px; font-family: var(--mono); font-size: 10px; }
+.key__scale p { margin: 6px 0 0; font-family: var(--mono); font-size: 9.5px; letter-spacing: .06em; opacity: .6; }
+
+/* ───────────── Outro ───────────── */
+
+.outro {
+  padding: 130px 56px 110px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.outro__head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  column-gap: 40px;
+  row-gap: 18px;
+}
+.outro__eyebrow { grid-column: 1; }
+.outro__stamp {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  width: 210px;
+  height: 210px;
+  color: var(--ember);
+  transform: rotate(-10deg);
+}
+.stamp__ring { font-family: var(--mono); font-size: 15px; letter-spacing: .2em; fill: currentColor; }
+.stamp__km { font-family: var(--sans); font-weight: 800; font-stretch: 115%; font-size: 21px; text-anchor: middle; fill: currentColor; }
+.outro__eyebrow { margin: 0; font-family: var(--mono); font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ember); }
+.outro__title {
+  margin: 0;
+  font-weight: 800;
+  font-stretch: 125%;
+  font-size: clamp(40px, 5.3vw, 80px);
+  line-height: .92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 80px; }
+.note { padding-top: 22px; border-top: 1px solid rgba(243, 238, 223, .25); }
+.note__n { font-family: var(--mono); font-size: 12px; color: var(--ember); }
+.note h3 { margin: 10px 0 12px; font-size: 22px; font-weight: 700; font-stretch: 112%; letter-spacing: -0.01em; }
+.note p { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.55; opacity: .75; }
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 56px 34px;
+  background: var(--ink);
+  color: rgba(243, 238, 223, .5);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .04em;
+  border-top: 1px solid rgba(243, 238, 223, .12);
+}
+
+/* ───────────── Small screens ───────────── */
+
+@media (max-width: 760px) {
+  .nav { padding: 20px 20px; }
+  .nav__links { display: none; }
+  .hero { grid-template-columns: minmax(0, 1fr); padding: 96px 20px 90px; min-height: auto; }
+  .hero__title { font-size: 16.5vw; }
+  .hero__eyebrow { font-size: 11px; }
+  .hero__rings { width: 140vw; right: -50vw; top: 30%; }
+  .hero__lead { font-size: 18px; }
+  .hero__facts { grid-template-columns: 1fr 1fr; row-gap: 12px; }
+  .hero__facts div { margin-right: 0; padding-right: 12px; border-right: 0; }
+  .hero__facts dd { font-size: 24px; }
+  .hero__sign { width: 76vw; }
+  .hero__cue { left: 20px; }
+
+  /* the map: frame the trail area and put the readouts on top */
+  .trail__stage { inset: auto; left: -76vw; top: 190px; width: 216vw; height: 135vw; }
+  .panel { inset: 12px 12px auto 12px; width: auto; padding: 16px 18px; }
+  .panel__head, .profile, .stops, .panel__foot, .panel__hint { display: none; }
+  .readouts { margin: 0; border-top: 0; border-bottom: 0; }
+  .readout { padding: 2px 0; }
+  .readout__value { font-size: 30px; }
+  .trail__key { right: 12px; bottom: 12px; padding: 10px 12px; }
+  .key__scale p { display: none; }
+
+  .outro { padding: 90px 20px 70px; }
+  .notes { grid-template-columns: 1fr; margin-top: 48px; }
+  .outro__head { grid-template-columns: 1fr; }
+  .outro__stamp { grid-row: auto; grid-column: 1; width: 140px; height: 140px; }
+  .foot { flex-direction: column; padding: 22px 20px 30px; }
+}

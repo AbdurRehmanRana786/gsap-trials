@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kōdo — Tea house, Higashiyama, Kyoto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../_vendor/lenis/lenis.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- shared SVG filters: a little brush texture for ink strokes -->
+  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+    <filter id="brush" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <!-- ───────────── Preloader ───────────── -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <svg class="loader__kanji" viewBox="0 0 200 210">
+        <g filter="url(#brush)">
+          <path class="loader__stroke" d="M34 56 C 70 50, 128 48, 168 52"/>
+          <path class="loader__stroke" d="M74 26 C 76 42, 78 60, 76 80"/>
+          <path class="loader__stroke" d="M128 24 C 128 42, 126 60, 122 80"/>
+          <path class="loader__stroke" d="M102 74 C 86 98, 62 118, 28 134"/>
+          <path class="loader__stroke" d="M102 76 C 118 100, 142 118, 174 128"/>
+          <path class="loader__stroke" d="M66 122 C 88 120, 112 118, 138 116"/>
+          <path class="loader__stroke" d="M102 98 C 102 130, 102 160, 101 186 C 100 192, 94 190, 90 184"/>
+          <path class="loader__stroke" d="M90 142 C 82 156, 70 168, 52 178"/>
+          <path class="loader__stroke" d="M114 144 C 124 156, 136 166, 150 172"/>
+        </g>
+      </svg>
+      <p class="loader__label">Kōdo <span>·</span> Higashiyama, Kyoto</p>
+    </div>
+    <p class="loader__count">0</p>
+    <p class="loader__hint">Warming the bowl</p>
+  </div>
+
+  <!-- ───────────── Nav ───────────── -->
+  <header class="nav">
+    <a href="#top" class="nav__logo"><span class="seal" aria-hidden="true">茶</span>Kōdo</a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#ceremony">Ceremony</a>
+      <a href="#teas">Teas</a>
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="#visit" class="nav__cta">Reserve</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ───────────── Hero ───────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow hero__eyebrow">Tea house · Higashiyama, Kyoto · since 1897</p>
+        <h1 class="hero__title" id="hero-title">Sit down.<br>The water is<br><em>nearly ready.</em></h1>
+        <p class="hero__text">Twelve tatami mats on a Higashiyama backstreet. Fourth-generation tea masters, stone-ground matcha, and absolutely no hurry.</p>
+        <div class="hero__actions">
+          <a href="#visit" class="btn">Reserve a ceremony</a>
+          <a href="#menu" class="link">See this season’s menu</a>
+        </div>
+      </div>
+
+      <div class="hero__art">
+        <svg class="bowl" viewBox="0 0 520 520" aria-hidden="true">
+          <defs>
+            <linearGradient id="glaze" x1="0" x2="1">
+              <stop offset="0" stop-color="#1F1C18"/><stop offset=".35" stop-color="#4B4036"/><stop offset=".6" stop-color="#2A2520"/><stop offset="1" stop-color="#14120F"/>
+            </linearGradient>
+            <radialGradient id="matcha" cx="45%" cy="40%" r="70%">
+              <stop offset="0" stop-color="#B7D06A"/><stop offset=".6" stop-color="#7E9E38"/><stop offset="1" stop-color="#55702A"/>
+            </radialGradient>
+            <linearGradient id="drip" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#A88A62"/><stop offset="1" stop-color="#A88A62" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="enso" d="M318 72 C 418 96, 468 196, 440 292 C 410 398, 290 452, 186 418 C 86 386, 40 278, 72 184 C 98 108, 170 64, 250 62" fill="none" stroke="#1D1B17" stroke-width="20" stroke-linecap="round" filter="url(#brush)" opacity=".88"/>
+          <rect x="398" y="388" width="40" height="40" rx="4" fill="#C4472F" transform="rotate(-6 418 408)"/>
+          <text x="418" y="418" text-anchor="middle" class="bowl__seal" transform="rotate(-6 418 408)">茶</text>
+          <g class="steam" fill="none" stroke="#1D1B17" stroke-linecap="round" stroke-width="5" opacity=".22">
+            <path class="steam__wisp" d="M226 262 C 206 232, 246 212, 226 180 C 212 156, 236 138, 228 112"/>
+            <path class="steam__wisp" d="M262 258 C 282 226, 246 206, 266 172 C 280 148, 258 128, 266 100"/>
+            <path class="steam__wisp" d="M296 264 C 314 240, 288 222, 302 196 C 312 178, 298 164, 304 146"/>
+          </g>
+          <ellipse cx="260" cy="440" rx="150" ry="16" fill="#1D1B17" opacity=".14"/>
+          <path d="M112 300 C 112 300, 118 424, 260 434 C 402 424, 408 300, 408 300 Z" fill="url(#glaze)"/>
+          <path d="M132 304 C 146 318, 150 336, 162 344 C 172 350, 176 334, 186 326 C 198 318, 204 338, 216 344 C 230 352, 236 330, 250 324 C 262 320, 268 346, 284 348 C 300 350, 302 330, 316 326 C 330 322, 336 340, 350 336 C 364 332, 372 316, 388 304 Z" fill="url(#drip)" opacity=".55"/>
+          <ellipse cx="260" cy="436" rx="62" ry="10" fill="#9B6D48"/>
+          <ellipse cx="260" cy="300" rx="148" ry="30" fill="#3A332B"/>
+          <ellipse cx="260" cy="300" rx="134" ry="24" fill="url(#matcha)"/>
+          <g fill="#E6F0B8" opacity=".55">
+            <circle cx="214" cy="296" r="3"/><circle cx="236" cy="290" r="2"/><circle cx="262" cy="298" r="3.4"/><circle cx="290" cy="292" r="2.2"/><circle cx="312" cy="302" r="2.8"/><circle cx="246" cy="306" r="2"/><circle cx="276" cy="308" r="1.6"/><circle cx="200" cy="306" r="1.8"/>
+          </g>
+          <path d="M146 300 C 150 318, 170 328, 196 330" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".14" fill="none"/>
+          <g class="chasen" transform="translate(430 300) rotate(14)">
+            <rect x="-9" y="-150" width="18" height="96" rx="8" fill="#C9A45C"/>
+            <path d="M-9 -126 h18 M-9 -98 h18" stroke="#9C7A3A" stroke-width="2"/>
+            <path d="M-8 -56 C -30 -20, -36 10, -26 40 M-4 -56 C -14 -20, -16 10, -12 42 M0 -56 V44 M4 -56 C 14 -20, 16 10, 12 42 M8 -56 C 30 -20, 36 10, 26 40" stroke="#D9BC7C" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M-26 40 C -14 52, 14 52, 26 40" stroke="#B8924A" stroke-width="3" fill="none"/>
+          </g>
+        </svg>
+      </div>
+
+      <p class="hero__scroll" aria-hidden="true">Scroll <span></span></p>
+    </section>
+
+    <!-- ───────────── The Ceremony (pinned) ───────────── -->
+    <section class="ceremony" id="ceremony" aria-labelledby="ceremony-title">
+      <div class="ceremony__inner">
+        <div class="ceremony__copy">
+          <p class="eyebrow">The Ceremony · 茶の湯</p>
+          <h2 class="ceremony__title" id="ceremony-title">Four movements, <em>one bowl.</em></h2>
+          <ol class="steps">
+          <li class="step">
+            <span class="step__num">01</span>
+            <div>
+              <h3 class="step__title">Prepare <span lang="ja">準備</span></h3>
+              <p class="step__text">The host purifies each utensil in front of you — silk cloth, bamboo scoop, iron kettle. Nothing is rushed; that is the point.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">02</span>
+            <div>
+              <h3 class="step__title">Whisk <span lang="ja">点前</span></h3>
+              <p class="step__text">Two scoops of matcha, a ladle of water at 80 °C, and a quick “M” stroke with the bamboo whisk until the surface turns to foam.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">03</span>
+            <div>
+              <h3 class="step__title">Serve <span lang="ja">献茶</span></h3>
+              <p class="step__text">The bowl is turned twice so its most beautiful side faces you. You turn it back, out of modesty. Everyone is very polite.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">04</span>
+            <div>
+              <h3 class="step__title">Savour <span lang="ja">喫茶</span></h3>
+              <p class="step__text">Three and a half sips, the last one slurped — loudly, on purpose. Then you admire the bowl. It is older than your grandparents.</p>
+            </div>
+          </li>
+          </ol>
+        </div>
+        <div class="ceremony__dial">
+          <svg class="dial" viewBox="0 0 420 420" aria-hidden="true">
+            <circle class="dial__track" cx="210" cy="210" r="196"/>
+            <circle class="dial__progress" cx="210" cy="210" r="196" transform="rotate(-90 210 210)"/>
+            <g class="dial__ticks">
+              <circle cx="210" cy="14" r="5"/><circle cx="406" cy="210" r="5"/><circle cx="210" cy="406" r="5"/><circle cx="14" cy="210" r="5"/>
+            </g>
+          </svg>
+          <div class="dial__icons">
+            <svg class="dial__icon is-current" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M62 92 C 62 76, 138 76, 138 92 L138 132 C 138 150, 62 150, 62 132 Z"/><path d="M62 104 C 80 112, 120 112, 138 104"/><ellipse cx="100" cy="88" rx="38" ry="9"/><path d="M40 60 C 70 52, 120 46, 168 44 C 172 44, 174 48, 170 50 C 150 52, 132 54, 120 56"/><path d="M150 46 l3 7"/></g></svg>
+            <svg class="dial__icon" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M50 112 Q100 170 150 112 Z"/><ellipse cx="100" cy="112" rx="50" ry="10"/><path d="M100 30 V62 M92 32 V62 M108 32 V62"/><path d="M88 62 C 84 82, 86 96, 90 108 M100 62 V110 M112 62 C 116 82, 114 96, 110 108"/><path d="M60 92 C 52 84, 54 74, 62 70 M140 92 C 148 84, 146 74, 138 70"/></g></svg>
+            <svg class="dial__icon" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M54 100 Q100 160 146 100 Z"/><ellipse cx="100" cy="100" rx="46" ry="10"/><path d="M84 146 h32"/><path d="M40 70 C 60 38, 140 38, 160 70"/><path d="M160 70 l-14 -2 M160 70 l2 -14"/></g></svg>
+            <svg class="dial__icon" viewBox="0 0 200 200" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M44 104 Q90 160 136 104 Z"/><ellipse cx="90" cy="104" rx="46" ry="10"/><path d="M78 88 C 70 76, 86 70, 78 56 M98 86 C 106 74, 92 68, 100 54"/><ellipse cx="160" cy="140" rx="26" ry="6"/><path d="M146 134 C 146 120, 174 120, 174 134"/></g></svg>
+          </div>
+          <p class="dial__count"><span class="dial__current">01</span> / 04</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── Our Teas (horizontal) ───────────── -->
+    <section class="teas" id="teas" aria-labelledby="teas-title">
+      <div class="teas__track">
+        <div class="teas__intro">
+          <p class="eyebrow">Our Teas · 五つの茶</p>
+          <h2 class="teas__title" id="teas-title">Five tins we would <em>save in a fire.</em></h2>
+          <p class="teas__lede">Every leaf comes from a grower we have visited, most of them more than once, one of them every single spring since 1952.</p>
+        </div>
+      <article class="tin tin--gyokuro">
+        <svg class="tin__art" viewBox="0 0 220 330" aria-hidden="true">
+          <defs>
+            <linearGradient id="tin0b" x1="0" x2="1"><stop offset="0" stop-color="#22201C"/><stop offset=".28" stop-color="#4A453C"/><stop offset=".55" stop-color="#22201C"/><stop offset="1" stop-color="#000" stop-opacity=".9"/></linearGradient>
+            <linearGradient id="tin0l" x1="0" x2="1"><stop offset="0" stop-color="#B8924A"/><stop offset=".3" stop-color="#E2C27E"/><stop offset=".6" stop-color="#B8924A"/><stop offset="1" stop-color="#000" stop-opacity=".85"/></linearGradient>
+            <linearGradient id="tin0w" x1="0" x2="1"><stop offset="0" stop-color="#EFE6D2" stop-opacity=".82"/><stop offset=".3" stop-color="#EFE6D2"/><stop offset="1" stop-color="#EFE6D2" stop-opacity=".7"/></linearGradient>
+          </defs>
+          <ellipse cx="110" cy="312" rx="92" ry="11" fill="#1D1B17" opacity=".16"/>
+          <path d="M30 76 V292 A80 13 0 0 0 190 292 V76 Z" fill="url(#tin0b)"/>
+          <rect x="30" y="122" width="160" height="122" fill="url(#tin0w)"/>
+          <path d="M30 122 H190 M30 244 H190" stroke="#1D1B17" stroke-opacity=".18" stroke-width="1.5"/>
+          <text x="110" y="163" class="tin__glyph" font-size="34">玉</text><text x="110" y="201" class="tin__glyph" font-size="34">露</text>
+          <rect x="138" y="214" width="20" height="20" rx="2" fill="#C4472F"/>
+          <text x="148" y="225" class="tin__sealglyph">茶</text>
+          <path d="M26 46 V84 A84 12 0 0 0 194 84 V46 Z" fill="url(#tin0l)"/>
+          <ellipse cx="110" cy="46" rx="84" ry="13" fill="#E2C27E"/>
+          <ellipse cx="110" cy="46" rx="70" ry="9" fill="#fff" opacity=".12"/>
+          <rect x="54" y="92" width="9" height="196" rx="4.5" fill="#fff" opacity=".13"/>
+        </svg>
+        <div class="tin__info">
+          <p class="tin__index">01 <span>/ 05</span></p>
+          <h3 class="tin__name">Gyokuro <span lang="ja">玉露</span></h3>
+          <p class="tin__meta">Yame, Fukuoka <span aria-hidden="true">·</span> 55 °C · 2 min</p>
+          <p class="tin__text">Shaded for three weeks before picking, so the leaves pile up sweetness instead of bitterness. Brew it cool and it tastes of the sea, then of spring peas.</p>
+          <p class="tin__price"><strong>¥3,800</strong> <span>50 g tin</span></p>
+        </div>
+      </article>
+      <article class="tin tin--sencha">
+        <svg class="tin__art" viewBox="0 0 220 330" aria-hidden="true">
+          <defs>
+            <linearGradient id="tin1b" x1="0" x2="1"><stop offset="0" stop-color="#55702E"/><stop offset=".28" stop-color="#8DA552"/><stop offset=".55" stop-color="#55702E"/><stop offset="1" stop-color="#000" stop-opacity=".9"/></linearGradient>
+            <linearGradient id="tin1l" x1="0" x2="1"><stop offset="0" stop-color="#2B3A17"/><stop offset=".3" stop-color="#56703A"/><stop offset=".6" stop-color="#2B3A17"/><stop offset="1" stop-color="#000" stop-opacity=".85"/></linearGradient>
+            <linearGradient id="tin1w" x1="0" x2="1"><stop offset="0" stop-color="#F3ECDA" stop-opacity=".82"/><stop offset=".3" stop-color="#F3ECDA"/><stop offset="1" stop-color="#F3ECDA" stop-opacity=".7"/></linearGradient>
+          </defs>
+          <ellipse cx="110" cy="312" rx="92" ry="11" fill="#1D1B17" opacity=".16"/>
+          <path d="M30 76 V292 A80 13 0 0 0 190 292 V76 Z" fill="url(#tin1b)"/>
+          <rect x="30" y="122" width="160" height="122" fill="url(#tin1w)"/>
+          <path d="M30 122 H190 M30 244 H190" stroke="#1D1B17" stroke-opacity=".18" stroke-width="1.5"/>
+          <text x="110" y="163" class="tin__glyph" font-size="34">煎</text><text x="110" y="201" class="tin__glyph" font-size="34">茶</text>
+          <rect x="138" y="214" width="20" height="20" rx="2" fill="#C4472F"/>
+          <text x="148" y="225" class="tin__sealglyph">茶</text>
+          <path d="M26 46 V84 A84 12 0 0 0 194 84 V46 Z" fill="url(#tin1l)"/>
+          <ellipse cx="110" cy="46" rx="84" ry="13" fill="#56703A"/>
+          <ellipse cx="110" cy="46" rx="70" ry="9" fill="#fff" opacity=".12"/>
+          <rect x="54" y="92" width="9" height="196" rx="4.5" fill="#fff" opacity=".13"/>
+        </svg>
+        <div class="tin__info">
+          <p class="tin__index">02 <span>/ 05</span></p>
+          <h3 class="tin__name">Sencha <span lang="ja">煎茶</span></h3>
+          <p class="tin__meta">Shizuoka <span aria-hidden="true">·</span> 75 °C · 1 min</p>
+          <p class="tin__text">The everyday green of Japan: steamed, rolled, bright as a cut lawn. Our first flush is picked in early May and gone by August.</p>
+          <p class="tin__price"><strong>¥2,200</strong> <span>80 g tin</span></p>
+        </div>
+      </article>
+      <article class="tin tin--hojicha">
+        <svg class="tin__art" viewBox="0 0 220 330" aria-hidden="true">
+          <defs>
+            <linearGradient id="tin2b" x1="0" x2="1"><stop offset="0" stop-color="#7A3B22"/><stop offset=".28" stop-color="#B0623C"/><stop offset=".55" stop-color="#7A3B22"/><stop offset="1" stop-color="#000" stop-opacity=".9"/></linearGradient>
+            <linearGradient id="tin2l" x1="0" x2="1"><stop offset="0" stop-color="#2A1B12"/><stop offset=".3" stop-color="#5A3A26"/><stop offset=".6" stop-color="#2A1B12"/><stop offset="1" stop-color="#000" stop-opacity=".85"/></linearGradient>
+            <linearGradient id="tin2w" x1="0" x2="1"><stop offset="0" stop-color="#F1E7D3" stop-opacity=".82"/><stop offset=".3" stop-color="#F1E7D3"/><stop offset="1" stop-color="#F1E7D3" stop-opacity=".7"/></linearGradient>
+          </defs>
+          <ellipse cx="110" cy="312" rx="92" ry="11" fill="#1D1B17" opacity=".16"/>
+          <path d="M30 76 V292 A80 13 0 0 0 190 292 V76 Z" fill="url(#tin2b)"/>
+          <rect x="30" y="122" width="160" height="122" fill="url(#tin2w)"/>
+          <path d="M30 122 H190 M30 244 H190" stroke="#1D1B17" stroke-opacity=".18" stroke-width="1.5"/>
+          <text x="110" y="150" class="tin__glyph" font-size="28">焙</text><text x="110" y="182" class="tin__glyph" font-size="28">じ</text><text x="110" y="214" class="tin__glyph" font-size="28">茶</text>
+          <rect x="138" y="214" width="20" height="20" rx="2" fill="#22201C"/>
+          <text x="148" y="225" class="tin__sealglyph">茶</text>
+          <path d="M26 46 V84 A84 12 0 0 0 194 84 V46 Z" fill="url(#tin2l)"/>
+          <ellipse cx="110" cy="46" rx="84" ry="13" fill="#5A3A26"/>
+          <ellipse cx="110" cy="46" rx="70" ry="9" fill="#fff" opacity=".12"/>
+          <rect x="54" y="92" width="9" height="196" rx="4.5" fill="#fff" opacity=".13"/>
+        </svg>
+        <div class="tin__info">
+          <p class="tin__index">03 <span>/ 05</span></p>
+          <h3 class="tin__name">Hōjicha <span lang="ja">焙じ茶</span></h3>
+          <p class="tin__meta">Uji, Kyoto <span aria-hidden="true">·</span> 90 °C · 30 s</p>
+          <p class="tin__text">Roasted over charcoal until it smells like toffee and campfire. Low in caffeine, high in comfort — the tea we drink after dinner.</p>
+          <p class="tin__price"><strong>¥1,900</strong> <span>100 g tin</span></p>
+        </div>
+      </article>
+      <article class="tin tin--genmaicha">
+        <svg class="tin__art" viewBox="0 0 220 330" aria-hidden="true">
+          <defs>
+            <linearGradient id="tin3b" x1="0" x2="1"><stop offset="0" stop-color="#C39A45"/><stop offset=".28" stop-color="#E8C77C"/><stop offset=".55" stop-color="#C39A45"/><stop offset="1" stop-color="#000" stop-opacity=".9"/></linearGradient>
+            <linearGradient id="tin3l" x1="0" x2="1"><stop offset="0" stop-color="#5C4420"/><stop offset=".3" stop-color="#8A6A36"/><stop offset=".6" stop-color="#5C4420"/><stop offset="1" stop-color="#000" stop-opacity=".85"/></linearGradient>
+            <linearGradient id="tin3w" x1="0" x2="1"><stop offset="0" stop-color="#F6EFDE" stop-opacity=".82"/><stop offset=".3" stop-color="#F6EFDE"/><stop offset="1" stop-color="#F6EFDE" stop-opacity=".7"/></linearGradient>
+          </defs>
+          <ellipse cx="110" cy="312" rx="92" ry="11" fill="#1D1B17" opacity=".16"/>
+          <path d="M30 76 V292 A80 13 0 0 0 190 292 V76 Z" fill="url(#tin3b)"/>
+          <rect x="30" y="122" width="160" height="122" fill="url(#tin3w)"/>
+          <path d="M30 122 H190 M30 244 H190" stroke="#1D1B17" stroke-opacity=".18" stroke-width="1.5"/>
+          <text x="110" y="150" class="tin__glyph" font-size="28">玄</text><text x="110" y="182" class="tin__glyph" font-size="28">米</text><text x="110" y="214" class="tin__glyph" font-size="28">茶</text>
+          <rect x="138" y="214" width="20" height="20" rx="2" fill="#C4472F"/>
+          <text x="148" y="225" class="tin__sealglyph">茶</text>
+          <path d="M26 46 V84 A84 12 0 0 0 194 84 V46 Z" fill="url(#tin3l)"/>
+          <ellipse cx="110" cy="46" rx="84" ry="13" fill="#8A6A36"/>
+          <ellipse cx="110" cy="46" rx="70" ry="9" fill="#fff" opacity=".12"/>
+          <rect x="54" y="92" width="9" height="196" rx="4.5" fill="#fff" opacity=".13"/>
+        </svg>
+        <div class="tin__info">
+          <p class="tin__index">04 <span>/ 05</span></p>
+          <h3 class="tin__name">Genmaicha <span lang="ja">玄米茶</span></h3>
+          <p class="tin__meta">Kagoshima <span aria-hidden="true">·</span> 85 °C · 1 min</p>
+          <p class="tin__text">Sencha with toasted brown rice — a few grains pop like tiny popcorn. Once the tea of the thrifty; now the tea of everyone.</p>
+          <p class="tin__price"><strong>¥1,600</strong> <span>100 g tin</span></p>
+        </div>
+      </article>
+      <article class="tin tin--matcha">
+        <svg class="tin__art" viewBox="0 0 220 330" aria-hidden="true">
+          <defs>
+            <linearGradient id="tin4b" x1="0" x2="1"><stop offset="0" stop-color="#B23A26"/><stop offset=".28" stop-color="#DE6A4A"/><stop offset=".55" stop-color="#B23A26"/><stop offset="1" stop-color="#000" stop-opacity=".9"/></linearGradient>
+            <linearGradient id="tin4l" x1="0" x2="1"><stop offset="0" stop-color="#22201C"/><stop offset=".3" stop-color="#4A453C"/><stop offset=".6" stop-color="#22201C"/><stop offset="1" stop-color="#000" stop-opacity=".85"/></linearGradient>
+            <linearGradient id="tin4w" x1="0" x2="1"><stop offset="0" stop-color="#F3ECDA" stop-opacity=".82"/><stop offset=".3" stop-color="#F3ECDA"/><stop offset="1" stop-color="#F3ECDA" stop-opacity=".7"/></linearGradient>
+          </defs>
+          <ellipse cx="110" cy="312" rx="92" ry="11" fill="#1D1B17" opacity=".16"/>
+          <path d="M30 76 V292 A80 13 0 0 0 190 292 V76 Z" fill="url(#tin4b)"/>
+          <rect x="30" y="122" width="160" height="122" fill="url(#tin4w)"/>
+          <path d="M30 122 H190 M30 244 H190" stroke="#1D1B17" stroke-opacity=".18" stroke-width="1.5"/>
+          <text x="110" y="163" class="tin__glyph" font-size="34">抹</text><text x="110" y="201" class="tin__glyph" font-size="34">茶</text>
+          <rect x="138" y="214" width="20" height="20" rx="2" fill="#3F4E22"/>
+          <text x="148" y="225" class="tin__sealglyph">茶</text>
+          <path d="M26 46 V84 A84 12 0 0 0 194 84 V46 Z" fill="url(#tin4l)"/>
+          <ellipse cx="110" cy="46" rx="84" ry="13" fill="#4A453C"/>
+          <ellipse cx="110" cy="46" rx="70" ry="9" fill="#fff" opacity=".12"/>
+          <rect x="54" y="92" width="9" height="196" rx="4.5" fill="#fff" opacity=".13"/>
+        </svg>
+        <div class="tin__info">
+          <p class="tin__index">05 <span>/ 05</span></p>
+          <h3 class="tin__name">Matcha <span lang="ja">抹茶</span></h3>
+          <p class="tin__meta">Uji, Kyoto <span aria-hidden="true">·</span> 80 °C · whisked</p>
+          <p class="tin__text">Tencha leaves, deveined and stone-ground for an hour to make thirty grams. Whisk it thin for usucha, or thick as paint for koicha.</p>
+          <p class="tin__price"><strong>¥4,600</strong> <span>30 g tin</span></p>
+        </div>
+      </article>
+      </div>
+    </section>
+
+    <!-- ───────────── Seasonal menu (Flip filter) ───────────── -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="menu__head">
+        <div>
+          <p class="eyebrow">Seasonal Menu · 旬</p>
+          <h2 class="menu__title" id="menu-title">What the garden <em>is saying</em> this month.</h2>
+        </div>
+        <div class="menu__tabs" role="tablist" aria-label="Season">
+          <button class="menu__tab" role="tab" aria-selected="false" data-season="spring">Spring <span lang="ja">春</span></button>
+          <button class="menu__tab" role="tab" aria-selected="false" data-season="summer">Summer <span lang="ja">夏</span></button>
+          <button class="menu__tab is-active" role="tab" aria-selected="true" data-season="autumn">Autumn <span lang="ja">秋</span></button>
+          <button class="menu__tab" role="tab" aria-selected="false" data-season="winter">Winter <span lang="ja">冬</span></button>
+        </div>
+      </div>
+      <div class="menu__grid">
+        <article class="dish is-hidden" data-seasons="spring">
+          <svg class="dish__art" viewBox="0 0 240 170" aria-hidden="true"><ellipse cx="120" cy="150" rx="92" ry="17" fill="#1D1B17" opacity=".08"/><ellipse cx="120" cy="140" rx="96" ry="22" fill="#F7F2E7"/><ellipse cx="120" cy="137" rx="80" ry="16" fill="#E9E0CE"/><path d="M62 128 C 58 92, 96 78, 128 84 C 166 90, 184 116, 170 134 C 150 152, 74 150, 62 128 Z" fill="#6F8A3A"/><path d="M70 126 C 92 104, 140 100, 168 124" stroke="#4E6626" stroke-width="2" fill="none"/><path d="M88 128 C 84 104, 108 92, 132 96 C 156 100, 164 118, 152 130 C 134 144, 96 144, 88 128 Z" fill="#F2B7BF"/><path d="M98 112 C 110 104, 128 104, 140 110" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".6" fill="none"/><circle cx="118" cy="120" r="2" fill="#C97A86"/><circle cx="128" cy="124" r="1.6" fill="#C97A86"/></svg>
+          <div class="dish__body">
+            <h3 class="dish__name">Sakura mochi <span lang="ja">桜餅</span></h3>
+            <p class="dish__text">Pink rice cake around sweet red bean, wrapped in a salted cherry leaf. Eat the leaf. Everyone asks.</p>
+            <p class="dish__price">¥880</p>
+          </div>
+        </article>
+        <article class="dish is-hidden" data-seasons="spring summer">
+          <svg class="dish__art" viewBox="0 0 240 170" aria-hidden="true"><ellipse cx="120" cy="150" rx="92" ry="17" fill="#1D1B17" opacity=".08"/><ellipse cx="120" cy="140" rx="96" ry="22" fill="#F7F2E7"/><ellipse cx="120" cy="137" rx="80" ry="16" fill="#E9E0CE"/><path d="M86 70 L92 136 Q120 146 148 136 L154 70 Z" fill="#E4D9C3"/><path d="M86 70 L92 136 Q120 146 148 136 L154 70" fill="none" stroke="#8C7B60" stroke-width="2"/><ellipse cx="120" cy="70" rx="34" ry="8" fill="#B9C76A"/><ellipse cx="120" cy="70" rx="34" ry="8" fill="none" stroke="#8C7B60" stroke-width="2"/><path d="M98 88 L100 128" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".5"/><path d="M108 56 C 100 44, 116 38, 108 24 M128 54 C 136 42, 120 36, 130 22" stroke="#8A8273" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".5"/></svg>
+          <div class="dish__body">
+            <h3 class="dish__name">Shincha first flush <span lang="ja">新茶</span></h3>
+            <p class="dish__text">The year’s first sencha, picked in May and poured at 70 °C. It tastes the way cut grass smells.</p>
+            <p class="dish__price">¥1,100</p>
+          </div>
+        </article>
+        <article class="dish is-hidden" data-seasons="summer">
+          <svg class="dish__art" viewBox="0 0 240 170" aria-hidden="true"><ellipse cx="120" cy="150" rx="92" ry="17" fill="#1D1B17" opacity=".08"/><ellipse cx="120" cy="140" rx="96" ry="22" fill="#F7F2E7"/><ellipse cx="120" cy="137" rx="80" ry="16" fill="#E9E0CE"/><path d="M70 104 Q120 150 170 104 Z" fill="#CFE3E4" opacity=".85"/><path d="M76 106 C 76 60, 164 60, 164 106 Z" fill="#FBFAF6"/><path d="M82 84 C 96 58, 144 58, 158 84 C 146 96, 132 80, 120 92 C 106 80, 94 98, 82 84 Z" fill="#7FA03A"/><circle cx="102" cy="100" r="5" fill="#7A2E2A"/><circle cx="114" cy="104" r="4.5" fill="#7A2E2A"/><circle cx="134" cy="101" r="5" fill="#7A2E2A"/><path d="M70 104 Q120 150 170 104" fill="none" stroke="#9CB8BA" stroke-width="2"/><path d="M100 142 h40 v6 h-40 z" fill="#CFE3E4"/></svg>
+          <div class="dish__body">
+            <h3 class="dish__name">Uji kakigōri <span lang="ja">宇治かき氷</span></h3>
+            <p class="dish__text">A snowdrift of shaved ice under matcha syrup, condensed milk and a few red beans hiding at the bottom.</p>
+            <p class="dish__price">¥1,350</p>
+          </div>
+        </article>
+        <article class="dish is-hidden" data-seasons="summer">
+          <svg class="dish__art" viewBox="0 0 240 170" aria-hidden="true"><ellipse cx="120" cy="150" rx="92" ry="17" fill="#1D1B17" opacity=".08"/><ellipse cx="120" cy="140" rx="96" ry="22" fill="#F7F2E7"/><ellipse cx="120" cy="137" rx="80" ry="16" fill="#E9E0CE"/><path d="M80 92 L150 84 L168 112 L98 122 Z" fill="#8E3B37"/><path d="M98 122 L168 112 L168 128 L98 138 Z" fill="#6E2A27"/><path d="M80 92 L98 122 L98 138 L80 108 Z" fill="#5A2220"/><path d="M92 94 L146 88" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".3"/><path d="M150 70 C 172 64, 186 76, 178 90 C 164 92, 150 84, 150 70 Z" fill="#6F8A3A"/></svg>
+          <div class="dish__body">
+            <h3 class="dish__name">Mizu-yōkan <span lang="ja">水羊羹</span></h3>
+            <p class="dish__text">Red bean jelly set with agar and chilled in spring water. Slides off the spoon; cools you from the inside.</p>
+            <p class="dish__price">¥720</p>
+          </div>
+        </article>
+        <article class="dish" data-seasons="autumn">
+          <svg class="dish__art" viewBox="0 0 240 170" aria-hidden="true"><ellipse cx="120" cy="150" rx="92" ry="17" fill="#1D1B17" opacity=".08"/><ellipse cx="120" cy="140" rx="96" ry="22" fill="#F7F2E7"/><ellipse cx="120" cy="137" rx="80" ry="16" fill="#E9E0CE"/><path d="M120 62 C 132 76, 156 92, 156 112 C 156 134, 84 134, 84 112 C 84 92, 108 76, 120 62 Z" fill="#E1B54E"/><path d="M120 62 C 116 80, 124 92, 120 110 M104 82 C 108 96, 100 108, 104 122 M136 82 C 132 96, 140 108, 136 122" stroke="#B98A2A" stroke-width="2" fill="none" opacity=".7"/><path d="M96 104 C 100 96, 108 92, 114 92" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".5" fill="none"/></svg>
+          <div class="dish__body">
+            <h3 class="dish__name">Kuri kinton <span lang="ja">栗きんとん</span></h3>
+            <p class="dish__text">Chestnut purée twisted in a cloth into the shape of a chestnut. Gifu does it best; we buy from Gifu.</p>
+            <p class="dish__price">¥820</p>
+          </div>
+        </article>
+        <article class="dish" data-seasons="autumn winter">
+          <svg class="dish__art" viewBox="0 0 240 170" aria-hidden="true"><ellipse cx="120" cy="150" rx="92" ry="17" fill="#1D1B17" opacity=".08"/><ellipse cx="120" cy="140" rx="96" ry="22" fill="#F7F2E7"/><ellipse cx="120" cy="137" rx="80" ry="16" fill="#E9E0CE"/><path d="M58 118 C 54 98, 96 88, 130 98 C 150 104, 154 122, 138 128 C 112 136, 64 136, 58 118 Z" fill="#6A2E4E"/><path d="M84 112 C 88 100, 122 100, 132 112 C 120 122, 92 122, 84 112 Z" fill="#F0C14A"/><path d="M150 80 L154 128 Q170 134 186 128 L190 80 Z" fill="#8A4B2A"/><ellipse cx="170" cy="80" rx="20" ry="5" fill="#B0623C"/><path d="M160 66 C 154 56, 166 50, 160 40" stroke="#8A8273" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".5"/></svg>
+          <div class="dish__body">
+            <h3 class="dish__name">Hōjicha & yaki-imo <span lang="ja">焙じ茶と焼き芋</span></h3>
+            <p class="dish__text">Roasted tea and a stone-baked sweet potato, split while it still steams. The smell reaches the street.</p>
+            <p class="dish__price">¥980</p>
+          </div>
+        </article>
+        <article class="dish is-hidden" data-seasons="winter">
+          <svg class="dish__art" viewBox="0 0 240 170" aria-hidden="true"><ellipse cx="120" cy="150" rx="92" ry="17" fill="#1D1B17" opacity=".08"/><ellipse cx="120" cy="140" rx="96" ry="22" fill="#F7F2E7"/><ellipse cx="120" cy="137" rx="80" ry="16" fill="#E9E0CE"/><path d="M62 92 Q120 160 178 92 Z" fill="#2B2722"/><ellipse cx="120" cy="92" rx="58" ry="13" fill="#6E2A27"/><ellipse cx="114" cy="90" rx="18" ry="7" fill="#F4EBDA"/><path d="M104 86 h18" stroke="#C99A5A" stroke-width="2" stroke-linecap="round"/><path d="M138 86 C 146 80, 154 84, 150 92" stroke="#E8B830" stroke-width="5" stroke-linecap="round" fill="none"/><circle cx="96" cy="96" r="2.5" fill="#4A1C1A"/><circle cx="134" cy="98" r="2.5" fill="#4A1C1A"/><path d="M62 92 Q120 160 178 92" fill="none" stroke="#4A3F35" stroke-width="2"/></svg>
+          <div class="dish__body">
+            <h3 class="dish__name">Yuzu zenzai <span lang="ja">柚子ぜんざい</span></h3>
+            <p class="dish__text">Warm red bean soup, a toasted mochi floating in it, and a curl of yuzu peel to wake the whole bowl up.</p>
+            <p class="dish__price">¥900</p>
+          </div>
+        </article>
+        <article class="dish" data-seasons="spring summer autumn winter">
+          <svg class="dish__art" viewBox="0 0 240 170" aria-hidden="true"><ellipse cx="120" cy="150" rx="92" ry="17" fill="#1D1B17" opacity=".08"/><ellipse cx="120" cy="140" rx="96" ry="22" fill="#F7F2E7"/><ellipse cx="120" cy="137" rx="80" ry="16" fill="#E9E0CE"/><g transform="translate(92 106)"><ellipse cx="0" cy="-16" rx="9" ry="17" fill="#E9A2B0" transform="rotate(0)"/><ellipse cx="0" cy="-16" rx="9" ry="17" fill="#E9A2B0" transform="rotate(45)"/><ellipse cx="0" cy="-16" rx="9" ry="17" fill="#E9A2B0" transform="rotate(90)"/><ellipse cx="0" cy="-16" rx="9" ry="17" fill="#E9A2B0" transform="rotate(135)"/><ellipse cx="0" cy="-16" rx="9" ry="17" fill="#E9A2B0" transform="rotate(180)"/><ellipse cx="0" cy="-16" rx="9" ry="17" fill="#E9A2B0" transform="rotate(225)"/><ellipse cx="0" cy="-16" rx="9" ry="17" fill="#E9A2B0" transform="rotate(270)"/><ellipse cx="0" cy="-16" rx="9" ry="17" fill="#E9A2B0" transform="rotate(315)"/><circle r="10" fill="#F6D57A"/><circle r="4" fill="#E8B830"/></g><path d="M134 100 Q164 146 194 100 Z" fill="#3F3A33"/><ellipse cx="164" cy="100" rx="30" ry="7" fill="#8DB04A"/><ellipse cx="160" cy="99" rx="10" ry="2.5" fill="#C9DC8E"/></svg>
+          <div class="dish__body">
+            <h3 class="dish__name">Namagashi & usucha <span lang="ja">生菓子と薄茶</span></h3>
+            <p class="dish__text">A thin bowl of matcha and a sweet sculpted for this week only — a chrysanthemum, a maple leaf, a plum.</p>
+            <p class="dish__price">¥1,450</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────────── Footer ───────────── -->
+  <footer class="footer" id="visit">
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <p class="marquee__item"><span>一期一会</span> <em>one time, one meeting</em> <i aria-hidden="true">✺</i> <span>和敬清寂</span> <em>harmony · respect · purity · stillness</em> <i aria-hidden="true">✺</i> <span>茶</span> <em>open daily, 10:00 – 18:00</em> <i aria-hidden="true">✺</i> <span>一期一会</span> <em>one time, one meeting</em> <i aria-hidden="true">✺</i> <span>和敬清寂</span> <em>harmony · respect · purity · stillness</em> <i aria-hidden="true">✺</i> <span>茶</span> <em>open daily, 10:00 – 18:00</em> <i aria-hidden="true">✺</i> </p>
+        <p class="marquee__item"><span>一期一会</span> <em>one time, one meeting</em> <i aria-hidden="true">✺</i> <span>和敬清寂</span> <em>harmony · respect · purity · stillness</em> <i aria-hidden="true">✺</i> <span>茶</span> <em>open daily, 10:00 – 18:00</em> <i aria-hidden="true">✺</i> <span>一期一会</span> <em>one time, one meeting</em> <i aria-hidden="true">✺</i> <span>和敬清寂</span> <em>harmony · respect · purity · stillness</em> <i aria-hidden="true">✺</i> <span>茶</span> <em>open daily, 10:00 – 18:00</em> <i aria-hidden="true">✺</i> </p>
+      </div>
+    </div>
+    <div class="footer__grid">
+      <p class="footer__brand"><span class="seal" aria-hidden="true">茶</span>Kōdo</p>
+      <div><h4>Visit</h4><p>2-14 Kōdaiji Masuya-chō<br>Higashiyama-ku, Kyoto</p></div>
+      <div><h4>Hours</h4><p>Daily 10:00 – 18:00<br>Ceremonies at 11, 14 &amp; 16</p></div>
+      <div><h4>Reserve</h4><p><a href="#top">+81 75 000 1897</a><br><a href="#top">sit@kodo.example</a></p></div>
+    </div>
+    <p class="footer__small">© Kōdo 1897 – 2026 · Please remove your shoes. Please keep your socks.</p>
+  </footer>
+
+<script src="ref.js"></script>
+</body>
+</html>

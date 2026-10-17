@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crate Diggers — Records with a past</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ───────────── Header ───────────── -->
+  <header class="nav">
+    <a href="#" class="nav__logo" aria-label="Crate Diggers — home">
+      <svg class="nav__mark" viewBox="0 0 48 40" aria-hidden="true">
+        <rect x="9" y="1" width="16" height="16" rx="1.5" fill="#F05A28" transform="rotate(-10 17 9)"/>
+        <rect x="19" y="3" width="16" height="16" rx="1.5" fill="#F2B33D" transform="rotate(6 27 11)"/>
+        <circle cx="31" cy="9" r="7.5" fill="#161311" stroke="#F2E6CF" stroke-width="1.2"/>
+        <circle cx="31" cy="9" r="2.4" fill="#F05A28"/>
+        <path d="M2 16 H46 L43 38 H5 Z" fill="#B9713A"/>
+        <path d="M3.4 24 H44.6 M4.4 31 H43.6" stroke="#8A4E22" stroke-width="2"/>
+        <rect x="16" y="19.5" width="16" height="4" rx="2" fill="#5E3315"/>
+      </svg>
+      <span>Crate<em>Diggers</em></span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#" aria-current="page">New in</a>
+      <a href="#">The bins</a>
+      <a href="#">Listening room</a>
+      <a href="#">Sell us your records</a>
+    </nav>
+    <a href="#" class="nav__bag">Bag <span>2</span></a>
+  </header>
+
+  <main class="shop">
+
+    <!-- ───────────── Sidebar: intro + controls ───────────── -->
+    <aside class="intro">
+      <p class="intro__eyebrow"><span class="intro__dot"></span> Bin 07 · This week’s pull</p>
+      <h1 class="intro__title">Dig <em>deeper.</em></h1>
+      <p class="intro__text">Nine records Lou rescued from estate sales this week. Every sleeve inspected, every groove play-tested on the shop deck. No algorithms — just ears.</p>
+
+      <div class="controls">
+        <p class="controls__label">Genre</p>
+        <div class="filters" role="group" aria-label="Filter by genre">
+          <button class="filter is-active" data-genre="all" aria-pressed="true">All <span>9</span></button>
+          <button class="filter" data-genre="jazz" aria-pressed="false">Jazz <span>3</span></button>
+          <button class="filter" data-genre="funk" aria-pressed="false">Funk <span>3</span></button>
+          <button class="filter" data-genre="soul" aria-pressed="false">Soul <span>3</span></button>
+        </div>
+
+        <p class="controls__label">View</p>
+        <div class="view" role="group" aria-label="Layout">
+          <button class="view__btn is-active" data-view="grid" aria-pressed="true">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+            Grid
+          </button>
+          <button class="view__btn" data-view="list" aria-pressed="false">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="2" width="4" height="3" rx="1"/><rect x="7" y="2.5" width="8" height="2" rx="1"/><rect x="1" y="6.5" width="4" height="3" rx="1"/><rect x="7" y="7" width="8" height="2" rx="1"/><rect x="1" y="11" width="4" height="3" rx="1"/><rect x="7" y="11.5" width="8" height="2" rx="1"/></svg>
+            List
+          </button>
+        </div>
+      </div>
+
+      <p class="intro__hint">
+        <svg viewBox="0 0 60 40" aria-hidden="true"><path d="M4 8 C 18 2, 40 6, 46 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M38 24 L46 30 L50 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Pull a sleeve out to read Lou’s liner notes.
+      </p>
+
+      <address class="intro__shop">42 Wax Lane, Bristol<br>Tue–Sun · 11 till late</address>
+    </aside>
+
+    <!-- ───────────── The crate ───────────── -->
+    <section class="crate" aria-label="Records">
+        <article class="record" data-genre="jazz" tabindex="0" aria-label="Low Tide Sessions by Mara Okafor Quartet — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #E8572C" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Low Tide Sessions cover art"><rect width="300" height="300" fill="#16233F"/><g fill="none" stroke-width="8"><circle cx="228" cy="226" r="12" stroke="#F2E6CF"/><circle cx="228" cy="226" r="27" stroke="#E8572C"/><circle cx="228" cy="226" r="42" stroke="#F2E6CF"/><circle cx="228" cy="226" r="57" stroke="#4C7BE0"/><circle cx="228" cy="226" r="72" stroke="#F2E6CF"/><circle cx="228" cy="226" r="87" stroke="#E8572C"/><circle cx="228" cy="226" r="102" stroke="#F2E6CF"/><circle cx="228" cy="226" r="117" stroke="#4C7BE0"/><circle cx="228" cy="226" r="132" stroke="#F2E6CF"/></g><circle cx="228" cy="226" r="5" fill="#E8572C"/><rect x="20" y="146" width="44" height="6" fill="#E8572C"/><text x="20" y="34" font-family="'DM Mono', monospace" font-size="10.5" letter-spacing="2" fill="#F2E6CF">MARA OKAFOR QUARTET</text><text x="18" y="84" font-family="'Instrument Serif', serif" font-style="italic" font-size="44" fill="#F2E6CF">Low Tide</text><text x="18" y="124" font-family="'Instrument Serif', serif" font-style="italic" font-size="44" fill="#F2E6CF">Sessions</text><text x="20" y="284" font-family="'DM Mono', monospace" font-size="8.5" letter-spacing="1.5" fill="#F2E6CF" opacity=".7">SM-4012</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Low Tide Sessions</h3>
+            <p class="record__artist">Mara Okafor Quartet</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--jazz">Jazz</span>
+            <span class="record__year">1967</span>
+            <span class="record__cond" title="Condition">VG+</span>
+          </div>
+          <span class="record__price">£24</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Saltmarsh · SM-4012 · 1967</p>
+            <h2 class="liner__title">Low Tide Sessions</h2>
+            <p class="liner__artist">Mara Okafor Quartet</p>
+            <p class="liner__note">“Cut in a boathouse in one evening while the tide went out. That’s a gull on B2, not a clarinet. Lou checked.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Mudflat Waltz</span><span class="liner__len">5:12</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Gull Theory</span><span class="liner__len">4:03</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Brackish</span><span class="liner__len">6:40</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">The Boathouse Tapes</span><span class="liner__len">7:15</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Ebb (for Clara)</span><span class="liner__len">3:58</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">Spring Tide Blues</span><span class="liner__len">5:31</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£24</span>
+              <span class="liner__cond">Jazz · Condition VG+</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+        <article class="record" data-genre="funk" tabindex="0" aria-label="Velvet Pothole by The Fuzz Cathedral — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #FFC93F" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Velvet Pothole cover art"><rect width="300" height="300" fill="#3B1450"/><path d="M150 312 L-370 312 L-367.15 257.65 Z" fill="#B8324F"/><path d="M150 312 L-358.64 203.89 L-344.55 151.31 Z" fill="#FF5E3A"/><path d="M150 312 L-325.04 100.5 L-300.33 52 Z" fill="#B8324F"/><path d="M150 312 L-270.69 6.35 L-236.44 -35.95 Z" fill="#FF5E3A"/><path d="M150 312 L-197.95 -74.44 L-155.65 -108.69 Z" fill="#B8324F"/><path d="M150 312 L-110 -138.33 L-61.5 -163.04 Z" fill="#FF5E3A"/><path d="M150 312 L-10.69 -182.55 L41.89 -196.64 Z" fill="#B8324F"/><path d="M150 312 L95.65 -205.15 L150 -208 Z" fill="#FF5E3A"/><path d="M150 312 L204.35 -205.15 L258.11 -196.64 Z" fill="#B8324F"/><path d="M150 312 L310.69 -182.55 L361.5 -163.04 Z" fill="#FF5E3A"/><path d="M150 312 L410 -138.33 L455.65 -108.69 Z" fill="#B8324F"/><path d="M150 312 L497.95 -74.44 L536.44 -35.95 Z" fill="#FF5E3A"/><path d="M150 312 L570.69 6.35 L600.33 52 Z" fill="#B8324F"/><path d="M150 312 L625.04 100.5 L644.55 151.31 Z" fill="#FF5E3A"/><path d="M150 312 L658.64 203.89 L667.15 257.65 Z" fill="#B8324F"/><circle cx="150" cy="312" r="118" fill="#FFC93F"/><circle cx="150" cy="312" r="90" fill="#FF9A3A"/><circle cx="150" cy="312" r="62" fill="#FF5E3A"/><text x="20" y="30" font-family="'DM Mono', monospace" font-size="10" letter-spacing="2" fill="#FFF1D6">THE FUZZ CATHEDRAL</text><text x="150" y="88" text-anchor="middle" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="58" font-stretch="75%" letter-spacing="-1" fill="#FFF1D6" stroke="#3B1450" stroke-width="7" paint-order="stroke" stroke-linejoin="round">VELVET</text><text x="150" y="146" text-anchor="middle" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="58" font-stretch="75%" letter-spacing="-1" fill="#FFF1D6" stroke="#3B1450" stroke-width="7" paint-order="stroke" stroke-linejoin="round">POTHOLE</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Velvet Pothole</h3>
+            <p class="record__artist">The Fuzz Cathedral</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--funk">Funk</span>
+            <span class="record__year">1975</span>
+            <span class="record__cond" title="Condition">NM</span>
+          </div>
+          <span class="record__price">£32</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Fuzzbox · FZ-117 · 1975</p>
+            <h2 class="liner__title">Velvet Pothole</h2>
+            <p class="liner__artist">The Fuzz Cathedral</p>
+            <p class="liner__note">“The bassline on A1 has been sampled at least forty times. We counted. Then Lou counted again, to be sure.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Pothole (Part 1)</span><span class="liner__len">4:20</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Suspension Is Shot</span><span class="liner__len">3:47</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Velvet Rope-a-Dope</span><span class="liner__len">5:02</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">Pothole (Part 2)</span><span class="liner__len">6:11</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Hubcap Shuffle</span><span class="liner__len">3:30</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">Detour</span><span class="liner__len">4:44</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£32</span>
+              <span class="liner__cond">Funk · Condition NM</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+        <article class="record" data-genre="soul" tabindex="0" aria-label="Sugar on the Radiator by Delphine Rose — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #F29A7B" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Sugar on the Radiator cover art"><defs><linearGradient id="c7-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B1B3F"/><stop offset=".45" stop-color="#A8487A"/><stop offset=".75" stop-color="#F29A7B"/><stop offset="1" stop-color="#F7C7A3"/></linearGradient><clipPath id="c7-sun"><rect x="0" y="0" width="300" height="208"/></clipPath></defs><rect width="300" height="208" fill="url(#c7-sky)"/><g clip-path="url(#c7-sun)"><circle cx="150" cy="208" r="84" fill="#FFE2A8"/><rect x="60" y="150" width="180" height="3" fill="#F29A7B"/><rect x="60" y="166" width="180" height="5" fill="#F29A7B"/><rect x="60" y="180" width="180" height="7" fill="#F29A7B"/><rect x="60" y="193" width="180" height="9" fill="#F29A7B"/></g><rect y="208" width="300" height="92" fill="#3A1F4A"/><rect x="75" y="218" width="150" height="3" rx="1.5" fill="#FFE2A8" opacity=".75"/><rect x="91" y="230" width="118" height="3" rx="1.5" fill="#FFE2A8" opacity=".75"/><rect x="105" y="242" width="90" height="3" rx="1.5" fill="#FFE2A8" opacity=".75"/><rect x="118" y="254" width="64" height="3" rx="1.5" fill="#FFE2A8" opacity=".75"/><rect x="130" y="266" width="40" height="3" rx="1.5" fill="#FFE2A8" opacity=".75"/><text x="20" y="30" font-family="'DM Mono', monospace" font-size="10" letter-spacing="2.5" fill="#FFE2A8">DELPHINE ROSE</text><text x="18" y="72" font-family="'Instrument Serif', serif" font-style="italic" font-size="40" fill="#FFF3DF">Sugar on the</text><text x="18" y="110" font-family="'Instrument Serif', serif" font-style="italic" font-size="40" fill="#FFF3DF">Radiator</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Sugar on the Radiator</h3>
+            <p class="record__artist">Delphine Rose</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--soul">Soul</span>
+            <span class="record__year">1969</span>
+            <span class="record__cond" title="Condition">VG+</span>
+          </div>
+          <span class="record__price">£28</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Radiator Records · RR-0332 · 1969</p>
+            <h2 class="liner__title">Sugar on the Radiator</h2>
+            <p class="liner__artist">Delphine Rose</p>
+            <p class="liner__note">“Recorded in a February so cold the horn section wore gloves. Somehow it’s the warmest record in the shop.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Sugar on the Radiator</span><span class="liner__len">3:41</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Kettle’s On</span><span class="liner__len">2:58</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Wallpaper Roses</span><span class="liner__len">3:22</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">Window Fog</span><span class="liner__len">4:05</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Slow Sunday</span><span class="liner__len">3:49</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">Warm Hands</span><span class="liner__len">4:30</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£28</span>
+              <span class="liner__cond">Soul · Condition VG+</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+        <article class="record" data-genre="funk" tabindex="0" aria-label="Get Up Off That Couch by The Funk Department — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #1C6E6A" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Get Up Off That Couch cover art"><g transform="translate(0 0)"><rect width="100" height="100" fill="#F05A28"/><path d="M0 0 A100 100 0 0 1 100 100 L0 100 Z" fill="#F2E6CF"/></g><g transform="translate(100 0)"><rect width="100" height="100" fill="#161311"/><circle cx="50" cy="50" r="34" fill="#F2B33D"/></g><g transform="translate(200 0)"><rect width="100" height="100" fill="#1C6E6A"/><path d="M0 100 A50 50 0 0 1 100 100 Z" fill="#F2E6CF"/></g><g transform="translate(0 100)"><rect width="100" height="100" fill="#F2E6CF"/><path d="M0 0 A50 50 0 0 1 0 100 Z" fill="#161311"/><path d="M100 0 A50 50 0 0 0 100 100 Z" fill="#F05A28"/></g><g transform="translate(100 100)"><rect width="100" height="100" fill="#F2B33D"/><path d="M100 0 A100 100 0 0 0 0 100 L100 100 Z" fill="#1C6E6A"/></g><g transform="translate(200 100)"><rect width="100" height="100" fill="#F05A28"/><circle cx="50" cy="50" r="30" fill="none" stroke="#161311" stroke-width="14"/></g><rect x="0" y="200" width="200" height="100" fill="#161311"/><g transform="translate(200 200)"><rect width="100" height="100" fill="#F2E6CF"/><path d="M0 0 L100 0 A100 100 0 0 1 0 100 Z" fill="#F05A28"/></g><text x="16" y="236" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="26" font-stretch="75%" fill="#F2E6CF">GET UP OFF</text><text x="16" y="264" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="26" font-stretch="75%" fill="#F2B33D">THAT COUCH</text><text x="16" y="286" font-family="'DM Mono', monospace" font-size="8.5" letter-spacing="1.5" fill="#F2E6CF" opacity=".75">THE FUNK DEPARTMENT</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Get Up Off That Couch</h3>
+            <p class="record__artist">The Funk Department</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--funk">Funk</span>
+            <span class="record__year">1974</span>
+            <span class="record__cond" title="Condition">VG</span>
+          </div>
+          <span class="record__price">£19</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Ministry of Groove · MG-0074 · 1974</p>
+            <h2 class="liner__title">Get Up Off That Couch</h2>
+            <p class="liner__artist">The Funk Department</p>
+            <p class="liner__note">“Ironically the best record in the shop for doing absolutely nothing. Side B is basically a nap with a horn section.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Get Up Off That Couch</span><span class="liner__len">4:52</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Cushion Funk</span><span class="liner__len">3:36</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Remote Control (Lost It)</span><span class="liner__len">4:18</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">Snack Break</span><span class="liner__len">2:45</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Recliner</span><span class="liner__len">5:20</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">Back on the Couch</span><span class="liner__len">3:05</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£19</span>
+              <span class="liner__cond">Funk · Condition VG</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+        <article class="record" data-genre="jazz" tabindex="0" aria-label="Blue Hour Arithmetic by The Dexter Vane Trio — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #FF7A3D" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Blue Hour Arithmetic cover art"><rect width="300" height="300" fill="#2443C9"/><circle cx="42" cy="38" r="17" fill="#FF7A3D"/><circle cx="96" cy="38" r="17" fill="#F2E6CF"/><path d="M133 38 A17 17 0 0 1 167 38 Z" fill="#FF7A3D"/><circle cx="150" cy="38" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="204" cy="38" r="17" fill="#F2E6CF"/><text x="204" y="45" text-anchor="middle" font-family="'DM Mono', monospace" font-size="21" font-weight="500" fill="#2443C9">−</text><circle cx="258" cy="38" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="42" cy="80" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="96" cy="80" r="17" fill="#F2E6CF"/><text x="96" y="87" text-anchor="middle" font-family="'DM Mono', monospace" font-size="21" font-weight="500" fill="#2443C9">+</text><circle cx="150" cy="80" r="17" fill="#F2E6CF"/><path d="M187 80 A17 17 0 0 1 221 80 Z" fill="#FF7A3D"/><circle cx="204" cy="80" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="258" cy="80" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="42" cy="122" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="96" cy="122" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="150" cy="122" r="17" fill="#F2E6CF"/><text x="150" y="129" text-anchor="middle" font-family="'DM Mono', monospace" font-size="21" font-weight="500" fill="#2443C9">×</text><circle cx="204" cy="122" r="17" fill="#F2E6CF"/><path d="M241 122 A17 17 0 0 1 275 122 Z" fill="#FF7A3D"/><circle cx="258" cy="122" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="42" cy="164" r="17" fill="#F2E6CF"/><text x="42" y="171" text-anchor="middle" font-family="'DM Mono', monospace" font-size="21" font-weight="500" fill="#2443C9">=</text><circle cx="96" cy="164" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="150" cy="164" r="16" fill="none" stroke="#F2E6CF" stroke-width="2"/><circle cx="204" cy="164" r="17" fill="#FF7A3D"/><circle cx="258" cy="164" r="17" fill="#F2E6CF"/><text x="258" y="171" text-anchor="middle" font-family="'DM Mono', monospace" font-size="21" font-weight="500" fill="#2443C9">÷</text><line x1="20" y1="208" x2="280" y2="208" stroke="#F2E6CF" stroke-width="1.5" opacity=".5"/><text x="20" y="232" font-family="'DM Mono', monospace" font-size="10" letter-spacing="2" fill="#F2E6CF">THE DEXTER VANE TRIO</text><text x="18" y="262" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="33" letter-spacing="-1" fill="#F2E6CF">blue hour</text><text x="18" y="290" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="33" letter-spacing="-1" fill="#FF7A3D">arithmetic</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Blue Hour Arithmetic</h3>
+            <p class="record__artist">The Dexter Vane Trio</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--jazz">Jazz</span>
+            <span class="record__year">1959</span>
+            <span class="record__cond" title="Condition">NM</span>
+          </div>
+          <span class="record__price">£42</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Ledger · LG-1959 · 1959</p>
+            <h2 class="liner__title">Blue Hour Arithmetic</h2>
+            <p class="liner__artist">The Dexter Vane Trio</p>
+            <p class="liner__note">“Dexter wrote every tune in an accountant’s ledger. The maths checks out; the swing is unaccountable.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Long Division</span><span class="liner__len">6:02</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Remainder</span><span class="liner__len">4:47</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Carry the One</span><span class="liner__len">5:15</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">Blue Hour</span><span class="liner__len">8:10</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Odd Numbers</span><span class="liner__len">3:44</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">Sum of Small Things</span><span class="liner__len">5:28</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£42</span>
+              <span class="liner__cond">Jazz · Condition NM</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+        <article class="record" data-genre="soul" tabindex="0" aria-label="Letters I Never Posted by Otis Wren — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #2B59C3" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Letters I Never Posted cover art"><defs><pattern id="c8-air" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="24" fill="#D8432B"/><rect x="12" width="8" height="24" fill="#2B59C3"/></pattern></defs><rect width="300" height="300" fill="url(#c8-air)"/><rect x="13" y="13" width="274" height="274" fill="#F1E9D8"/><g style="mix-blend-mode:multiply"><circle cx="118" cy="182" r="54" fill="#2B59C3" style="mix-blend-mode:multiply"/><circle cx="182" cy="182" r="54" fill="#D8432B" style="mix-blend-mode:multiply"/><circle cx="150" cy="232" r="40" fill="#F2B33D" style="mix-blend-mode:multiply"/></g><rect x="226" y="30" width="42" height="50" fill="none" stroke="#2B59C3" stroke-width="2" stroke-dasharray="3 3"/><text x="247" y="61" text-anchor="middle" font-family="'DM Mono', monospace" font-size="9" fill="#2B59C3">2½d</text><text x="32" y="46" font-family="'DM Mono', monospace" font-size="10" letter-spacing="2.5" fill="#1B1714">OTIS WREN</text><text x="30" y="84" font-family="'Instrument Serif', serif" font-size="34" fill="#1B1714">Letters I</text><text x="30" y="116" font-family="'Instrument Serif', serif" font-style="italic" font-size="34" fill="#1B1714">Never Posted</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Letters I Never Posted</h3>
+            <p class="record__artist">Otis Wren</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--soul">Soul</span>
+            <span class="record__year">1966</span>
+            <span class="record__cond" title="Condition">VG+</span>
+          </div>
+          <span class="record__price">£22</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Second Class · SC-2266 · 1966</p>
+            <h2 class="liner__title">Letters I Never Posted</h2>
+            <p class="liner__artist">Otis Wren</p>
+            <p class="liner__note">“Otis wrote twelve songs and binned six. The six he kept will ruin your afternoon, beautifully.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Dear You</span><span class="liner__len">3:12</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Second Class</span><span class="liner__len">2:55</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Return to Sender</span><span class="liner__len">3:40</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">Postmarked Brighton</span><span class="liner__len">4:02</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Airmail Heart</span><span class="liner__len">3:18</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">P.S.</span><span class="liner__len">2:30</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£22</span>
+              <span class="liner__cond">Soul · Condition VG+</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+        <article class="record" data-genre="soul" tabindex="0" aria-label="Honey, I’m Home (Eventually) by The Marigolds — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #F2B33D" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Honey, I’m Home (Eventually) cover art"><defs><clipPath id="c9-top"><rect width="300" height="196"/></clipPath></defs><rect width="300" height="300" fill="#2A1A0E"/><g clip-path="url(#c9-top)"><path d="M15.49 19.25L-4 30.5L-23.49 19.25L-23.49 -3.25L-4 -14.5L15.49 -3.25Z" fill="#F2B33D"/><path d="M58.79 19.25L39.3 30.5L19.82 19.25L19.82 -3.25L39.3 -14.5L58.79 -3.25Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M102.09 19.25L82.6 30.5L63.12 19.25L63.12 -3.25L82.6 -14.5L102.09 -3.25Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M145.39 19.25L125.9 30.5L106.42 19.25L106.42 -3.25L125.9 -14.5L145.39 -3.25Z" fill="#E08B1E"/><path d="M188.69 19.25L169.21 30.5L149.72 19.25L149.72 -3.25L169.21 -14.5L188.69 -3.25Z" fill="#E08B1E"/><path d="M231.99 19.25L212.51 30.5L193.02 19.25L193.02 -3.25L212.51 -14.5L231.99 -3.25Z" fill="#F2B33D"/><path d="M275.29 19.25L255.81 30.5L236.32 19.25L236.32 -3.25L255.81 -14.5L275.29 -3.25Z" fill="#F7D27A"/><path d="M318.59 19.25L299.11 30.5L279.62 19.25L279.62 -3.25L299.11 -14.5L318.59 -3.25Z" fill="#F2B33D"/><path d="M37.14 56.75L17.65 68L-1.83 56.75L-1.83 34.25L17.65 23L37.14 34.25Z" fill="#E08B1E"/><path d="M80.44 56.75L60.95 68L41.47 56.75L41.47 34.25L60.95 23L80.44 34.25Z" fill="#F2B33D"/><path d="M123.74 56.75L104.25 68L84.77 56.75L84.77 34.25L104.25 23L123.74 34.25Z" fill="#F7D27A"/><path d="M167.04 56.75L147.55 68L128.07 56.75L128.07 34.25L147.55 23L167.04 34.25Z" fill="#F2B33D"/><path d="M210.34 56.75L190.86 68L171.37 56.75L171.37 34.25L190.86 23L210.34 34.25Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M253.64 56.75L234.16 68L214.67 56.75L214.67 34.25L234.16 23L253.64 34.25Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M296.94 56.75L277.46 68L257.97 56.75L257.97 34.25L277.46 23L296.94 34.25Z" fill="#E08B1E"/><path d="M340.25 56.75L320.76 68L301.27 56.75L301.27 34.25L320.76 23L340.25 34.25Z" fill="#E08B1E"/><path d="M15.49 94.25L-4 105.5L-23.49 94.25L-23.49 71.75L-4 60.5L15.49 71.75Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M58.79 94.25L39.3 105.5L19.82 94.25L19.82 71.75L39.3 60.5L58.79 71.75Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M102.09 94.25L82.6 105.5L63.12 94.25L63.12 71.75L82.6 60.5L102.09 71.75Z" fill="#E08B1E"/><path d="M145.39 94.25L125.9 105.5L106.42 94.25L106.42 71.75L125.9 60.5L145.39 71.75Z" fill="#E08B1E"/><path d="M188.69 94.25L169.21 105.5L149.72 94.25L149.72 71.75L169.21 60.5L188.69 71.75Z" fill="#F2B33D"/><path d="M231.99 94.25L212.51 105.5L193.02 94.25L193.02 71.75L212.51 60.5L231.99 71.75Z" fill="#F7D27A"/><path d="M275.29 94.25L255.81 105.5L236.32 94.25L236.32 71.75L255.81 60.5L275.29 71.75Z" fill="#F2B33D"/><path d="M318.59 94.25L299.11 105.5L279.62 94.25L279.62 71.75L299.11 60.5L318.59 71.75Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M37.14 131.75L17.65 143L-1.83 131.75L-1.83 109.25L17.65 98L37.14 109.25Z" fill="#F2B33D"/><path d="M80.44 131.75L60.95 143L41.47 131.75L41.47 109.25L60.95 98L80.44 109.25Z" fill="#F7D27A"/><path d="M123.74 131.75L104.25 143L84.77 131.75L84.77 109.25L104.25 98L123.74 109.25Z" fill="#F2B33D"/><path d="M167.04 131.75L147.55 143L128.07 131.75L128.07 109.25L147.55 98L167.04 109.25Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M210.34 131.75L190.86 143L171.37 131.75L171.37 109.25L190.86 98L210.34 109.25Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M253.64 131.75L234.16 143L214.67 131.75L214.67 109.25L234.16 98L253.64 109.25Z" fill="#E08B1E"/><path d="M296.94 131.75L277.46 143L257.97 131.75L257.97 109.25L277.46 98L296.94 109.25Z" fill="#E08B1E"/><path d="M340.25 131.75L320.76 143L301.27 131.75L301.27 109.25L320.76 98L340.25 109.25Z" fill="#F2B33D"/><path d="M15.49 169.25L-4 180.5L-23.49 169.25L-23.49 146.75L-4 135.5L15.49 146.75Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M58.79 169.25L39.3 180.5L19.82 169.25L19.82 146.75L39.3 135.5L58.79 146.75Z" fill="#E08B1E"/><path d="M102.09 169.25L82.6 180.5L63.12 169.25L63.12 146.75L82.6 135.5L102.09 146.75Z" fill="#E08B1E"/><path d="M145.39 169.25L125.9 180.5L106.42 169.25L106.42 146.75L125.9 135.5L145.39 146.75Z" fill="#F2B33D"/><path d="M188.69 169.25L169.21 180.5L149.72 169.25L149.72 146.75L169.21 135.5L188.69 146.75Z" fill="#F7D27A"/><path d="M231.99 169.25L212.51 180.5L193.02 169.25L193.02 146.75L212.51 135.5L231.99 146.75Z" fill="#F2B33D"/><path d="M275.29 169.25L255.81 180.5L236.32 169.25L236.32 146.75L255.81 135.5L275.29 146.75Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M318.59 169.25L299.11 180.5L279.62 169.25L279.62 146.75L299.11 135.5L318.59 146.75Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M37.14 206.75L17.65 218L-1.83 206.75L-1.83 184.25L17.65 173L37.14 184.25Z" fill="#F7D27A"/><path d="M80.44 206.75L60.95 218L41.47 206.75L41.47 184.25L60.95 173L80.44 184.25Z" fill="#F2B33D"/><path d="M123.74 206.75L104.25 218L84.77 206.75L84.77 184.25L104.25 173L123.74 184.25Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M167.04 206.75L147.55 218L128.07 206.75L128.07 184.25L147.55 173L167.04 184.25Z" fill="none" stroke="#F2B33D" stroke-width="2" opacity=".55"/><path d="M210.34 206.75L190.86 218L171.37 206.75L171.37 184.25L190.86 173L210.34 184.25Z" fill="#E08B1E"/><path d="M253.64 206.75L234.16 218L214.67 206.75L214.67 184.25L234.16 173L253.64 184.25Z" fill="#E08B1E"/><path d="M296.94 206.75L277.46 218L257.97 206.75L257.97 184.25L277.46 173L296.94 184.25Z" fill="#F2B33D"/><path d="M340.25 206.75L320.76 218L301.27 206.75L301.27 184.25L320.76 173L340.25 184.25Z" fill="#F7D27A"/></g><text x="20" y="226" font-family="'DM Mono', monospace" font-size="10" letter-spacing="2.5" fill="#F7D27A">THE MARIGOLDS</text><text x="18" y="260" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="31" letter-spacing="-0.8" fill="#FFF1D6">Honey, I’m Home</text><text x="20" y="286" font-family="'Instrument Serif', serif" font-style="italic" font-size="22" fill="#F2B33D">(eventually)</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Honey, I’m Home (Eventually)</h3>
+            <p class="record__artist">The Marigolds</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--soul">Soul</span>
+            <span class="record__year">1971</span>
+            <span class="record__cond" title="Condition">NM</span>
+          </div>
+          <span class="record__price">£26</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Apiary · AP-0711 · 1971</p>
+            <h2 class="liner__title">Honey, I’m Home (Eventually)</h2>
+            <p class="liner__artist">The Marigolds</p>
+            <p class="liner__note">“Three sisters, one microphone and harmonies so tight you’ll forgive them for being late. Again.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Honey, I’m Home</span><span class="liner__len">3:28</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Missed the Last Bus</span><span class="liner__len">3:51</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Porch Light</span><span class="liner__len">4:09</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">Keys in the Wrong Coat</span><span class="liner__len">3:14</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Eventually</span><span class="liner__len">4:47</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">Breakfast at Midnight</span><span class="liner__len">3:36</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£26</span>
+              <span class="liner__cond">Soul · Condition NM</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+        <article class="record" data-genre="jazz" tabindex="0" aria-label="Smoke Signals in C by Ines Calloway — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #D8432B" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Smoke Signals in C cover art"><rect width="300" height="300" fill="#EFE3C8"/><rect x="20" y="88" width="7" height="140" fill="#141210"/><rect x="32" y="88" width="15" height="118" fill="#141210"/><rect x="56" y="88" width="4" height="140" fill="#141210"/><rect x="64" y="88" width="24" height="140" fill="#141210"/><rect x="94" y="88" width="9" height="118" fill="#141210"/><rect x="108" y="88" width="3" height="140" fill="#141210"/><rect x="120" y="88" width="17" height="140" fill="#141210"/><rect x="141" y="88" width="11" height="118" fill="#141210"/><rect x="158" y="88" width="5" height="140" fill="#141210"/><rect x="168" y="88" width="27" height="140" fill="#141210"/><rect x="204" y="88" width="7" height="118" fill="#141210"/><rect x="215" y="88" width="13" height="140" fill="#141210"/><rect x="234" y="88" width="4" height="140" fill="#141210"/><rect x="243" y="88" width="19" height="118" fill="#141210"/><rect x="271" y="88" width="8" height="140" fill="#141210"/><circle cx="206" cy="132" r="46" fill="#D8432B" style="mix-blend-mode:multiply"/><text x="20" y="62" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="34" font-stretch="75%" letter-spacing="-0.5" fill="#141210">INES CALLOWAY</text><text x="20" y="262" font-family="'Instrument Serif', serif" font-style="italic" font-size="31" fill="#141210">smoke signals in <tspan fill="#D8432B">C</tspan></text><text x="20" y="286" font-family="'DM Mono', monospace" font-size="8.5" letter-spacing="1.5" fill="#141210" opacity=".65">PIANO · BASS · BRUSHES · 1962</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Smoke Signals in C</h3>
+            <p class="record__artist">Ines Calloway</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--jazz">Jazz</span>
+            <span class="record__year">1962</span>
+            <span class="record__cond" title="Condition">VG</span>
+          </div>
+          <span class="record__price">£38</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Kindling · KD-0962 · 1962</p>
+            <h2 class="liner__title">Smoke Signals in C</h2>
+            <p class="liner__artist">Ines Calloway</p>
+            <p class="liner__note">“Ines played piano like she was sending messages across a valley. Some of them still haven’t arrived.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Signal</span><span class="liner__len">4:31</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Kindling</span><span class="liner__len">5:09</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Smoke in C</span><span class="liner__len">6:22</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">Ember Waltz</span><span class="liner__len">4:16</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Wind Change</span><span class="liner__len">5:40</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">Ash &amp; Echo</span><span class="liner__len">3:58</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£38</span>
+              <span class="liner__cond">Jazz · Condition VG</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+        <article class="record" data-genre="funk" tabindex="0" aria-label="Bass Face by Sly Montgomery & The Coupons — open liner notes">
+          <div class="record__media">
+            <div class="record__disc" style="--label: #D7F25A" aria-hidden="true"></div>
+            <div class="record__sleeve">
+              <div class="record__cover">
+                <svg class="cover" viewBox="0 0 300 300" role="img" aria-label="Bass Face cover art"><rect width="300" height="300" fill="#D7F25A"/><g fill="none" stroke="#121212" stroke-width="9" stroke-linecap="round"><path d="M-10 3.06L-2 3.81L6 4.57L14 5.3L22 5.94L30 6.46L38 6.83L46 7.02L54 7.02L62 6.83L70 6.46L78 5.94L86 5.3L94 4.57L102 3.81L110 3.06L118 2.37L126 1.78L134 1.33L142 1.05L150 0.95L158 1.05L166 1.33L174 1.78L182 2.37L190 3.06L198 3.81L206 4.57L214 5.3L222 5.94L230 6.46L238 6.83L246 7.02L254 7.02L262 6.83L270 6.46L278 5.94L286 5.3L294 4.57L302 3.81L310 3.06"/><path d="M-10 24.74L-2 25.49L6 26.14L14 26.66L22 27.01L30 27.17L38 27.13L46 26.9L54 26.48L62 25.91L70 25.22L78 24.45L86 23.65L94 22.88L102 22.17L110 21.58L118 21.15L126 20.89L134 20.83L142 20.96L150 21.29L158 21.79L166 22.43L174 23.16L182 23.95L190 24.74L198 25.49L206 26.14L214 26.66L222 27.01L230 27.17L238 27.13L246 26.9L254 26.48L262 25.91L270 25.22L278 24.45L286 23.65L294 22.88L302 22.17L310 21.58"/><path d="M-10 46.53L-2 47.08L6 47.43L14 47.57L22 47.49L30 47.18L38 46.68L46 46.01L54 45.21L62 44.33L70 43.44L78 42.58L86 41.81L94 41.18L102 40.72L110 40.47L118 40.44L126 40.64L134 41.05L142 41.64L150 42.38L158 43.22L166 44.11L174 45L182 45.82L190 46.53L198 47.08L206 47.43L214 47.57L222 47.49L230 47.18L238 46.68L246 46.01L254 45.21L262 44.33L270 43.44L278 42.58L286 41.81L294 41.18L302 40.72L310 40.47"/><path d="M-10 68.4L-2 68.52L6 68.36L14 67.93L22 67.25L30 66.36L38 65.33L46 64.21L54 63.08L62 62.01L70 61.06L78 60.3L86 59.77L94 59.5L102 59.52L110 59.82L118 60.39L126 61.17L134 62.14L142 63.23L150 64.36L158 65.47L166 66.49L174 67.35L182 68L190 68.4L198 68.52L206 68.36L214 67.93L222 67.25L230 66.36L238 65.33L246 64.21L254 63.08L262 62.01L270 61.06L278 60.3L286 59.77L294 59.5L302 59.52L310 59.82"/><path d="M-10 90.01L-2 89.34L6 88.33L14 87.04L22 85.57L30 83.99L38 82.42L46 80.95L54 79.67L62 78.66L70 77.98L78 77.69L86 77.79L94 78.28L102 79.13L110 80.29L118 81.68L126 83.21L134 84.8L142 86.33L150 87.72L158 88.88L166 89.73L174 90.21L182 90.31L190 90.01L198 89.34L206 88.33L214 87.04L222 85.57L230 83.99L238 82.42L246 80.95L254 79.67L262 78.66L270 77.98L278 77.69L286 77.79L294 78.28L302 79.13L310 80.29"/><path d="M-10 109.82L-2 107.94L6 105.81L14 103.57L22 101.35L30 99.3L38 97.55L46 96.2L54 95.34L62 95.03L70 95.28L78 96.07L86 97.37L94 99.08L102 101.1L110 103.31L118 105.55L126 107.7L134 109.62L142 111.18L150 112.3L158 112.89L166 112.92L174 112.39L182 111.34L190 109.82L198 107.94L206 105.81L214 103.57L222 101.35L230 99.3L238 97.55L246 96.2L254 95.34L262 95.03L270 95.28L278 96.07L286 97.37L294 99.08L302 101.1L310 103.31"/><path d="M-10 125.84L-2 122.87L6 119.98L14 117.34L22 115.12L30 113.45L38 112.45L46 112.18L54 112.64L62 113.83L70 115.65L78 117.99L86 120.71L94 123.64L102 126.6L110 129.38L118 131.84L126 133.79L134 135.14L142 135.78L150 135.68L158 134.85L166 133.34L174 131.24L182 128.68L190 125.84L198 122.87L206 119.98L214 117.34L222 115.12L230 113.45L238 112.45L246 112.18L254 112.64L262 113.83L270 115.65L278 117.99L286 120.71L294 123.64L302 126.6L310 129.38"/><path d="M-10 138.72L-2 135.74L6 133.27L14 131.47L22 130.47L30 130.31L38 131.01L46 132.53L54 134.77L62 137.59L70 140.81L78 144.24L86 147.64L94 150.82L102 153.57L110 155.72L118 157.13L126 157.72L134 157.44L142 156.32L150 154.43L158 151.88L166 148.83L174 145.49L182 142.04L190 138.72L198 135.74L206 133.27L214 131.47L222 130.47L230 130.31L238 131.01L246 132.53L254 134.77L262 137.59L270 140.81L278 144.24L286 147.64L294 150.82L302 153.57L310 155.72"/><path d="M-10 152.87L-2 151.22L6 150.37L14 150.38L22 151.24L30 152.9L38 155.26L46 158.17L54 161.45L62 164.89L70 168.27L78 171.38L86 174.03L94 176.05L102 177.31L110 177.73L118 177.3L126 176.02L134 174L142 171.34L150 168.22L158 164.84L166 161.4L174 158.13L182 155.23L190 152.87L198 151.22L206 150.37L214 150.38L222 151.24L230 152.9L238 155.26L246 158.17L254 161.45L262 164.89L270 168.27L278 171.38L286 174.03L294 176.05L302 177.31L310 177.73"/><path d="M-10 172.2L-2 172.35L6 173.23L14 174.78L22 176.92L30 179.49L38 182.36L46 185.32L54 188.2L62 190.82L70 193.01L78 194.63L86 195.59L94 195.82L102 195.3L110 194.07L118 192.22L126 189.84L134 187.1L142 184.16L150 181.22L158 178.44L166 176.02L174 174.1L182 172.8L190 172.2L198 172.35L206 173.23L214 174.78L222 176.92L230 179.49L238 182.36L246 185.32L254 188.2L262 190.82L270 193.01L278 194.63L286 195.59L294 195.82L302 195.3L310 194.07"/><path d="M-10 196.01L-2 197.28L6 198.97L14 200.98L22 203.18L30 205.42L38 207.58L46 209.52L54 211.1L62 212.24L70 212.87L78 212.93L86 212.44L94 211.41L102 209.92L110 208.06L118 205.94L126 203.7L134 201.48L142 199.41L150 197.64L158 196.26L166 195.38L174 195.03L182 195.25L190 196.01L198 197.28L206 198.97L214 200.98L222 203.18L230 205.42L238 207.58L246 209.52L254 211.1L262 212.24L270 212.87L278 212.93L286 212.44L294 211.41L302 209.92L310 208.06"/><path d="M-10 220.71L-2 222.15L6 223.72L14 225.3L22 226.8L30 228.12L38 229.18L46 229.92L54 230.29L62 230.26L70 229.84L78 229.05L86 227.94L94 226.59L102 225.07L110 223.49L118 221.94L126 220.51L134 219.31L142 218.4L150 217.85L158 217.68L166 217.9L174 218.51L182 219.47L190 220.71L198 222.15L206 223.72L214 225.3L222 226.8L230 228.12L238 229.18L246 229.92L254 230.29L262 230.26L270 229.84L278 229.05L286 227.94L294 226.59L302 225.07L310 223.49"/><path d="M-10 244.01L-2 245.14L6 246.19L14 247.1L22 247.82L30 248.3L38 248.51L46 248.44L54 248.09L62 247.48L70 246.65L78 245.65L86 244.55L94 243.42L102 242.32L110 241.33L118 240.51L126 239.9L134 239.56L142 239.49L150 239.7L158 240.19L166 240.91L174 241.83L182 242.89L190 244.01L198 245.14L206 246.19L214 247.1L222 247.82L230 248.3L238 248.51L246 248.44L254 248.09L262 247.48L270 246.65L278 245.65L286 244.55L294 243.42L302 242.32L310 241.33"/><path d="M-10 265.88L-2 266.57L6 267.11L14 267.45L22 267.57L30 267.47L38 267.15L46 266.64L54 265.95L62 265.15L70 264.27L78 263.38L86 262.52L94 261.76L102 261.14L110 260.69L118 260.46L126 260.45L134 260.66L142 261.08L150 261.69L158 262.44L166 263.29L174 264.18L182 265.06L190 265.88L198 266.57L206 267.11L214 267.45L222 267.57L230 267.47L238 267.15L246 266.64L254 265.95L262 265.15L270 264.27L278 263.38L286 262.52L294 261.76L302 261.14L310 260.69"/><path d="M-10 286.84L-2 287.1L6 287.18L14 287.05L22 286.73L30 286.24L38 285.61L46 284.88L54 284.09L62 283.3L70 282.55L78 281.89L86 281.37L94 281.01L102 280.84L110 280.86L118 281.09L126 281.5L134 282.06L142 282.75L150 283.51L158 284.31L166 285.09L174 285.79L182 286.39L190 286.84L198 287.1L206 287.18L214 287.05L222 286.73L230 286.24L238 285.61L246 284.88L254 284.09L262 283.3L270 282.55L278 281.89L286 281.37L294 281.01L302 280.84L310 280.86"/><path d="M-10 307.04L-2 306.88L6 306.54L14 306.04L22 305.42L30 304.7L38 303.94L46 303.19L54 302.48L62 301.87L70 301.4L78 301.09L86 300.96L94 301.02L102 301.27L110 301.69L118 302.26L126 302.93L134 303.68L142 304.44L150 305.17L158 305.84L166 306.38L174 306.78L182 307L190 307.04L198 306.88L206 306.54L214 306.04L222 305.42L230 304.7L238 303.94L246 303.19L254 302.48L262 301.87L270 301.4L278 301.09L286 300.96L294 301.02L302 301.27L310 301.69"/></g><rect x="40" y="112" width="220" height="76" rx="38" fill="#121212"/><text x="150" y="166" text-anchor="middle" font-family="'Bricolage Grotesque', sans-serif" font-weight="800" font-size="46" font-stretch="75%" letter-spacing="-0.5" fill="#D7F25A">BASS FACE</text><rect x="0" y="262" width="300" height="38" fill="#121212"/><text x="150" y="286" text-anchor="middle" font-family="'DM Mono', monospace" font-size="10" letter-spacing="2" fill="#D7F25A">SLY MONTGOMERY &amp; THE COUPONS</text></svg>
+              </div>
+            </div>
+          </div>
+          <div class="record__info">
+            <h3 class="record__title">Bass Face</h3>
+            <p class="record__artist">Sly Montgomery &amp; The Coupons</p>
+          </div>
+          <div class="record__meta">
+            <span class="record__genre record__genre--funk">Funk</span>
+            <span class="record__year">1978</span>
+            <span class="record__cond" title="Condition">VG+</span>
+          </div>
+          <span class="record__price">£30</span>
+          <div class="record__liner" hidden>
+            <p class="liner__eyebrow">Clearance · CL-7801 · 1978</p>
+            <h2 class="liner__title">Bass Face</h2>
+            <p class="liner__artist">Sly Montgomery &amp; The Coupons</p>
+            <p class="liner__note">“Play it loud enough and you’ll pull the face too. Every customer does. It’s involuntary.” <span>— Lou, behind the counter</span></p>
+            <ol class="liner__tracks">
+              <li><span class="liner__side">A1</span><span class="liner__song">Bass Face</span><span class="liner__len">5:06</span></li>
+              <li><span class="liner__side">A2</span><span class="liner__song">Coupon Clipper</span><span class="liner__len">3:44</span></li>
+              <li><span class="liner__side">A3</span><span class="liner__song">Buy One Get Funk</span><span class="liner__len">4:21</span></li>
+              <li><span class="liner__side">B1</span><span class="liner__song">Clearance</span><span class="liner__len">3:58</span></li>
+              <li><span class="liner__side">B2</span><span class="liner__song">Price Check on Aisle Groove</span><span class="liner__len">4:40</span></li>
+              <li><span class="liner__side">B3</span><span class="liner__song">Bass Face (Reprise)</span><span class="liner__len">2:12</span></li>
+            </ol>
+            <div class="liner__buy">
+              <span class="liner__price">£30</span>
+              <span class="liner__cond">Funk · Condition VG+</span>
+              <button class="liner__add" type="button">Add to bag</button>
+            </div>
+          </div>
+        </article>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__big">We buy collections. <em>Even the embarrassing ones.</em></p>
+    <p class="foot__small">Crate Diggers · Independent since 1994 · All records play-graded on a 1979 Technics deck</p>
+  </footer>
+
+  <!-- ───────────── Detail panel (liner notes) ───────────── -->
+  <div class="detail" role="dialog" aria-modal="true" aria-label="Record details">
+    <div class="detail__backdrop"></div>
+    <div class="detail__panel">
+      <div class="detail__paper" aria-hidden="true"></div>
+      <button class="detail__close" type="button" aria-label="Close liner notes">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4 L16 16 M16 4 L4 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="detail__media">
+        <div class="detail__disc" aria-hidden="true"></div>
+        <!-- the clicked record's cover lands here -->
+        <div class="detail__sleeve"></div>
+      </div>
+      <!-- the clicked record's .record__liner content goes here -->
+      <div class="detail__body"></div>
+    </div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="../../_vendor/gsap/gsap.min.js"></script>
+  <script src="../../_vendor/gsap/Flip.min.js"></script>
+  <!-- Your code -->
+  <script src="main.js"></script>
+</body>
+</html>

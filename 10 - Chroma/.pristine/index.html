@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chroma — A History of Colour · The Lister Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ───────────── Intro ───────────── -->
+  <header class="nav">
+    <a href="#" class="nav__logo">The Lister Gallery</a>
+    <nav class="nav__links">
+      <a href="#">Exhibitions</a>
+      <a href="#">Visit</a>
+      <a href="#">Events</a>
+      <a href="#">Shop</a>
+    </nav>
+    <a href="#" class="nav__cta">Book tickets</a>
+  </header>
+
+  <section class="intro">
+    <div class="intro__copy">
+      <p class="intro__kicker">Hall 3 · 14 March — 30 August 2026</p>
+      <h1 class="intro__title">Chroma</h1>
+      <p class="intro__sub">A history of colour<br><em>in five pigments</em></p>
+      <p class="intro__lead">Forty thousand years of people grinding rocks, boiling snails and blowing up their kitchens for the sake of a better colour. Walk the timeline from cave wall to coal tar.</p>
+      <ul class="chips" aria-label="The five pigments">
+        <li class="chip" style="--c:#B4612B"><span>Ochre</span><small>40,000 BC</small></li>
+        <li class="chip" style="--c:#5E1742"><span>Tyrian</span><small>1500 BC</small></li>
+        <li class="chip" style="--c:#1E3FA0"><span>Ultramarine</span><small>1200s</small></li>
+        <li class="chip" style="--c:#0F3150"><span>Prussian</span><small>1706</small></li>
+        <li class="chip" style="--c:#8A4A9C"><span>Mauveine</span><small>1856</small></li>
+      </ul>
+    </div>
+
+    <svg class="intro__prism" viewBox="0 0 640 560" aria-hidden="true">
+      <defs>
+        <linearGradient id="beam" x1="0" x2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+          <stop offset=".35" stop-color="#fff" stop-opacity=".85"/>
+          <stop offset="1" stop-color="#fff" stop-opacity=".95"/>
+        </linearGradient>
+        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity=".26"/>
+          <stop offset=".55" stop-color="#fff" stop-opacity=".06"/>
+          <stop offset="1" stop-color="#fff" stop-opacity=".16"/>
+        </linearGradient>
+        <linearGradient id="fade" x1="0" x2="1">
+          <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+          <stop offset=".8" stop-color="#fff" stop-opacity=".9"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </linearGradient>
+        <mask id="bandFade"><rect x="0" y="0" width="640" height="560" fill="url(#fade)"/></mask>
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
+      </defs>
+      <!-- white light comes in… -->
+      <path d="M0 286 L262 300 L262 308 L0 300 Z" fill="url(#beam)"/>
+      <path d="M0 286 L262 300 L262 308 L0 300 Z" fill="#fff" opacity=".5" filter="url(#glow)"/>
+      <!-- …and leaves as five pigments -->
+      <g class="intro__bands" mask="url(#bandFade)">
+        <path d="M392 262 L398 278 L640 236 L640 168 Z" fill="#B4612B"/>
+        <path d="M398 278 L404 294 L640 304 L640 236 Z" fill="#5E1742"/>
+        <path d="M404 294 L410 310 L640 372 L640 304 Z" fill="#1E3FA0"/>
+        <path d="M410 310 L416 326 L640 440 L640 372 Z" fill="#0F3150"/>
+        <path d="M416 326 L422 342 L640 508 L640 440 Z" fill="#8A4A9C"/>
+      </g>
+      <g opacity=".45" filter="url(#glow)" mask="url(#bandFade)">
+        <path d="M392 262 L422 342 L640 508 L640 168 Z" fill="#E9D7C2"/>
+      </g>
+      <!-- the beam inside the glass -->
+      <path d="M262 300 L392 262 L422 342 L262 308 Z" fill="#fff" opacity=".22"/>
+      <!-- the prism -->
+      <path d="M330 92 L478 436 L182 436 Z" fill="url(#glass)" stroke="#F4EDE1" stroke-opacity=".75" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M330 120 L206 420" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+      <path d="M200 436 L478 436" stroke="#fff" stroke-opacity=".35" stroke-width="6" stroke-linecap="round"/>
+      <ellipse cx="330" cy="470" rx="190" ry="12" fill="#000" opacity=".35"/>
+    </svg>
+
+    <p class="intro__cue">Scroll to walk the timeline <span aria-hidden="true">→</span></p>
+  </section>
+
+  <!-- ───────────── The timeline (pin this section) ───────────── -->
+  <section class="chroma">
+    <div class="chroma__bar">
+      <span class="chroma__mark">Chroma</span>
+      <span class="chroma__room">Room 2 — Five pigments that changed everything</span>
+    </div>
+
+    <!-- the track is five panels wide; each panel is exactly one screen -->
+    <div class="chroma__track">
+
+      <article class="panel" data-color="#B4612B">
+        <div class="panel__copy">
+          <p class="panel__era">Era 01 · The Palaeolithic</p>
+          <div class="panel__mask"><h2 class="panel__year">40,000 BC</h2></div>
+          <h3 class="panel__name">Ochre <span class="panel__formula">Fe₂O₃ · iron-oxide earth</span></h3>
+          <p class="panel__text">The first colour was dirt. Dug from iron-rich clay, ground on a stone and blown through a hollow bone, red ochre left the oldest signatures we have: a hand pressed to a cave wall, saying <em>I was here</em>.</p>
+          <dl class="panel__facts">
+            <div><dt>Source</dt><dd>Iron-rich clay</dd></div>
+            <div><dt>Found at</dt><dd>Sulawesi, Blombos</dd></div>
+            <div><dt>Cost</dt><dd>Free, if you could find it</dd></div>
+          </dl>
+        </div>
+        <figure class="panel__specimen">
+          <img src="specimen-ochre.svg" alt="A rock fragment with a red ochre hand stencil and a scraped lump of ochre">
+          <figcaption class="tag"><span class="tag__no">Cat. 01</span>Hand stencil, red ochre on limestone. Replica.</figcaption>
+        </figure>
+      </article>
+
+      <article class="panel" data-color="#5E1742">
+        <div class="panel__copy">
+          <p class="panel__era">Era 02 · Bronze-age Phoenicia</p>
+          <div class="panel__mask"><h2 class="panel__year">1500 BC</h2></div>
+          <h3 class="panel__name">Tyrian Purple <span class="panel__formula">C₁₆H₈Br₂N₂O₂ · dibromo-indigo</span></h3>
+          <p class="panel__text">Ten thousand murex sea snails gave their lives for a single gram. The dyers of Tyre steeped them for days — the stench was legendary, and so was the price. For centuries only emperors were allowed to wear it.</p>
+          <dl class="panel__facts">
+            <div><dt>Source</dt><dd>Murex sea snails</dd></div>
+            <div><dt>Yield</dt><dd>1 g per 10,000 shells</dd></div>
+            <div><dt>Worn by</dt><dd>Emperors only</dd></div>
+          </dl>
+        </div>
+        <figure class="panel__specimen">
+          <img src="specimen-tyrian.svg" alt="A spiny murex shell beside a shallow dish of purple dye">
+          <figcaption class="tag"><span class="tag__no">Cat. 02</span>Bolinus brandaris and a dish of dye. Tyre, Lebanon.</figcaption>
+        </figure>
+      </article>
+
+      <article class="panel" data-color="#1E3FA0">
+        <div class="panel__copy">
+          <p class="panel__era">Era 03 · Medieval Europe</p>
+          <div class="panel__mask"><h2 class="panel__year">1200s</h2></div>
+          <h3 class="panel__name">Ultramarine <span class="panel__formula">Na₇Al₆Si₆O₂₄S₃ · lazurite</span></h3>
+          <p class="panel__text"><em>Ultramarinus</em> — from beyond the sea. Ground from lapis lazuli mined in a single Afghan valley and shipped to Venice, it cost more than gold. Painters saved it for the Virgin’s robe, and contracts named the ounces.</p>
+          <dl class="panel__facts">
+            <div><dt>Source</dt><dd>Lapis lazuli, Sar-e-Sang</dd></div>
+            <div><dt>Price</dt><dd>More than gold</dd></div>
+            <div><dt>Saved for</dt><dd>The Virgin’s robe</dd></div>
+          </dl>
+        </div>
+        <figure class="panel__specimen">
+          <img src="specimen-ultramarine.svg" alt="A faceted lump of lapis lazuli flecked with gold, a heap of blue powder and a flake of gold leaf">
+          <figcaption class="tag"><span class="tag__no">Cat. 03</span>Lapis lazuli, ground pigment and gold leaf.</figcaption>
+        </figure>
+      </article>
+
+      <article class="panel" data-color="#0F3150">
+        <div class="panel__copy">
+          <p class="panel__era">Era 04 · The Enlightenment</p>
+          <div class="panel__mask"><h2 class="panel__year">1706</h2></div>
+          <h3 class="panel__name">Prussian Blue <span class="panel__formula">Fe₄[Fe(CN)₆]₃ · ferric ferrocyanide</span></h3>
+          <p class="panel__text">A Berlin colour-maker was trying to make red. A contaminated batch of potash turned his pot a deep, steady blue instead — the first modern synthetic pigment. A century later, Hokusai painted a great wave with it.</p>
+          <dl class="panel__facts">
+            <div><dt>Source</dt><dd>A happy accident</dd></div>
+            <div><dt>Made by</dt><dd>J. J. Diesbach</dd></div>
+            <div><dt>Famous for</dt><dd>The Great Wave</dd></div>
+          </dl>
+        </div>
+        <figure class="panel__specimen">
+          <img src="specimen-prussian.svg" alt="A corked glass flask of deep blue liquid labelled Berliner Blau">
+          <figcaption class="tag"><span class="tag__no">Cat. 04</span>“Berliner Blau”, laboratory flask. Berlin.</figcaption>
+        </figure>
+      </article>
+
+      <article class="panel" data-color="#8A4A9C">
+        <div class="panel__copy">
+          <p class="panel__era">Era 05 · The Industrial Age</p>
+          <div class="panel__mask"><h2 class="panel__year">1856</h2></div>
+          <h3 class="panel__name">Mauveine <span class="panel__formula">C₂₇H₂₅N₄⁺ · aniline dye</span></h3>
+          <p class="panel__text">Eighteen-year-old William Perkin was trying to make quinine in a home lab over the Easter holidays. He got a purple sludge instead — the first synthetic dye. Within a decade London had “mauve measles”, and colour belonged to everyone.</p>
+          <dl class="panel__facts">
+            <div><dt>Source</dt><dd>Coal tar</dd></div>
+            <div><dt>Made by</dt><dd>W. H. Perkin, aged 18</dd></div>
+            <div><dt>Result</dt><dd>Mauve measles</dd></div>
+          </dl>
+        </div>
+        <figure class="panel__specimen">
+          <img src="specimen-mauveine.svg" alt="A skein of mauve silk and a test tube of purple dye">
+          <figcaption class="tag"><span class="tag__no">Cat. 05</span>Silk skein dyed with mauveine, and the dye.</figcaption>
+        </figure>
+      </article>
+
+    </div>
+
+    <!-- era progress: highlight the dot of the era in view (.is-active is styled for you) -->
+    <nav class="era" aria-label="Timeline progress">
+      <div class="era__line"><div class="era__fill"></div></div>
+      <ol class="era__list">
+        <li class="era__item"><span class="era__dot is-active"></span><span class="era__label">40,000 BC</span></li>
+        <li class="era__item"><span class="era__dot"></span><span class="era__label">1500 BC</span></li>
+        <li class="era__item"><span class="era__dot"></span><span class="era__label">1200s</span></li>
+        <li class="era__item"><span class="era__dot"></span><span class="era__label">1706</span></li>
+        <li class="era__item"><span class="era__dot"></span><span class="era__label">1856</span></li>
+      </ol>
+    </nav>
+  </section>
+
+  <!-- ───────────── Outro ───────────── -->
+  <section class="outro">
+    <p class="outro__kicker">Then what?</p>
+    <h2 class="outro__title">Colour used to be <em>rare.</em><br>Now it’s in your pocket.</h2>
+    <div class="outro__grid">
+      <div class="info">
+        <h3>Opening hours</h3>
+        <p>Tue – Sun, 10:00 – 18:00<br>Late on Fridays until 21:00</p>
+      </div>
+      <div class="info">
+        <h3>Where</h3>
+        <p>The Lister Gallery, Hall 3<br>12 Pigment Row, London</p>
+      </div>
+      <div class="info">
+        <h3>Access</h3>
+        <p>Step-free throughout. Touch tours of every specimen on Saturdays.</p>
+      </div>
+      <a href="#" class="outro__cta">Book a timed ticket · £14 <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>© The Lister Gallery. All specimens are replicas — please do not lick.</span>
+    <span>Chroma is supported by the Society of Dyers &amp; Colourists.</span>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="../../_vendor/gsap/gsap.min.js"></script>
+  <script src="../../_vendor/gsap/ScrollTrigger.min.js"></script>
+  <!-- Your code -->
+  <script src="main.js"></script>
+</body>
+</html>

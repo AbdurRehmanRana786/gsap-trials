@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinetic Type Co. — A manifesto in motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ───────────── Masthead ───────────── -->
+  <header class="masthead">
+    <a href="#" class="masthead__logo">
+      <svg class="masthead__mark" viewBox="0 0 40 40" aria-hidden="true">
+        <g fill="#FF4325">
+          <rect x="17.5" y="2" width="5" height="36" rx="2.5"/>
+          <rect x="17.5" y="2" width="5" height="36" rx="2.5" transform="rotate(60 20 20)"/>
+          <rect x="17.5" y="2" width="5" height="36" rx="2.5" transform="rotate(120 20 20)"/>
+        </g>
+        <circle cx="20" cy="20" r="4.2" fill="#F1ECE3"/>
+      </svg>
+      <span>Kinetic Type Co.</span>
+    </a>
+    <nav class="masthead__nav">
+      <a href="#">Typefaces</a>
+      <a href="#">Studio</a>
+      <a href="#" aria-current="page">Manifesto</a>
+      <a href="#">Shop</a>
+    </nav>
+    <p class="masthead__meta">Rotterdam · Est. 2011</p>
+  </header>
+
+  <!-- ───────────── Hero ───────────── -->
+  <section class="hero">
+    <p class="hero__kicker">
+      <span>Issue 07</span>
+      <span>Spring 2026</span>
+      <span>14 families · 212 styles</span>
+      <span class="hero__status"><i aria-hidden="true"></i>Now drawing: Kinetic Grotesk Condensed — 61%</span>
+    </p>
+
+    <h1 class="hero__title">Words that<br>move the<br><em>room.</em></h1>
+
+    <div class="hero__foot">
+      <p class="hero__sub">
+        We design for
+        <span class="ticker">
+          <span class="ticker__word">brands</span>
+          <span class="ticker__word">motion</span>
+          <span class="ticker__word">people</span>
+        </span>
+      </p>
+
+      <figure class="specimen" aria-label="Type specimen">
+        <svg viewBox="0 0 440 300" aria-hidden="true">
+          <defs>
+            <path id="kt-wave" d="M-40 62 C 40 22, 120 22, 200 62 S 360 102, 440 62 S 600 22, 680 62"/>
+            <pattern id="kt-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M20 0 H0 V20" fill="none" stroke="#15120F" stroke-opacity=".06"/>
+            </pattern>
+            <clipPath id="kt-card"><rect x="0" y="0" width="440" height="300" rx="20"/></clipPath>
+          </defs>
+          <g clip-path="url(#kt-card)">
+            <rect width="440" height="300" fill="#E7E0D4"/>
+            <rect width="440" height="300" fill="url(#kt-grid)"/>
+
+            <!-- metric lines -->
+            <g stroke="#15120F" stroke-opacity=".35" stroke-width="1">
+              <line x1="0" y1="112" x2="440" y2="112" stroke-dasharray="3 4"/>
+              <line x1="0" y1="168" x2="440" y2="168" stroke-dasharray="3 4"/>
+              <line x1="0" y1="236" x2="440" y2="236" stroke="#FF4325" stroke-opacity=".9"/>
+              <line x1="0" y1="276" x2="440" y2="276" stroke-dasharray="3 4"/>
+            </g>
+            <g font-family="DM Mono, monospace" font-size="8.5" letter-spacing="1" fill="#15120F" fill-opacity=".55">
+              <text x="14" y="107">CAP 700</text>
+              <text x="14" y="163">X-HEIGHT 512</text>
+              <text x="14" y="231" fill="#FF4325" fill-opacity="1">BASELINE 0</text>
+              <text x="14" y="271">DESC −212</text>
+            </g>
+
+            <!-- the glyphs -->
+            <text x="112" y="236" font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="178" fill="#15120F" style="font-stretch: 78%">K</text>
+            <text x="246" y="236" font-family="Newsreader, Georgia, serif" font-style="italic" font-weight="400" font-size="196" fill="#FF4325">g</text>
+
+            <!-- a node with its bezier handles, as if mid-edit -->
+            <g stroke="#15120F" stroke-width="1">
+              <line x1="318" y1="132" x2="380" y2="118"/>
+              <line x1="318" y1="132" x2="268" y2="146"/>
+            </g>
+            <rect x="313" y="127" width="10" height="10" fill="#F1ECE3" stroke="#15120F" stroke-width="1.4"/>
+            <circle cx="380" cy="118" r="4" fill="#15120F"/>
+            <circle cx="268" cy="146" r="4" fill="#15120F"/>
+
+            <!-- advance width -->
+            <g stroke="#15120F" stroke-opacity=".6">
+              <line x1="112" y1="252" x2="234" y2="252"/>
+              <line x1="112" y1="247" x2="112" y2="257"/><line x1="234" y1="247" x2="234" y2="257"/>
+            </g>
+            <text x="173" y="266" text-anchor="middle" font-family="DM Mono, monospace" font-size="8" letter-spacing="1" fill="#15120F" fill-opacity=".6">ADVANCE 618</text>
+
+            <!-- the kinetic ribbon -->
+            <path d="M-40 62 C 40 22, 120 22, 200 62 S 360 102, 440 62" fill="none" stroke="#15120F" stroke-width="22" stroke-linecap="round"/>
+            <text font-family="DM Mono, monospace" font-size="11" letter-spacing="3" fill="#F1ECE3" dy="4">
+              <textPath class="specimen__ribbon" href="#kt-wave" startOffset="0">KINETIC GROTESK · BLACK · KT VERSO ITALIC · KINETIC GROTESK · BLACK · KT VERSO ITALIC · </textPath>
+            </text>
+          </g>
+        </svg>
+        <figcaption>Specimen 07/212 · Grotesk Black × Verso Italic</figcaption>
+      </figure>
+
+      <a href="#manifesto" class="hero__scroll">Read the manifesto <span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <!-- ───────────── Manifesto ───────────── -->
+  <section class="manifesto" id="manifesto">
+    <aside class="manifesto__aside">
+      <p class="manifesto__label">Manifesto</p>
+      <p class="manifesto__meta">§ 1 of 1 · Read aloud, slowly</p>
+    </aside>
+    <p class="manifesto__text">Type is not decoration. It is the voice a brand speaks in before anyone has read a single word. We draw letters that keep their nerve at six pixels and at sixty metres, that move without wobbling, and that still mean something when they stand perfectly still. A good typeface earns its keep in the paragraph, not just on the poster. The best motion is the kind you feel before you notice it — and the best letters are the ones nobody ever has to think about twice.</p>
+  </section>
+
+  <!-- ───────────── Principles ───────────── -->
+  <section class="principles">
+    <header class="principles__head">
+      <p class="principles__label">Three rules we don’t break</p>
+      <p class="principles__note">Pinned above every desk in the studio, slightly crooked.</p>
+    </header>
+    <ol class="principles__list">
+      <li class="principle">
+        <span class="principle__num">01</span>
+        <h3 class="principle__title">Legibility is a feeling.</h3>
+        <p class="principle__text">If a reader has to squint, we have failed — however good it looks on the specimen sheet. Every weight is proofed at nine points, on a cheap phone, on a bright train, before it leaves the studio.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__num">02</span>
+        <h3 class="principle__title">Motion has manners.</h3>
+        <p class="principle__text">Letters may dance, but they don’t cut in. Everything we animate gives the eye somewhere to land within six hundred milliseconds, and never moves the word you were halfway through reading.</p>
+      </li>
+      <li class="principle">
+        <span class="principle__num">03</span>
+        <h3 class="principle__title">Every glyph pays rent.</h3>
+        <p class="principle__text">If a character can’t justify its place in the family, it goes. Two hundred and twelve styles, and not one ornamental swash that hasn’t earned its keep.</p>
+      </li>
+    </ol>
+  </section>
+
+  <footer class="colophon">
+    <svg class="colophon__mark" viewBox="0 0 40 40" aria-hidden="true">
+      <g fill="#15120F">
+        <rect x="17.6" y="1" width="4.8" height="38" rx="2.4"/>
+        <rect x="17.6" y="1" width="4.8" height="38" rx="2.4" transform="rotate(60 20 20)"/>
+        <rect x="17.6" y="1" width="4.8" height="38" rx="2.4" transform="rotate(120 20 20)"/>
+      </g>
+      <circle cx="20" cy="20" r="4" fill="#FF4325"/>
+    </svg>
+    <p class="colophon__big">Set something<br>in <em>motion.</em></p>
+    <div class="colophon__row">
+      <a href="#" class="colophon__cta">Start a project <span aria-hidden="true">→</span></a>
+      <p class="colophon__fine">Kinetic Type Co. · Rotterdam · A fictional foundry made for GSAP Trials.</p>
+    </div>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="../../_vendor/gsap/gsap.min.js"></script>
+  <script src="../../_vendor/gsap/ScrollTrigger.min.js"></script>
+  <script src="../../_vendor/gsap/SplitText.min.js"></script>
+  <!-- Your code -->
+  <script src="main.js"></script>
+</body>
+</html>

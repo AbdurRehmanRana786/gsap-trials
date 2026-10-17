@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botanica — Leaf it to us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../_vendor/lenis/lenis.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Shared botanical parts, reused with <use href="#…">. Not displayed on its own. -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#fff" stop-opacity=".24"/>
+        <stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+        <stop offset="1" stop-color="#000" stop-opacity=".22"/>
+      </linearGradient>
+      <linearGradient id="potShade" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#000" stop-opacity=".24"/>
+        <stop offset=".35" stop-color="#000" stop-opacity="0"/>
+        <stop offset=".62" stop-color="#fff" stop-opacity=".16"/>
+        <stop offset="1" stop-color="#000" stop-opacity=".28"/>
+      </linearGradient>
+      <pattern id="bands" width="24" height="11" patternUnits="userSpaceOnUse">
+        <path d="M0 6 Q6 1.5 12 6 T24 6" fill="none" stroke="#0B2117" stroke-opacity=".3" stroke-width="2.2"/>
+      </pattern>
+      <mask id="mCut" maskUnits="userSpaceOnUse" x="-110" y="-170" width="220" height="185">
+        <rect x="-110" y="-170" width="220" height="185" fill="#fff"/>
+        <g fill="#000">
+          <path d="M-12 -26 L-100 -44 L-100 -33 Z"/><path d="M-12 -56 L-100 -84 L-100 -72 Z"/>
+          <path d="M-10 -86 L-96 -124 L-98 -112 Z"/><path d="M-7 -112 L-72 -160 L-80 -150 Z"/>
+          <path d="M12 -26 L100 -44 L100 -33 Z"/><path d="M12 -56 L100 -84 L100 -72 Z"/>
+          <path d="M10 -86 L96 -124 L98 -112 Z"/><path d="M7 -112 L72 -160 L80 -150 Z"/>
+          <ellipse cx="-30" cy="-50" rx="6" ry="3.2" transform="rotate(-18 -30 -50)"/>
+          <ellipse cx="-34" cy="-80" rx="6" ry="3.2" transform="rotate(-24 -34 -80)"/>
+          <ellipse cx="30" cy="-50" rx="6" ry="3.2" transform="rotate(18 30 -50)"/>
+          <ellipse cx="34" cy="-80" rx="6" ry="3.2" transform="rotate(24 34 -80)"/>
+          <ellipse cx="-26" cy="-108" rx="5" ry="2.8" transform="rotate(-30 -26 -108)"/>
+          <ellipse cx="26" cy="-108" rx="5" ry="2.8" transform="rotate(30 26 -108)"/>
+        </g>
+      </mask>
+
+      <!-- leaves: base at 0,0, pointing up; colour comes from the <use>'s `color` -->
+      <g id="monstera">
+        <g mask="url(#mCut)">
+          <path d="M0 0 C-30 -4 -74 -26 -80 -72 C-86 -118 -46 -150 0 -152 C46 -150 86 -118 80 -72 C74 -26 30 -4 0 0 Z" fill="currentColor"/>
+          <path d="M0 0 C-30 -4 -74 -26 -80 -72 C-86 -118 -46 -150 0 -152 C46 -150 86 -118 80 -72 C74 -26 30 -4 0 0 Z" fill="url(#sheen)"/>
+        </g>
+        <path d="M0 -2 Q3 -76 0 -146" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="2.4" stroke-linecap="round"/>
+      </g>
+      <g id="heart">
+        <path d="M0 -3 C-5 2 -14 0 -14 -10 C-14 -20 -5 -26 0 -32 C5 -26 14 -20 14 -10 C14 0 5 2 0 -3 Z" fill="currentColor"/>
+        <path d="M0 -3 C-5 2 -14 0 -14 -10 C-14 -20 -5 -26 0 -32 C5 -26 14 -20 14 -10 C14 0 5 2 0 -3 Z" fill="url(#sheen)"/>
+        <path d="M0 -3 Q1 -16 0 -28" fill="none" stroke="#fff" stroke-opacity=".38" stroke-width="1"/>
+      </g>
+      <g id="blade">
+        <path d="M0 0 C-10 -30 -11 -84 -3 -124 L0 -132 L3 -124 C11 -84 10 -30 0 0 Z" fill="currentColor" stroke="#CFCB6A" stroke-width="1.6"/>
+        <path d="M0 0 C-10 -30 -11 -84 -3 -124 L0 -132 L3 -124 C11 -84 10 -30 0 0 Z" fill="url(#bands)"/>
+        <path d="M0 0 C-10 -30 -11 -84 -3 -124 L0 -132 L3 -124 C11 -84 10 -30 0 0 Z" fill="url(#sheen)"/>
+      </g>
+      <g id="oval">
+        <path d="M0 0 C-15 -8 -19 -36 0 -58 C19 -36 15 -8 0 0 Z" fill="currentColor"/>
+        <path d="M0 0 C-15 -8 -19 -36 0 -58 C19 -36 15 -8 0 0 Z" fill="url(#sheen)"/>
+        <path d="M0 -2 L0 -52" stroke="#fff" stroke-opacity=".32" stroke-width="1.2"/>
+      </g>
+      <g id="fiddle">
+        <path d="M0 0 C-10 -6 -15 -16 -13 -28 C-12 -36 -21 -44 -18 -56 C-14 -67 -4 -68 0 -64 C4 -68 14 -67 18 -56 C21 -44 12 -36 13 -28 C15 -16 10 -6 0 0 Z" fill="currentColor"/>
+        <path d="M0 0 C-10 -6 -15 -16 -13 -28 C-12 -36 -21 -44 -18 -56 C-14 -67 -4 -68 0 -64 C4 -68 14 -67 18 -56 C21 -44 12 -36 13 -28 C15 -16 10 -6 0 0 Z" fill="url(#sheen)"/>
+        <path d="M0 -2 L0 -62 M0 -20 L-10 -28 M0 -20 L10 -28 M0 -36 L-13 -46 M0 -36 L13 -46 M0 -50 L-10 -58 M0 -50 L10 -58" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1"/>
+      </g>
+      <g id="round">
+        <path d="M0 0 C-26 -4 -32 -42 0 -54 C32 -42 26 -4 0 0 Z" fill="currentColor"/>
+        <path d="M0 0 C-26 -4 -32 -42 0 -54 C32 -42 26 -4 0 0 Z" fill="url(#sheen)"/>
+        <g fill="none" stroke="#EEF5E4" stroke-opacity=".55" stroke-width="1.8" stroke-linecap="round">
+          <path d="M0 -6 C-8 -9 -15 -10 -20 -10 M0 -16 C-9 -20 -17 -22 -24 -22 M0 -27 C-9 -31 -16 -33 -22 -34 M0 -38 C-6 -41 -11 -43 -15 -45"/>
+          <path d="M0 -6 C8 -9 15 -10 20 -10 M0 -16 C9 -20 17 -22 24 -22 M0 -27 C9 -31 16 -33 22 -34 M0 -38 C6 -41 11 -43 15 -45"/>
+        </g>
+        <path d="M0 -2 L0 -50" stroke="#fff" stroke-opacity=".3" stroke-width="1.2"/>
+      </g>
+      <g id="lance">
+        <path d="M0 0 C-12 -12 -14 -44 0 -76 C14 -44 12 -12 0 0 Z" fill="currentColor"/>
+        <path d="M0 0 C-12 -12 -14 -44 0 -76 C14 -44 12 -12 0 0 Z" fill="url(#sheen)"/>
+        <path d="M0 -2 L0 -70" stroke="#fff" stroke-opacity=".3" stroke-width="1.1"/>
+      </g>
+      <g id="spathe">
+        <path d="M0 0 C-12 -8 -14 -32 0 -48 C14 -32 12 -8 0 0 Z" fill="#FBFAF4"/>
+        <path d="M0 0 C-12 -8 -14 -32 0 -48 C14 -32 12 -8 0 0 Z" fill="url(#sheen)" opacity=".7"/>
+        <rect x="-2.6" y="-30" width="5.2" height="19" rx="2.6" fill="#E8D98A"/>
+      </g>
+      <!-- pot: top-centre at 0,0, colour from `color` -->
+      <g id="pot">
+        <path d="M-28 12 L-22 54 Q-21 58 -16 58 L16 58 Q21 58 22 54 L28 12 Z" fill="currentColor"/>
+        <path d="M-28 12 L-22 54 Q-21 58 -16 58 L16 58 Q21 58 22 54 L28 12 Z" fill="url(#potShade)"/>
+        <rect x="-33" y="0" width="66" height="14" rx="3" fill="currentColor"/>
+        <rect x="-33" y="0" width="66" height="14" rx="3" fill="url(#potShade)"/>
+        <rect x="-31" y="13" width="62" height="3" fill="#000" opacity=".14"/>
+        <ellipse cx="0" cy="1.6" rx="30" ry="3.2" fill="#2E2118"/>
+      </g>
+      <g id="speckles" fill="#6B5E4E" opacity=".55">
+        <circle cx="-18" cy="22" r="1.1"/><circle cx="-6" cy="30" r=".9"/><circle cx="9" cy="20" r="1.2"/><circle cx="18" cy="34" r=".9"/>
+        <circle cx="-14" cy="42" r="1"/><circle cx="3" cy="46" r="1.1"/><circle cx="14" cy="50" r=".8"/><circle cx="-2" cy="12" r=".8"/>
+        <circle cx="-24" cy="6" r=".9"/><circle cx="22" cy="7" r="1"/><circle cx="-8" cy="52" r=".8"/>
+      </g>
+      <path id="drop" d="M0 -10 C4 -4 7 0 7 4 A7 7 0 0 1 -7 4 C-7 0 -4 -4 0 -10 Z"/>
+    </defs>
+  </svg>
+
+  <!-- ───────────── Nav ───────────── -->
+  <header class="nav">
+    <a href="#" class="nav__logo">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26 C6 14 14 6 27 5 C27 18 19 26 6 26 Z" fill="currentColor"/><path d="M6 26 C11 19 16 14 22 10" fill="none" stroke="#0F2B21" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Botanica
+    </a>
+    <nav class="nav__links">
+      <a href="#">Plants</a><a href="#">Subscriptions</a><a href="#">Plant doctor</a><a href="#">Journal</a>
+    </nav>
+    <a href="#" class="nav__cta">Start growing</a>
+  </header>
+
+  <!-- ───────────── Hero ───────────── -->
+  <section class="hero">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Plant subscription <span>·</span> Est. 2019</p>
+      <h1 class="hero__title">Leaf it<br>to <em>us.</em></h1>
+      <p class="hero__text">Nursery-grown plants on your doorstep every month, with care cards a toddler could follow and a plant doctor on call when things get droopy.</p>
+      <div class="hero__actions">
+        <a href="#" class="btn btn--lime">Start from £18/month</a>
+        <a href="#" class="btn btn--ghost">Take the plant quiz</a>
+      </div>
+      <ul class="hero__perks">
+        <li>Free delivery</li><li>Pause anytime</li><li>30-day thrive guarantee</li>
+      </ul>
+    </div>
+
+    <div class="hero__art">
+      <svg class="hero__plant" viewBox="0 0 560 640" aria-hidden="true">
+        <defs>
+          <radialGradient id="sun" cx="40%" cy="35%" r="70%">
+            <stop offset="0" stop-color="#E4F57E"/>
+            <stop offset="1" stop-color="#B9D646"/>
+          </radialGradient>
+          <linearGradient id="stone" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#BFB7A4"/>
+            <stop offset=".45" stop-color="#E9E3D4"/>
+            <stop offset="1" stop-color="#B3AB98"/>
+          </linearGradient>
+        </defs>
+        <circle cx="290" cy="262" r="214" fill="url(#sun)"/>
+        <circle cx="290" cy="262" r="244" fill="none" stroke="#D4EC5E" stroke-opacity=".28" stroke-width="1.2"/>
+        <circle cx="290" cy="262" r="274" fill="none" stroke="#D4EC5E" stroke-opacity=".14" stroke-width="1" stroke-dasharray="3 7"/>
+
+        <!-- plinth -->
+        <ellipse cx="290" cy="634" rx="150" ry="12" fill="#000" opacity=".22"/>
+        <path d="M168 556 V618 A122 16 0 0 0 412 618 V556 Z" fill="url(#stone)"/>
+        <ellipse cx="290" cy="556" rx="122" ry="16" fill="#F2EDE1"/>
+        <ellipse cx="290" cy="556" rx="92" ry="9" fill="#000" opacity=".12"/>
+
+        <!-- monstera stems -->
+        <g fill="none" stroke="#2C5A3C" stroke-linecap="round">
+          <path d="M282 426 C240 392 192 362 152 332" stroke-width="5"/>
+          <path d="M298 426 C342 396 386 356 412 326" stroke-width="5"/>
+          <path d="M286 424 C270 362 232 302 202 254" stroke-width="5.5"/>
+          <path d="M296 424 C322 352 360 292 380 240" stroke-width="5.5"/>
+          <path d="M290 424 C292 330 292 270 290 212" stroke-width="6"/>
+          <path d="M288 424 C278 384 264 346 250 306" stroke-width="4.5"/>
+        </g>
+        <use href="#monstera" transform="translate(152 332) rotate(-68) scale(.94)" color="#4A8D5E"/>
+        <use href="#monstera" transform="translate(412 326) rotate(64) scale(.92)" color="#26583B"/>
+        <use href="#monstera" transform="translate(202 254) rotate(-36) scale(1.12)" color="#2E6A46"/>
+        <use href="#monstera" transform="translate(380 240) rotate(33) scale(1.16)" color="#3B7D53"/>
+        <use href="#monstera" transform="translate(290 212) rotate(3) scale(1.18)" color="#2A5F40"/>
+        <use href="#monstera" transform="translate(250 306) rotate(-12) scale(.74)" color="#5FA571"/>
+
+        <!-- trailing pothos from the ceiling, hanging in front -->
+        <path d="M556 -20 C548 50 528 104 538 164 S560 262 546 330" fill="none" stroke="#5C8F4A" stroke-width="3"/>
+        <use href="#heart" transform="translate(550 30) rotate(142) scale(1.6)" color="#86BE66"/>
+        <use href="#heart" transform="translate(536 82) rotate(218) scale(1.5)" color="#B9D66A"/>
+        <use href="#heart" transform="translate(532 136) rotate(148) scale(1.6)" color="#6FAE5E"/>
+        <use href="#heart" transform="translate(546 196) rotate(220) scale(1.5)" color="#9CCB66"/>
+        <use href="#heart" transform="translate(554 252) rotate(150) scale(1.55)" color="#78B462"/>
+        <use href="#heart" transform="translate(548 298) rotate(212) scale(1.4)" color="#C4D86C"/>
+        <use href="#heart" transform="translate(546 330) rotate(180) scale(1.3)" color="#86BE66"/>
+        <!-- the pot -->
+        <use href="#pot" transform="translate(290 420) scale(2.4)" color="#C8643B"/>
+        <path d="M232 470 Q290 482 348 470" fill="none" stroke="#F4C9A8" stroke-opacity=".5" stroke-width="2.4" stroke-dasharray="2 8" stroke-linecap="round"/>
+      </svg>
+
+      <div class="hero__tag">
+        <span class="hero__tag-label">This month’s box</span>
+        <strong>Monstera deliciosa</strong>
+        <span>No. 042 · Easy-going · 60 cm</span>
+      </div>
+    </div>
+
+    <p class="hero__scroll">Scroll to dig in <span aria-hidden="true">↓</span></p>
+  </section>
+
+  <!-- ───────────── Why Botanica ───────────── -->
+  <section class="why">
+    <header class="section-head">
+      <p class="section-head__eyebrow">Why Botanica</p>
+      <h2 class="section-head__title">Fewer crispy leaves.<br><em>More jungle.</em></h2>
+    </header>
+
+    <article class="feature">
+      <div class="feature__copy">
+        <span class="feature__num">01</span>
+        <h3 class="feature__title"><span class="mask"><span class="feature__line">Grown slow,</span></span><span class="mask"><span class="feature__line">shipped fast.</span></span></h3>
+        <p class="feature__text">Every plant spends at least fourteen weeks at our nursery in Kent before it’s allowed anywhere near a cardboard box. It arrives rooted, rested and ready to show off.</p>
+      </div>
+      <div class="feature__art">
+        <svg viewBox="0 0 480 400" aria-hidden="true">
+          <path d="M40 392 V210 A200 200 0 0 1 440 210 V392 Z" fill="#DCE6D0"/>
+          <circle cx="372" cy="104" r="34" fill="#D4EC5E"/>
+          <circle cx="372" cy="104" r="48" fill="none" stroke="#D4EC5E" stroke-width="1.5" stroke-dasharray="2 6"/>
+          <path d="M112 226 C162 150 250 126 318 118" fill="none" stroke="#2E5E44" stroke-width="2" stroke-dasharray="6 7" stroke-linecap="round"/>
+          <path d="M309 108 L323 118 L310 129" fill="none" stroke="#2E5E44" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- week 1: a sprout -->
+          <path d="M130 284 C130 270 128 262 130 250" fill="none" stroke="#4F8A4C" stroke-width="2.4" stroke-linecap="round"/>
+          <use href="#oval" transform="translate(130 254) rotate(-58) scale(.34)" color="#6FAE5E"/>
+          <use href="#oval" transform="translate(130 254) rotate(54) scale(.3)" color="#8CC26A"/>
+          <use href="#pot" transform="translate(130 282) scale(.7)" color="#C8643B"/>
+          <!-- week 6 -->
+          <g fill="none" stroke="#3F7D46" stroke-width="2.2" stroke-linecap="round">
+            <path d="M236 272 C230 252 222 240 214 230"/><path d="M244 272 C250 250 258 240 266 228"/><path d="M240 272 L240 224"/><path d="M238 272 C234 262 230 254 226 248"/>
+          </g>
+          <use href="#heart" transform="translate(214 232) rotate(-40) scale(1.3)" color="#5E9E58"/>
+          <use href="#heart" transform="translate(266 230) rotate(40) scale(1.3)" color="#78B464"/>
+          <use href="#heart" transform="translate(240 224) rotate(0) scale(1.4)" color="#4F8E4E"/>
+          <use href="#heart" transform="translate(226 250) rotate(-74) scale(1.1)" color="#8CC26A"/>
+          <use href="#pot" transform="translate(240 270) scale(.92)" color="#E6DFCF"/>
+          <use href="#speckles" transform="translate(240 270) scale(.92)"/>
+          <!-- week 14 -->
+          <g fill="none" stroke="#2C5A3C" stroke-width="2.6" stroke-linecap="round">
+            <path d="M354 252 C348 230 344 210 340 192"/><path d="M366 252 C372 230 378 210 384 188"/><path d="M360 252 L360 176"/>
+          </g>
+          <use href="#monstera" transform="translate(340 194) rotate(-36) scale(.4)" color="#2E6A46"/>
+          <use href="#monstera" transform="translate(384 190) rotate(32) scale(.42)" color="#3B7D53"/>
+          <use href="#monstera" transform="translate(360 176) rotate(2) scale(.46)" color="#2A5F40"/>
+          <use href="#pot" transform="translate(360 250) scale(1.25)" color="#B9572F"/>
+          <!-- shelf -->
+          <rect x="52" y="322" width="376" height="12" rx="3" fill="#B88A5C"/>
+          <rect x="60" y="334" width="360" height="6" fill="#000" opacity=".08"/>
+          <g font-family="Manrope, sans-serif" font-size="12" font-weight="800" letter-spacing="2.4" fill="#2E5E44" text-anchor="middle">
+            <text x="130" y="366">WK 1</text><text x="240" y="366">WK 6</text><text x="360" y="366">WK 14</text>
+          </g>
+        </svg>
+      </div>
+    </article>
+
+    <article class="feature feature--flip">
+      <div class="feature__copy">
+        <span class="feature__num">02</span>
+        <h3 class="feature__title"><span class="mask"><span class="feature__line">Care cards,</span></span><span class="mask"><span class="feature__line">not care guilt.</span></span></h3>
+        <p class="feature__text">Each delivery comes with a card that says exactly how much water, how much light, and how long it can cope with being ignored while you’re on holiday.</p>
+      </div>
+      <div class="feature__art">
+        <svg viewBox="0 0 480 400" aria-hidden="true">
+          <circle cx="240" cy="206" r="176" fill="#F1D9C9"/>
+          <rect x="150" y="76" width="200" height="262" rx="16" fill="#C9DDC0" transform="rotate(9 250 207)"/>
+          <g transform="rotate(-6 236 216)">
+            <rect x="134" y="94" width="210" height="270" rx="16" fill="#000" opacity=".08"/>
+            <rect x="128" y="84" width="210" height="270" rx="16" fill="#FBF8F0"/>
+            <path d="M144 84 H322 Q338 84 338 100 V148 H128 V100 Q128 84 144 84 Z" fill="#2E5E44"/>
+            <g font-family="Manrope, sans-serif">
+              <text x="150" y="118" font-size="15" font-weight="800" letter-spacing="3" fill="#F2EEE4">MONSTERA</text>
+              <text x="150" y="136" font-size="10.5" font-weight="600" letter-spacing="1" fill="#D4EC5E">Care card · No. 042</text>
+              <text x="186" y="186" font-size="12" font-weight="700" fill="#13241C">Water: every 10 days</text>
+              <text x="186" y="202" font-size="10" fill="#5B6B61">when the top 3 cm feels dry</text>
+              <text x="186" y="242" font-size="12" font-weight="700" fill="#13241C">Light: bright, indirect</text>
+              <text x="186" y="258" font-size="10" fill="#5B6B61">near a window, out of hot sun</text>
+              <text x="186" y="298" font-size="12" font-weight="700" fill="#13241C">Ignore: up to 2 weeks</text>
+              <text x="186" y="314" font-size="10" fill="#5B6B61">it forgives a long weekend</text>
+            </g>
+            <circle cx="160" cy="190" r="16" fill="#D6E3EC"/>
+            <use href="#drop" transform="translate(160 191) scale(1.05)" fill="#3D7FB4"/>
+            <circle cx="160" cy="246" r="16" fill="#F2E6B8"/>
+            <circle cx="160" cy="246" r="6" fill="#E0A82E"/>
+            <g stroke="#E0A82E" stroke-width="2" stroke-linecap="round">
+              <path d="M160 234 V237 M160 255 V258 M148 246 H151 M169 246 H172 M151.5 237.5 L153.6 239.6 M166.4 252.4 L168.5 254.5 M151.5 254.5 L153.6 252.4 M166.4 239.6 L168.5 237.5"/>
+            </g>
+            <circle cx="160" cy="302" r="16" fill="#EBD0CB"/>
+            <circle cx="160" cy="302" r="8" fill="none" stroke="#B5524A" stroke-width="2"/>
+            <path d="M160 297 V302 L164 304" fill="none" stroke="#B5524A" stroke-width="2" stroke-linecap="round"/>
+          </g>
+          <!-- watering can -->
+          <g transform="rotate(-24 380 92)">
+            <path d="M350 70 H410 V122 Q410 130 402 130 H358 Q350 130 350 122 Z" fill="#C8643B"/>
+            <path d="M350 70 H410 V122 Q410 130 402 130 H358 Q350 130 350 122 Z" fill="url(#potShade)"/>
+            <path d="M410 82 C434 82 438 112 412 118" fill="none" stroke="#A9502D" stroke-width="7" stroke-linecap="round"/>
+            <path d="M352 112 L304 82" stroke="#C8643B" stroke-width="8" stroke-linecap="round"/>
+            <rect x="290" y="72" width="20" height="10" rx="3" fill="#A9502D" transform="rotate(32 300 77)"/>
+            <rect x="346" y="64" width="68" height="9" rx="3" fill="#A9502D"/>
+          </g>
+          <use href="#drop" transform="translate(298 102) scale(.85)" fill="#8FC1E6"/>
+          <use href="#drop" transform="translate(290 126) scale(.62)" fill="#8FC1E6"/>
+        </svg>
+      </div>
+    </article>
+
+    <article class="feature">
+      <div class="feature__copy">
+        <span class="feature__num">03</span>
+        <h3 class="feature__title"><span class="mask"><span class="feature__line">A plant doctor</span></span><span class="mask"><span class="feature__line">on call.</span></span></h3>
+        <p class="feature__text">Yellowing leaves? Send us a photo. Our horticulturists reply within a day — and if your plant doesn’t make it through the first month, we replace it. No awkward questions.</p>
+      </div>
+      <div class="feature__art">
+        <svg viewBox="0 0 480 400" aria-hidden="true">
+          <rect x="40" y="32" width="400" height="340" rx="170" fill="#D5E2E6"/>
+          <polyline points="56,236 326,236 340,214 354,258 368,194 382,248 394,236 424,236" fill="none" stroke="#C8643B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
+          <use href="#blade" transform="translate(176 282) rotate(-20) scale(.9)" color="#3B6E48"/>
+          <use href="#blade" transform="translate(212 282) rotate(18) scale(.96)" color="#2A5236"/>
+          <use href="#blade" transform="translate(186 282) rotate(-6) scale(1.2)" color="#2E5B3C"/>
+          <use href="#blade" transform="translate(202 282) rotate(7) scale(1.08)" color="#4C8457"/>
+          <use href="#blade" transform="translate(166 284) rotate(-34) scale(.66)" color="#3E7149"/>
+          <!-- a little bandage -->
+          <g transform="rotate(-28 170 196)">
+            <rect x="152" y="190" width="38" height="13" rx="6.5" fill="#EFD7B7"/>
+            <rect x="164" y="190" width="14" height="13" fill="#E2C49D"/>
+            <g fill="#C9A47A"><circle cx="157" cy="196.5" r="1"/><circle cx="185" cy="196.5" r="1"/></g>
+          </g>
+          <use href="#pot" transform="translate(194 278) scale(1.32)" color="#EEE9DE"/>
+          <use href="#speckles" transform="translate(194 278) scale(1.32)"/>
+          <!-- chat bubble -->
+          <path d="M286 82 H418 Q440 82 440 104 V160 Q440 182 418 182 H318 L294 202 L300 182 H286 Q264 182 264 160 V104 Q264 82 286 82 Z" fill="#FBF8F0"/>
+          <text x="284" y="122" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="22" fill="#13241C">Too much love!</text>
+          <g font-family="Manrope, sans-serif" font-size="11" fill="#5B6B61">
+            <text x="284" y="146">Water every 3 weeks and</text>
+            <text x="284" y="162">move it nearer the light.</text>
+          </g>
+          <circle cx="430" cy="84" r="20" fill="#C8643B"/>
+          <path d="M430 74 V94 M420 84 H440" stroke="#FBF8F0" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </article>
+  </section>
+
+  <!-- ───────────── Plant grid ───────────── -->
+  <section class="plants">
+    <header class="section-head section-head--row">
+      <div>
+        <p class="section-head__eyebrow">This month’s shelf</p>
+        <h2 class="section-head__title">Nine plants, <em>zero</em><br>green thumbs required.</h2>
+      </div>
+      <a href="#" class="btn btn--dark">See all 64 species <span aria-hidden="true">→</span></a>
+    </header>
+
+    <div class="plants__grid">
+      <article class="plant-card" style="--tile:#D7E4CF">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <ellipse cx="110" cy="186" rx="58" ry="6" fill="#000" opacity=".09"/>
+            <g fill="none" stroke="#2C5A3C" stroke-width="2.4" stroke-linecap="round">
+              <path d="M106 132 C98 114 88 100 78 88"/><path d="M114 132 C122 112 134 96 144 84"/><path d="M110 132 C110 112 110 94 110 76"/><path d="M108 132 C102 122 98 114 92 106"/>
+            </g>
+            <use href="#monstera" transform="translate(92 106) rotate(-72) scale(.32)" color="#4A8D5E"/>
+            <use href="#monstera" transform="translate(78 88) rotate(-40) scale(.4)" color="#2F6B47"/>
+            <use href="#monstera" transform="translate(144 84) rotate(38) scale(.42)" color="#3E7F55"/>
+            <use href="#monstera" transform="translate(110 76) rotate(2) scale(.44)" color="#2A5F40"/>
+            <use href="#pot" transform="translate(110 128) scale(.95)" color="#C8643B"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">Monstera</h3>
+          <p class="plant-card__latin">Monstera deliciosa</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: easy"><i class="on"></i><i></i><i></i>Easy</span><strong>£32</strong></p>
+        </div>
+      </article>
+
+      <article class="plant-card" style="--tile:#F1D9C9">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <ellipse cx="110" cy="186" rx="58" ry="6" fill="#000" opacity=".09"/>
+            <use href="#blade" transform="translate(88 134) rotate(-28) scale(.6)" color="#4C8457"/>
+            <use href="#blade" transform="translate(132 134) rotate(30) scale(.62)" color="#3E7149"/>
+            <use href="#blade" transform="translate(98 132) rotate(-14) scale(.8)" color="#3B6E48"/>
+            <use href="#blade" transform="translate(122 132) rotate(13) scale(.84)" color="#2A5236"/>
+            <use href="#blade" transform="translate(110 132) rotate(-1) scale(.95)" color="#2E5B3C"/>
+            <use href="#pot" transform="translate(110 128) scale(.95)" color="#EEE9DE"/>
+            <use href="#speckles" transform="translate(110 128) scale(.95)"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">Snake plant</h3>
+          <p class="plant-card__latin">Dracaena trifasciata</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: easy"><i class="on"></i><i></i><i></i>Easy</span><strong>£24</strong></p>
+        </div>
+      </article>
+
+      <article class="plant-card" style="--tile:#F1E6BC">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <path d="M84 72 L110 0 L136 72" fill="none" stroke="#8A6F4D" stroke-width="1.2"/>
+            <g fill="none" stroke="#5C8F4A" stroke-width="1.8" stroke-linecap="round">
+              <path d="M90 82 C78 112 96 140 84 182"/><path d="M128 82 C142 114 120 150 132 190"/><path d="M108 86 C104 120 114 150 106 172"/>
+            </g>
+            <use href="#heart" transform="translate(96 60) rotate(-30) scale(.9)" color="#86BE66"/>
+            <use href="#heart" transform="translate(122 58) rotate(28) scale(.95)" color="#B9D66A"/>
+            <use href="#pot" transform="translate(110 64) scale(.78)" color="#5E8F72"/>
+            <use href="#heart" transform="translate(86 104) rotate(150) scale(.95)" color="#6FAE5E"/>
+            <use href="#heart" transform="translate(88 132) rotate(212) scale(.9)" color="#C4D86C"/>
+            <use href="#heart" transform="translate(86 160) rotate(150) scale(.9)" color="#86BE66"/>
+            <use href="#heart" transform="translate(84 182) rotate(186) scale(.85)" color="#9CCB66"/>
+            <use href="#heart" transform="translate(136 108) rotate(210) scale(.95)" color="#9CCB66"/>
+            <use href="#heart" transform="translate(126 140) rotate(148) scale(.9)" color="#78B462"/>
+            <use href="#heart" transform="translate(130 168) rotate(214) scale(.9)" color="#B9D66A"/>
+            <use href="#heart" transform="translate(132 190) rotate(176) scale(.8)" color="#6FAE5E"/>
+            <use href="#heart" transform="translate(108 122) rotate(196) scale(.85)" color="#B9D66A"/>
+            <use href="#heart" transform="translate(110 150) rotate(160) scale(.85)" color="#86BE66"/>
+            <use href="#heart" transform="translate(106 172) rotate(184) scale(.8)" color="#C4D86C"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">Golden pothos</h3>
+          <p class="plant-card__latin">Epipremnum aureum</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: easy"><i class="on"></i><i></i><i></i>Easy</span><strong>£18</strong></p>
+        </div>
+      </article>
+
+      <article class="plant-card" style="--tile:#CFE3DC">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <ellipse cx="110" cy="186" rx="58" ry="6" fill="#000" opacity=".09"/>
+            <path d="M110 134 C108 110 112 80 110 34" fill="none" stroke="#6B4F38" stroke-width="3.4" stroke-linecap="round"/>
+            <use href="#fiddle" transform="translate(110 122) rotate(-62) scale(.62)" color="#3A7347"/>
+            <use href="#fiddle" transform="translate(110 108) rotate(58) scale(.66)" color="#2D5E3A"/>
+            <use href="#fiddle" transform="translate(110 92) rotate(-42) scale(.68)" color="#2A5333"/>
+            <use href="#fiddle" transform="translate(110 76) rotate(44) scale(.66)" color="#3A7347"/>
+            <use href="#fiddle" transform="translate(110 60) rotate(-22) scale(.6)" color="#2D5E3A"/>
+            <use href="#fiddle" transform="translate(110 46) rotate(16) scale(.52)" color="#4A8655"/>
+            <use href="#pot" transform="translate(110 128) scale(.95 1)" color="#B85A34"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">Fiddle-leaf fig</h3>
+          <p class="plant-card__latin">Ficus lyrata</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: fussy"><i class="on"></i><i class="on"></i><i class="on"></i>Fussy</span><strong>£45</strong></p>
+        </div>
+      </article>
+
+      <article class="plant-card" style="--tile:#EBD3CE">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <ellipse cx="110" cy="186" rx="58" ry="6" fill="#000" opacity=".09"/>
+            <g fill="none" stroke="#3E6A3E" stroke-width="2.4" stroke-linecap="round">
+              <path d="M104 132 C96 102 84 78 72 54"/><path d="M110 132 C110 98 112 66 114 34"/><path d="M116 132 C126 102 140 80 152 58"/>
+            </g>
+            <g color="#1F4A30">
+              <use href="#oval" transform="translate(98 112) rotate(-70) scale(.36)"/><use href="#oval" transform="translate(96 104) rotate(20) scale(.34)"/>
+              <use href="#oval" transform="translate(88 90) rotate(-74) scale(.36)"/><use href="#oval" transform="translate(86 82) rotate(14) scale(.34)"/>
+              <use href="#oval" transform="translate(78 68) rotate(-76) scale(.33)"/><use href="#oval" transform="translate(76 60) rotate(8) scale(.32)"/>
+              <use href="#oval" transform="translate(111 104) rotate(-52) scale(.34)"/><use href="#oval" transform="translate(111 98) rotate(50) scale(.34)"/>
+              <use href="#oval" transform="translate(112 78) rotate(-50) scale(.34)"/><use href="#oval" transform="translate(112 72) rotate(48) scale(.34)"/>
+              <use href="#oval" transform="translate(113 54) rotate(-44) scale(.32)"/><use href="#oval" transform="translate(113 48) rotate(42) scale(.3)"/>
+              <use href="#oval" transform="translate(124 108) rotate(-20) scale(.34)"/><use href="#oval" transform="translate(128 100) rotate(72) scale(.34)"/>
+              <use href="#oval" transform="translate(134 88) rotate(-14) scale(.34)"/><use href="#oval" transform="translate(138 82) rotate(76) scale(.34)"/>
+              <use href="#oval" transform="translate(144 70) rotate(-8) scale(.32)"/><use href="#oval" transform="translate(148 64) rotate(80) scale(.3)"/>
+            </g>
+            <use href="#pot" transform="translate(110 128) scale(.95)" color="#33403A"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">ZZ plant</h3>
+          <p class="plant-card__latin">Zamioculcas zamiifolia</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: easy"><i class="on"></i><i></i><i></i>Easy</span><strong>£28</strong></p>
+        </div>
+      </article>
+
+      <article class="plant-card" style="--tile:#D4E0EA">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <ellipse cx="110" cy="186" rx="58" ry="6" fill="#000" opacity=".09"/>
+            <g fill="none" stroke="#5E7D52" stroke-width="2" stroke-linecap="round">
+              <path d="M104 132 C96 122 86 110 80 100"/><path d="M116 132 C124 120 134 108 140 98"/><path d="M110 132 L110 88"/><path d="M106 132 C100 124 96 118 92 114"/><path d="M114 132 C120 124 124 118 128 114"/>
+            </g>
+            <use href="#round" transform="translate(92 114) rotate(-72) scale(.72)" color="#6B9668"/>
+            <use href="#round" transform="translate(128 114) rotate(72) scale(.72)" color="#7FA77A"/>
+            <use href="#round" transform="translate(80 100) rotate(-40) scale(.9)" color="#86AE80"/>
+            <use href="#round" transform="translate(140 98) rotate(40) scale(.9)" color="#6E9A6B"/>
+            <use href="#round" transform="translate(110 88) rotate(0) scale(1)" color="#93B98A"/>
+            <use href="#pot" transform="translate(110 128) scale(.95)" color="#F1EBDD"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">Calathea</h3>
+          <p class="plant-card__latin">Goeppertia orbifolia</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: medium"><i class="on"></i><i class="on"></i><i></i>Medium</span><strong>£26</strong></p>
+        </div>
+      </article>
+
+      <article class="plant-card" style="--tile:#EADCC4">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <ellipse cx="110" cy="186" rx="58" ry="6" fill="#000" opacity=".09"/>
+            <path d="M110 134 L110 40" fill="none" stroke="#5B4636" stroke-width="3" stroke-linecap="round"/>
+            <use href="#oval" transform="translate(110 122) rotate(-72) scale(.78)" color="#4A2E37"/>
+            <use href="#oval" transform="translate(110 106) rotate(66) scale(.8)" color="#5A3A44"/>
+            <use href="#oval" transform="translate(110 88) rotate(-46) scale(.76)" color="#3A2A31"/>
+            <use href="#oval" transform="translate(110 72) rotate(42) scale(.72)" color="#5A3A44"/>
+            <use href="#oval" transform="translate(110 56) rotate(-14) scale(.6)" color="#4A2E37"/>
+            <path d="M110 44 C106 36 108 26 112 20 C114 28 114 36 110 44 Z" fill="#B5414B"/>
+            <use href="#pot" transform="translate(110 128) scale(.95)" color="#C8643B"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">Rubber plant</h3>
+          <p class="plant-card__latin">Ficus elastica ‘Burgundy’</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: medium"><i class="on"></i><i class="on"></i><i></i>Medium</span><strong>£30</strong></p>
+        </div>
+      </article>
+
+      <article class="plant-card" style="--tile:#DCE8C6">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <path d="M84 72 L110 0 L136 72" fill="none" stroke="#8A6F4D" stroke-width="1.2"/>
+            <g fill="none" stroke="#5E8A49" stroke-width="1.2">
+              <path d="M88 80 C80 110 92 140 86 184"/><path d="M100 82 C98 116 106 140 100 168"/><path d="M120 82 C124 112 114 146 122 176"/><path d="M132 80 C142 112 128 150 136 190"/>
+            </g>
+            <g fill="none" stroke="#86B86A" stroke-width="7.5" stroke-linecap="round" stroke-dasharray="0 9.5">
+              <path d="M88 84 C80 110 92 140 86 184"/><path d="M100 86 C98 116 106 140 100 168"/><path d="M120 86 C124 112 114 146 122 176"/><path d="M132 84 C142 112 128 150 136 190"/>
+            </g>
+            <g fill="none" stroke="#E9F5D8" stroke-opacity=".7" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0 9.5" transform="translate(-1.4 -1.4)">
+              <path d="M88 84 C80 110 92 140 86 184"/><path d="M100 86 C98 116 106 140 100 168"/><path d="M120 86 C124 112 114 146 122 176"/><path d="M132 84 C142 112 128 150 136 190"/>
+            </g>
+            <use href="#pot" transform="translate(110 64) scale(.78)" color="#EEE9DE"/>
+            <use href="#speckles" transform="translate(110 64) scale(.78)"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">String of pearls</h3>
+          <p class="plant-card__latin">Curio rowleyanus</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: fussy"><i class="on"></i><i class="on"></i><i class="on"></i>Fussy</span><strong>£16</strong></p>
+        </div>
+      </article>
+
+      <article class="plant-card" style="--tile:#E1DCEB">
+        <div class="plant-card__art">
+          <svg viewBox="0 0 220 200" aria-hidden="true">
+            <circle cx="110" cy="98" r="80" fill="#fff" opacity=".35"/>
+            <ellipse cx="110" cy="186" rx="58" ry="6" fill="#000" opacity=".09"/>
+            <g fill="none" stroke="#3D7A4E" stroke-width="2" stroke-linecap="round">
+              <path d="M106 132 C102 102 98 74 96 50"/><path d="M116 132 C120 104 126 82 132 64"/>
+            </g>
+            <use href="#lance" transform="translate(108 134) rotate(-56) scale(.68)" color="#3C7B50"/>
+            <use href="#lance" transform="translate(112 134) rotate(54) scale(.7)" color="#2F6A44"/>
+            <use href="#lance" transform="translate(108 134) rotate(-28) scale(.86)" color="#2A5C3B"/>
+            <use href="#lance" transform="translate(112 134) rotate(26) scale(.9)" color="#3C7B50"/>
+            <use href="#lance" transform="translate(110 134) rotate(-4) scale(1)" color="#2F6A44"/>
+            <use href="#spathe" transform="translate(96 54) rotate(-8) scale(.82)"/>
+            <use href="#spathe" transform="translate(132 66) rotate(12) scale(.7)"/>
+            <use href="#pot" transform="translate(110 128) scale(.95)" color="#F4F1EA"/>
+          </svg>
+        </div>
+        <div class="plant-card__body">
+          <h3 class="plant-card__name">Peace lily</h3>
+          <p class="plant-card__latin">Spathiphyllum wallisii</p>
+          <p class="plant-card__meta"><span class="care" aria-label="Care: medium"><i class="on"></i><i class="on"></i><i></i>Medium</span><strong>£22</strong></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ───────────── Stats band ───────────── -->
+  <section class="stats">
+    <p class="stats__eyebrow">The numbers <em>(yes, we counted)</em></p>
+    <div class="stats__row">
+      <div class="stat">
+        <p class="stat__value"><span class="stat__num" data-value="12480">12,480</span></p>
+        <p class="stat__label">plants rehomed<br>since 2019</p>
+      </div>
+      <div class="stat">
+        <p class="stat__value"><span class="stat__num" data-value="98">98</span><span class="stat__unit">%</span></p>
+        <p class="stat__label">still thriving<br>a year later</p>
+      </div>
+      <div class="stat">
+        <p class="stat__value"><span class="stat__num" data-value="64">64</span></p>
+        <p class="stat__label">species on<br>rotation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── Footer CTA ───────────── -->
+  <footer class="cta">
+    <div class="cta__inner">
+      <div>
+        <h2 class="cta__title">Your windowsill<br>called. It’s <em>lonely.</em></h2>
+        <p class="cta__text">First box ships in 48 hours. Skip a month, swap a plant or pause whenever life gets busy.</p>
+        <a href="#" class="btn btn--lime">Start from £18/month</a>
+      </div>
+      <svg class="cta__window" viewBox="0 0 420 360" aria-hidden="true">
+        <defs>
+          <radialGradient id="moonGlow" cx="72%" cy="28%" r="60%">
+            <stop offset="0" stop-color="#D4EC5E" stop-opacity=".28"/>
+            <stop offset="1" stop-color="#D4EC5E" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect x="46" y="16" width="328" height="270" rx="8" fill="#2C5C45"/>
+        <rect x="62" y="32" width="296" height="240" fill="#122F23"/>
+        <rect x="62" y="32" width="296" height="240" fill="url(#moonGlow)"/>
+        <path d="M300 64 A26 26 0 1 0 322 104 A20 20 0 1 1 300 64 Z" fill="#D4EC5E"/>
+        <rect x="202" y="32" width="16" height="240" fill="#2C5C45"/>
+        <rect x="62" y="148" width="296" height="8" fill="#2C5C45"/>
+        <g fill="#E6EFE3"><circle cx="96" cy="62" r="1.6"/><circle cx="150" cy="94" r="1.2"/><circle cx="252" cy="58" r="1.4"/><circle cx="118" cy="196" r="1.2"/><circle cx="340" cy="190" r="1.6"/><circle cx="262" cy="226" r="1.1"/><circle cx="176" cy="128" r="1"/></g>
+        <rect x="20" y="284" width="380" height="20" rx="4" fill="#E7E1D2"/>
+        <rect x="30" y="304" width="360" height="10" fill="#000" opacity=".18"/>
+        <path d="M210 250 C210 238 208 230 211 222" fill="none" stroke="#6FAE5E" stroke-width="2.4" stroke-linecap="round"/>
+        <use href="#oval" transform="translate(211 226) rotate(-62) scale(.28)" color="#6FAE5E"/>
+        <use href="#oval" transform="translate(211 228) rotate(118) scale(.24)" color="#8CC26A"/>
+        <use href="#pot" transform="translate(210 248) scale(.62)" color="#C8643B"/>
+      </svg>
+    </div>
+    <div class="footer">
+      <a href="#" class="nav__logo nav__logo--small">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26 C6 14 14 6 27 5 C27 18 19 26 6 26 Z" fill="currentColor"/><path d="M6 26 C11 19 16 14 22 10" fill="none" stroke="#0F2B21" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Botanica
+      </a>
+      <nav class="footer__links"><a href="#">Delivery</a><a href="#">Plant doctor</a><a href="#">Gift a plant</a><a href="#">Careers</a></nav>
+      <p class="footer__legal">© 2026 Botanica Ltd · Grown in Kent, delivered with care</p>
+    </div>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="../../_vendor/gsap/gsap.min.js"></script>
+  <script src="../../_vendor/gsap/ScrollTrigger.min.js"></script>
+  <script src="../../_vendor/lenis/lenis.min.js"></script>
+  <!-- Your code -->
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+/* ─────────────────────────────────────────────
+   Citrus & Co. — styles are done for you.
+   Your job is the motion (main.js).
+   ───────────────────────────────────────────── */
+
+:root {
+  --sun: #FFD23F;
+  --leaf: #1E3A2A;
+  --leaf-soft: #4F8A3C;
+  --cream: #FFF7E6;
+  --coral: #F26B5B;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--leaf);
+  overflow: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.mask { overflow: hidden; }
+
+/* ───────────── Splash ───────────── */
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 38%, #FFE27A 0%, rgba(255, 226, 122, 0) 55%),
+    var(--sun);
+}
+
+/* Hidden until your script is ready — this prevents a flash of
+   un-animated content (FOUC). Reveal it with GSAP's autoAlpha. */
+.splash__inner {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.splash__lemon {
+  width: 172px;
+  height: 172px;
+  margin-bottom: 28px;
+  filter: drop-shadow(0 18px 24px rgba(160, 110, 0, .28));
+}
+
+.splash__title {
+  margin: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 900;
+  font-size: clamp(56px, 8vw, 112px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  padding: 0 .06em .08em;
+}
+
+.splash__tagline {
+  margin: 18px 0 36px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  opacity: .75;
+}
+
+.splash__bar {
+  width: 260px;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(30, 58, 42, .14);
+  overflow: hidden;
+}
+
+.splash__bar-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--leaf);
+}
+
+/* ───────────── Site ───────────── */
+
+.nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 56px;
+}
+
+.nav__logo {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+}
+.nav__logo span { color: var(--leaf-soft); margin: 0 1px; }
+
+.nav__links { display: flex; gap: 36px; font-weight: 500; font-size: 15px; }
+.nav__links a { opacity: .75; }
+
+.nav__cta {
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: var(--leaf);
+  color: var(--cream);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 40px;
+  height: calc(100vh - 96px);
+  padding: 0 56px 40px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  right: -8vw;
+  top: 4vh;
+  width: 58vw;
+  height: 58vw;
+  max-width: 760px;
+  max-height: 760px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFE27A 0%, #FFD23F 60%, rgba(255, 210, 63, 0) 61%);
+  opacity: .55;
+  z-index: -1;
+}
+
+.hero__eyebrow {
+  margin: 0 0 20px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--leaf-soft);
+}
+
+.hero__title {
+  margin: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(64px, 8.4vw, 132px);
+  line-height: .92;
+  letter-spacing: -0.045em;
+}
+.hero__title em { font-weight: 500; font-style: italic; color: var(--leaf-soft); }
+
+.hero__text {
+  max-width: 440px;
+  margin: 28px 0 36px;
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: .8;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 30px;
+  border-radius: 999px;
+  background: var(--leaf);
+  color: var(--cream);
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 0 12px 30px rgba(30, 58, 42, .22);
+}
+
+.hero__glass {
+  justify-self: center;
+  width: min(30vw, 400px);
+  height: auto;
+}
+
+.hero__badge {
+  position: absolute;
+  right: 56px;
+  bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(30, 58, 42, .12);
+  font-size: 13px;
+  line-height: 1.3;
+}
+.hero__badge strong {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 34px;
+  font-weight: 900;
+}

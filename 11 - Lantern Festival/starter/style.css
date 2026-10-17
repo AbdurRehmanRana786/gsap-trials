@@ -1,0 +1,361 @@
+/* ─────────────────────────────────────────────
+   Hội An Lights — styles are done for you.
+   Your job is the motion (main.js).
+   ───────────────────────────────────────────── */
+
+:root {
+  --night: #0A0C26;
+  --night-2: #12143A;
+  --ivory: #FFF3DC;
+  --amber: #FFB547;
+  --vermilion: #E8452C;
+  --jade: #2FA58A;
+  --mist: #B9B4E6;
+  --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+  --sans: 'Be Vietnam Pro', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--night);
+  color: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ───────────── Nav ───────────── */
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px clamp(20px, 5vw, 64px);
+  background: linear-gradient(to bottom, rgba(5, 7, 28, .55), rgba(5, 7, 28, 0));
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: .01em;
+}
+.nav__logo svg { width: 18px; height: 24px; color: #E6B34A; filter: drop-shadow(0 0 8px rgba(255, 120, 60, .7)); }
+.nav__logo em { font-style: italic; font-weight: 500; color: var(--amber); }
+
+.nav__links { display: flex; gap: 34px; font-size: 14px; font-weight: 500; letter-spacing: .02em; }
+.nav__links a { opacity: .78; transition: opacity .2s; }
+.nav__links a:hover, .nav__links a:focus-visible { opacity: 1; }
+
+.nav__cta {
+  padding: 11px 20px;
+  border: 1px solid rgba(255, 181, 71, .55);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--amber);
+  background: rgba(255, 181, 71, .08);
+  transition: background .2s, color .2s;
+}
+.nav__cta:hover, .nav__cta:focus-visible { background: var(--amber); color: var(--night); }
+
+/* ───────────── Scene ─────────────
+   .scene is 260vh tall. Its sticky child stays put for the first 160vh of
+   scrolling — that is your parallax runway. */
+
+.scene {
+  position: relative;
+  height: 260vh;
+}
+
+.scene__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.scene__sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 40% at 78% 26%, rgba(150, 120, 210, .28), rgba(150, 120, 210, 0) 70%),
+    linear-gradient(to bottom, #04061C 0%, #0A0F38 26%, #1A1C58 44%, #3A2B6C 56%, #7A4272 66%, #C4645E 76%, #F09A5C 86%);
+}
+
+.scene__stars { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Every layer gets exactly the same box (a little larger than the screen,
+   so nudging it never shows an edge). */
+.layer {
+  position: absolute;
+  top: -4%;
+  bottom: -8%;
+  left: -5%;
+  right: -5%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.layer__art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.lantern { transform-box: fill-box; transform-origin: 50% 100%; }
+
+/* ───────────── Title (inside .layer--title) ───────────── */
+
+.hero {
+  padding: calc(4vh + 13vh) 0 0 calc(5vw + 7vw);
+}
+
+.hero__eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: #F6C77A;
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(76px, 10.4vw, 172px);
+  line-height: .88;
+  letter-spacing: -0.015em;
+  color: var(--ivory);
+  text-shadow: 0 0 28px rgba(255, 170, 90, .35), 0 0 2px rgba(255, 230, 190, .5);
+}
+.hero__line { display: block; }
+.hero__line--em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--amber);
+  padding-left: .55em;
+  text-shadow: 0 0 34px rgba(255, 140, 50, .6), 0 0 2px rgba(255, 220, 160, .6);
+}
+
+.hero__date {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 26px 0 0 .3em;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 243, 220, .82);
+}
+.hero__date svg { width: 16px; height: 16px; filter: drop-shadow(0 0 6px rgba(255, 230, 170, .9)); }
+
+.scene__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  z-index: 5;
+  margin: 0;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255, 243, 220, .7);
+  white-space: nowrap;
+}
+.scene__hint span { color: var(--amber); font-weight: 700; }
+.scene__hint::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 34px;
+  margin: 0 auto 10px;
+  background: linear-gradient(to bottom, rgba(255, 181, 71, 0), var(--amber));
+}
+
+/* ───────────── Content ───────────── */
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 120px clamp(20px, 7vw, 110px) 48px;
+  background:
+    radial-gradient(ellipse 60% 30% at 80% 0%, rgba(255, 140, 70, .12), rgba(255, 140, 70, 0) 70%),
+    linear-gradient(to bottom, #0B0C27 0%, var(--night) 30%, #0B0A22 100%);
+}
+
+/* the night dissolves into the content instead of ending on a hard edge */
+.content::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 34vh;
+  background: linear-gradient(to bottom, rgba(11, 12, 39, 0), rgba(11, 12, 39, .75) 60%, #0B0C27);
+  pointer-events: none;
+}
+
+.kicker {
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.content__intro { max-width: 860px; }
+
+.content__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(40px, 5.2vw, 76px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.content__title em { font-weight: 500; color: var(--amber); }
+
+.content__text {
+  max-width: 560px;
+  margin: 28px 0 0;
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(255, 243, 220, .74);
+}
+
+.moments {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin: 90px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.moment {
+  position: relative;
+  padding: 30px 28px 28px;
+  border: 1px solid rgba(255, 181, 71, .18);
+  border-radius: 22px;
+  background: linear-gradient(160deg, rgba(255, 181, 71, .08), rgba(255, 181, 71, 0) 60%), rgba(20, 22, 64, .55);
+}
+.moment::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 28px;
+  width: 44px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--amber);
+  box-shadow: 0 0 14px rgba(255, 160, 60, .8);
+}
+.moment__time { font-family: var(--serif); font-size: 44px; font-weight: 600; color: var(--amber); }
+.moment__title { margin: 8px 0 10px; font-size: 20px; font-weight: 600; }
+.moment__text { margin: 0 0 22px; font-size: 15px; line-height: 1.6; color: rgba(255, 243, 220, .7); }
+.moment__place { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--mist); }
+
+.makers { margin-top: 120px; }
+.makers__title {
+  margin: 0 0 40px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(36px, 4.2vw, 60px);
+}
+.makers__title em { font-weight: 500; color: var(--amber); }
+
+.makers__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding-top: 0;
+}
+.makers__row::before {
+  content: '';
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 0;
+  height: 30px;
+  border-top: 1.5px solid rgba(201, 163, 90, .55);
+  border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+  transform: scaleY(-1);
+  transform-origin: top;
+}
+
+.maker { margin: 0; text-align: center; }
+.maker__lamp { width: 120px; height: 220px; overflow: visible; transform-origin: 50% 0; }
+.maker figcaption { margin-top: 18px; font-size: 15px; line-height: 1.5; color: rgba(255, 243, 220, .7); }
+.maker figcaption strong { display: block; margin-bottom: 4px; font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ivory); }
+
+.book {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 110px;
+  padding: 34px 40px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 12% 50%, rgba(255, 170, 80, .35), rgba(255, 170, 80, 0) 45%),
+    linear-gradient(100deg, #2A1A3E, #1A1B4C);
+  border: 1px solid rgba(255, 181, 71, .25);
+}
+.book .kicker { margin-bottom: 8px; }
+.book__text { margin: 0; font-family: var(--serif); font-size: clamp(24px, 2.6vw, 36px); font-weight: 600; line-height: 1.15; }
+.book__cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 28px;
+  border-radius: 999px;
+  background: var(--amber);
+  color: var(--night);
+  font-weight: 700;
+  box-shadow: 0 10px 40px rgba(255, 150, 50, .35);
+  transition: transform .2s;
+}
+.book__cta:hover, .book__cta:focus-visible { transform: translateY(-2px); }
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 90px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 243, 220, .12);
+  font-size: 13px;
+  color: rgba(255, 243, 220, .5);
+}
+
+/* ───────────── Small screens ───────────── */
+
+@media (max-width: 760px) {
+  .nav__links { display: none; }
+  .nav__cta { padding: 9px 14px; font-size: 13px; }
+  .hero { padding: calc(4vh + 16vh) calc(5vw + 24px) 0; }
+  .hero__eyebrow { max-width: calc(100vw - 48px); font-size: 11px; letter-spacing: .18em; line-height: 1.6; }
+  .hero__title { font-size: clamp(64px, 19vw, 110px); }
+  .moments, .makers__row { grid-template-columns: 1fr; }
+  .book { flex-direction: column; align-items: flex-start; }
+  .foot { flex-direction: column; gap: 8px; }
+}

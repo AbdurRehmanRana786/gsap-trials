@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saturnine — Orbital Observatory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- The three.js scene renders into this canvas. It sits fixed behind every section. -->
+  <canvas class="scene" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ───────────── Navigation ───────────── -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" aria-label="Saturnine home">
+      <svg class="nav__mark" viewBox="0 0 48 48" aria-hidden="true">
+        <defs>
+          <linearGradient id="markGlobe" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F3DDB4"/>
+            <stop offset="1" stop-color="#B9875A"/>
+          </linearGradient>
+        </defs>
+        <path d="M6 31 C 2 25, 46 11, 42 17" fill="none" stroke="#E7B36A" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+        <circle cx="24" cy="24" r="11" fill="url(#markGlobe)"/>
+        <path d="M14.5 21.5 C 20 20, 28 19, 33.6 20.6 M13.4 26 C 20 25.4, 29 24.4, 34.4 25.2" stroke="#8C5E3A" stroke-width="1.1" fill="none" opacity=".55"/>
+        <path d="M42 17 C 46 23, 2 37, 6 31" fill="none" stroke="#E7B36A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Saturnine</span>
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#rings">The Rings</a>
+      <a href="#moons">The Moons</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="#visit" class="nav__cta">Night pass <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+
+    <!-- ───────────── Hero ───────────── -->
+    <section class="section hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow hero__eyebrow"><span class="dot" aria-hidden="true"></span> Orbital observatory · Station 6, Titan L4</p>
+        <h1 class="hero__title" id="hero-title">
+          <span class="line"><span class="line__inner">Front-row</span></span>
+          <span class="line"><span class="line__inner">seats to</span></span>
+          <span class="line"><span class="line__inner"><em>the rings.</em></span></span>
+        </h1>
+        <p class="hero__text">Saturnine is a working observatory parked 1.2 million km off Saturn. Twelve guests a night, one four-metre mirror, and a view nobody on Earth has ever had.</p>
+        <div class="hero__actions">
+          <a href="#visit" class="btn">Reserve a night</a>
+          <a href="#rings" class="link">Take the tour <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <dl class="readouts">
+        <div class="readout"><dt>Distance from Sun</dt><dd>1.43 bn km</dd></div>
+        <div class="readout"><dt>Length of day</dt><dd>10 h 33 m</dd></div>
+        <div class="readout"><dt>Ring span</dt><dd>282,000 km</dd></div>
+        <div class="readout"><dt>Next window</dt><dd>04:12 UTC</dd></div>
+      </dl>
+    </section>
+
+    <!-- ───────────── The Rings ───────────── -->
+    <section class="section rings" id="rings" aria-labelledby="rings-title">
+      <div class="panel">
+        <p class="eyebrow"><span class="num">01</span> The Rings</p>
+        <h2 class="panel__title" id="rings-title">282,000 km wide. <em>Ten metres thick.</em></h2>
+        <p class="panel__text">Seen edge-on from Earth, they all but vanish. Seen from here, tipped 27° towards the Sun, they are the most expensive vinyl in the solar system — seven grooves of ice, sorted by size, turning at 17 km a second.</p>
+        <ul class="ringlist">
+          <li><span>D</span><span>Faint dust, closest in</span><span>67,000 km</span></li>
+          <li><span>C</span><span>The crêpe ring</span><span>74,500 km</span></li>
+          <li><span>B</span><span>Brightest, densest</span><span>92,000 km</span></li>
+          <li><span>—</span><span>Cassini Division</span><span>117,500 km</span></li>
+          <li><span>A</span><span>Outer main ring</span><span>122,000 km</span></li>
+          <li><span>F</span><span>Braided, shepherded</span><span>140,200 km</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ───────────── The Moons ───────────── -->
+    <section class="section moons" id="moons" aria-labelledby="moons-title">
+      <div class="panel panel--right">
+        <p class="eyebrow"><span class="num">02</span> The Moons</p>
+        <h2 class="panel__title" id="moons-title">Moons by the hundred. <em>Five worth the detour.</em></h2>
+        <ol class="moonlist">
+          <li class="moon"><span class="moon__dot moon__dot--titan" aria-hidden="true"></span><h3>Titan</h3><p>Thicker air than Earth, methane rain and lakes you could sail.</p></li>
+          <li class="moon"><span class="moon__dot moon__dot--enceladus" aria-hidden="true"></span><h3>Enceladus</h3><p>Geysers of salt water, snow brighter than fresh paper.</p></li>
+          <li class="moon"><span class="moon__dot moon__dot--mimas" aria-hidden="true"></span><h3>Mimas</h3><p>One crater a third of its own width. It is fine. It is fine.</p></li>
+          <li class="moon"><span class="moon__dot moon__dot--iapetus" aria-hidden="true"></span><h3>Iapetus</h3><p>One side coal, one side snow. Two-tone since forever.</p></li>
+          <li class="moon"><span class="moon__dot moon__dot--hyperion" aria-hidden="true"></span><h3>Hyperion</h3><p>A tumbling sponge. Nobody can agree which way is up.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────────── Visit ───────────── -->
+    <section class="section visit" id="visit" aria-labelledby="visit-title">
+      <div class="panel panel--right">
+        <p class="eyebrow"><span class="num">03</span> Visit</p>
+        <h2 class="panel__title" id="visit-title">Twelve seats. <em>One very long night.</em></h2>
+        <p class="panel__text">A night on Saturnine lasts nine Earth days. Bring a jumper — the dome holds at 19 °C, the view does not.</p>
+        <div class="ticket">
+          <div class="ticket__row"><span>Departs</span><strong>Ceres Port · Gate 9</strong></div>
+          <div class="ticket__row"><span>Next window</span><strong>14 Mar 2062</strong></div>
+          <div class="ticket__row"><span>Duration</span><strong>9 nights</strong></div>
+          <div class="ticket__row ticket__row--price"><span>From</span><strong>2,400 <small>cr</small></strong></div>
+          <a href="#top" class="btn btn--full">Reserve a seat</a>
+        </div>
+      </div>
+      <footer class="footer">
+        <span>© 2062 Saturnine Orbital Ltd.</span>
+        <span>No refunds for cloud cover. There is none.</span>
+      </footer>
+    </section>
+  </main>
+
+  <!-- ───────────── Atmosphere filters (fixed dock) ───────────── -->
+  <div class="atmos" role="group" aria-label="Atmosphere filter">
+    <span class="atmos__label">Spectral filter</span>
+    <button class="atmos__swatch is-active" data-color="#E0C39A" data-name="Sandstone" aria-label="Sandstone" title="Sandstone" style="--c: #E0C39A"></button>
+    <button class="atmos__swatch" data-color="#9CC9E0" data-name="Ammonia ice" aria-label="Ammonia ice" title="Ammonia ice" style="--c: #9CC9E0"></button>
+    <button class="atmos__swatch" data-color="#73BFA6" data-name="Methane" aria-label="Methane" title="Methane" style="--c: #73BFA6"></button>
+    <button class="atmos__swatch" data-color="#E8C64E" data-name="Sulphur" aria-label="Sulphur" title="Sulphur" style="--c: #E8C64E"></button>
+    <button class="atmos__swatch" data-color="#D2694A" data-name="Rust storm" aria-label="Rust storm" title="Rust storm" style="--c: #D2694A"></button>
+  </div>
+
+  <!-- Libraries -->
+  <script src="../../_vendor/gsap/gsap.min.js"></script>
+  <script src="../../_vendor/gsap/ScrollTrigger.min.js"></script>
+  <script type="importmap">{"imports":{"three":"../../_vendor/three/three.module.js"}}</script>
+  <!-- Your code -->
+  <script type="module" src="main.js"></script>
+</body>
+</html>

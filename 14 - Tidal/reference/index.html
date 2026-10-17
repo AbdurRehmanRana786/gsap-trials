@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tidal — Surf forecasts for humans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ───────────── Hero ───────────── -->
+  <header class="hero">
+    <svg class="hero__art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#F6EEE2"/><stop offset=".45" stop-color="#F8E2C9"/><stop offset=".62" stop-color="#F6C9A6"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#FFD7A8" stop-opacity=".9"/><stop offset="1" stop-color="#FFD7A8" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="sea1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB7B5"/><stop offset="1" stop-color="#3F8C90"/></linearGradient>
+        <linearGradient id="sea2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4E9A9C"/><stop offset="1" stop-color="#1F6E77"/></linearGradient>
+        <linearGradient id="sea3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#257780"/><stop offset="1" stop-color="#114B5A"/></linearGradient>
+        <linearGradient id="sea4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#145463"/><stop offset="1" stop-color="#0B2A3A"/></linearGradient>
+        <clipPath id="sunclip"><circle cx="1010" cy="534" r="118"/></clipPath>
+        <linearGradient id="cliff" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C98F6A"/><stop offset="1" stop-color="#8E5A44"/></linearGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#sky)"/>
+      <circle class="hero__glow" cx="1010" cy="520" r="330" fill="url(#glow)"/>
+      <circle class="hero__sun" cx="1010" cy="534" r="118" fill="#F2674A"/>
+      <g fill="#F8D9B8" opacity=".85" clip-path="url(#sunclip)">
+        <rect x="860" y="470" width="300" height="5"/><rect x="860" y="490" width="300" height="7"/><rect x="860" y="512" width="300" height="9"/>
+      </g>
+      <!-- cliff + fort lighthouse (Nazaré) -->
+      <g class="hero__cliff">
+        <path d="M1188 560 C1210 470 1250 432 1300 420 L1360 404 C1395 398 1420 410 1460 404 L1460 620 L1170 620 Z" fill="url(#cliff)"/>
+        <path d="M1232 470 C1260 450 1300 444 1330 436" stroke="#E8B48C" stroke-width="3" fill="none" opacity=".6"/>
+        <rect x="1300" y="372" width="74" height="40" fill="#EAD9C3"/>
+        <rect x="1296" y="366" width="82" height="8" fill="#D9C4AA"/>
+        <rect x="1326" y="318" width="22" height="50" fill="#D9473A"/>
+        <rect x="1322" y="310" width="30" height="9" fill="#B8352B"/>
+        <rect x="1330" y="296" width="14" height="14" fill="#FFE7B8"/>
+        <path d="M1326 296 L1337 284 L1348 296 Z" fill="#B8352B"/>
+        <path class="hero__beam" d="M1337 302 L1200 270 L1200 330 Z" fill="#FFE7B8" opacity=".35"/>
+      </g>
+      <!-- birds -->
+      <g fill="none" stroke="#0D2433" stroke-width="2" stroke-linecap="round" opacity=".55">
+        <path d="M660 470 q10 -9 20 0 q10 -9 20 0"/><path d="M716 446 q7 -6 14 0 q7 -6 14 0"/><path d="M612 494 q6 -5 12 0 q6 -5 12 0"/>
+      </g>
+      <g class="hero__wave hero__wave--1">
+        <path d="M-240 554.1L-228 555.6L-216 555.9L-204 554.9L-192 553.1L-180 550.9L-168 548.9L-156 547.4L-144 546.6L-132 546.2L-120 545.8L-108 545.2L-96 544.3L-84 543.1L-72 542L-60 541.4L-48 541.8L-36 543.3L-24 545.8L-12 548.8L0 551.7L12 553.8L24 555L36 554.9L48 553.9L60 552.5L72 551L84 549.9L96 549.2L108 548.8L120 548.3L132 547.4L144 546L156 544.1L168 542.2L180 540.8L192 540.3L204 541.1L216 543L228 545.7L240 548.7L252 551.2L264 552.9L276 553.6L288 553.4L300 552.8L312 552L324 551.5L336 551.3L348 551.3L360 551L372 550.1L384 548.5L396 546.3L408 543.8L420 541.6L432 540.2L444 540L456 541.1L468 543.2L480 545.8L492 548.2L504 550.2L516 551.3L528 551.7L540 551.7L552 551.7L564 551.9L576 552.4L588 553L600 553.2L612 552.8L624 551.4L636 549.2L648 546.4L660 543.6L672 541.4L684 540.3L696 540.4L708 541.7L720 543.6L732 545.6L744 547.4L756 548.5L768 549.2L780 549.6L792 550.1L804 550.9L816 552.1L828 553.4L840 554.5L852 554.8L864 554L876 552.1L888 549.4L900 546.4L912 543.7L924 541.9L936 541.1L948 541.5L960 542.6L972 544L984 545.2L996 546L1008 546.5L1020 546.9L1032 547.6L1044 548.8L1056 550.5L1068 552.5L1080 554.4L1092 555.6L1104 555.7L1116 554.5L1128 552.3L1140 549.5L1152 546.6L1164 544.4L1176 543.1L1188 542.7L1200 543L1212 543.6L1224 544.1L1236 544.4L1248 544.4L1260 544.4L1272 544.9L1284 546L1296 547.9L1308 550.4L1320 552.9L1332 555L1344 556L1356 555.8L1368 554.3L1380 552.1L1392 549.5L1404 547.3L1416 545.7L1428 544.9L1440 544.6L1452 544.6L1464 544.4L1476 543.9L1488 543.3L1500 542.6L1512 542.5L1524 543.2L1536 545L1548 547.5L1560 550.4L1572 553.1L1584 555L1596 555.7L1608 555.2L1620 553.7L1632 551.8L1644 549.9L1656 548.5L1668 547.6L1680 547.1 L1680 900 L-240 900 Z" fill="url(#sea1)"/>
+        <path d="M-240 554.1L-228 555.6L-216 555.9L-204 554.9L-192 553.1L-180 550.9L-168 548.9L-156 547.4L-144 546.6L-132 546.2L-120 545.8L-108 545.2L-96 544.3L-84 543.1L-72 542L-60 541.4L-48 541.8L-36 543.3L-24 545.8L-12 548.8L0 551.7L12 553.8L24 555L36 554.9L48 553.9L60 552.5L72 551L84 549.9L96 549.2L108 548.8L120 548.3L132 547.4L144 546L156 544.1L168 542.2L180 540.8L192 540.3L204 541.1L216 543L228 545.7L240 548.7L252 551.2L264 552.9L276 553.6L288 553.4L300 552.8L312 552L324 551.5L336 551.3L348 551.3L360 551L372 550.1L384 548.5L396 546.3L408 543.8L420 541.6L432 540.2L444 540L456 541.1L468 543.2L480 545.8L492 548.2L504 550.2L516 551.3L528 551.7L540 551.7L552 551.7L564 551.9L576 552.4L588 553L600 553.2L612 552.8L624 551.4L636 549.2L648 546.4L660 543.6L672 541.4L684 540.3L696 540.4L708 541.7L720 543.6L732 545.6L744 547.4L756 548.5L768 549.2L780 549.6L792 550.1L804 550.9L816 552.1L828 553.4L840 554.5L852 554.8L864 554L876 552.1L888 549.4L900 546.4L912 543.7L924 541.9L936 541.1L948 541.5L960 542.6L972 544L984 545.2L996 546L1008 546.5L1020 546.9L1032 547.6L1044 548.8L1056 550.5L1068 552.5L1080 554.4L1092 555.6L1104 555.7L1116 554.5L1128 552.3L1140 549.5L1152 546.6L1164 544.4L1176 543.1L1188 542.7L1200 543L1212 543.6L1224 544.1L1236 544.4L1248 544.4L1260 544.4L1272 544.9L1284 546L1296 547.9L1308 550.4L1320 552.9L1332 555L1344 556L1356 555.8L1368 554.3L1380 552.1L1392 549.5L1404 547.3L1416 545.7L1428 544.9L1440 544.6L1452 544.6L1464 544.4L1476 543.9L1488 543.3L1500 542.6L1512 542.5L1524 543.2L1536 545L1548 547.5L1560 550.4L1572 553.1L1584 555L1596 555.7L1608 555.2L1620 553.7L1632 551.8L1644 549.9L1656 548.5L1668 547.6L1680 547.1" fill="none" stroke="#F4FBF8" stroke-width="1.5" stroke-linecap="round" opacity="0.55" stroke-dasharray="60 18"/>
+      </g>
+      <g class="hero__wave hero__wave--2">
+        <path d="M-240 591.8L-228 591.5L-216 590.9L-204 590.2L-192 589.6L-180 589.2L-168 589.4L-156 590.2L-144 591.7L-132 594L-120 596.9L-108 600.2L-96 603.5L-84 606.5L-72 608.9L-60 610.4L-48 611L-36 610.6L-24 609.4L-12 607.5L0 605.2L12 602.8L24 600.7L36 598.8L48 597.5L60 596.6L72 596L84 595.5L96 595.1L108 594.4L120 593.4L132 592.1L144 590.6L156 589.1L168 587.7L180 586.8L192 586.7L204 587.3L216 588.9L228 591.3L240 594.3L252 597.7L264 601.1L276 604.3L288 606.8L300 608.5L312 609.3L324 609.3L336 608.5L348 607.2L360 605.7L372 604.1L384 602.8L396 601.7L408 601L420 600.5L432 600.1L444 599.5L456 598.7L468 597.4L480 595.7L492 593.6L504 591.2L516 588.9L528 586.9L540 585.6L552 585L564 585.4L576 586.8L588 589.1L600 592L612 595.3L624 598.6L636 601.5L648 603.9L660 605.6L672 606.6L684 606.8L696 606.5L708 605.9L720 605.2L732 604.6L744 604.2L756 604.1L768 604.1L780 604.1L792 604L804 603.4L816 602.4L828 600.7L840 598.4L852 595.6L864 592.7L876 589.8L888 587.3L900 585.5L912 584.6L924 584.7L936 585.8L948 587.8L960 590.3L972 593.2L984 596L996 598.6L1008 600.6L1020 602.1L1032 603L1044 603.5L1056 603.6L1068 603.6L1080 603.8L1092 604.2L1104 604.8L1116 605.6L1128 606.4L1140 607L1152 607.3L1164 606.9L1176 605.8L1188 603.8L1200 601.2L1212 598.1L1224 594.7L1236 591.5L1248 588.7L1260 586.6L1272 585.4L1284 585.2L1296 586L1308 587.5L1320 589.5L1332 591.7L1344 593.8L1356 595.8L1368 597.3L1380 598.3L1392 599L1404 599.5L1416 600L1428 600.7L1440 601.6L1452 602.9L1464 604.4L1476 606.1L1488 607.7L1500 609L1512 609.7L1524 609.5L1536 608.5L1548 606.6L1560 603.9L1572 600.6L1584 597.2L1596 593.8L1608 591L1620 588.8L1632 587.4L1644 587L1656 587.3L1668 588.3L1680 589.6 L1680 900 L-240 900 Z" fill="url(#sea2)"/>
+        <path d="M-240 591.8L-228 591.5L-216 590.9L-204 590.2L-192 589.6L-180 589.2L-168 589.4L-156 590.2L-144 591.7L-132 594L-120 596.9L-108 600.2L-96 603.5L-84 606.5L-72 608.9L-60 610.4L-48 611L-36 610.6L-24 609.4L-12 607.5L0 605.2L12 602.8L24 600.7L36 598.8L48 597.5L60 596.6L72 596L84 595.5L96 595.1L108 594.4L120 593.4L132 592.1L144 590.6L156 589.1L168 587.7L180 586.8L192 586.7L204 587.3L216 588.9L228 591.3L240 594.3L252 597.7L264 601.1L276 604.3L288 606.8L300 608.5L312 609.3L324 609.3L336 608.5L348 607.2L360 605.7L372 604.1L384 602.8L396 601.7L408 601L420 600.5L432 600.1L444 599.5L456 598.7L468 597.4L480 595.7L492 593.6L504 591.2L516 588.9L528 586.9L540 585.6L552 585L564 585.4L576 586.8L588 589.1L600 592L612 595.3L624 598.6L636 601.5L648 603.9L660 605.6L672 606.6L684 606.8L696 606.5L708 605.9L720 605.2L732 604.6L744 604.2L756 604.1L768 604.1L780 604.1L792 604L804 603.4L816 602.4L828 600.7L840 598.4L852 595.6L864 592.7L876 589.8L888 587.3L900 585.5L912 584.6L924 584.7L936 585.8L948 587.8L960 590.3L972 593.2L984 596L996 598.6L1008 600.6L1020 602.1L1032 603L1044 603.5L1056 603.6L1068 603.6L1080 603.8L1092 604.2L1104 604.8L1116 605.6L1128 606.4L1140 607L1152 607.3L1164 606.9L1176 605.8L1188 603.8L1200 601.2L1212 598.1L1224 594.7L1236 591.5L1248 588.7L1260 586.6L1272 585.4L1284 585.2L1296 586L1308 587.5L1320 589.5L1332 591.7L1344 593.8L1356 595.8L1368 597.3L1380 598.3L1392 599L1404 599.5L1416 600L1428 600.7L1440 601.6L1452 602.9L1464 604.4L1476 606.1L1488 607.7L1500 609L1512 609.7L1524 609.5L1536 608.5L1548 606.6L1560 603.9L1572 600.6L1584 597.2L1596 593.8L1608 591L1620 588.8L1632 587.4L1644 587L1656 587.3L1668 588.3L1680 589.6" fill="none" stroke="#F4FBF8" stroke-width="2.3" stroke-linecap="round" opacity="0.6" stroke-dasharray="14 26"/>
+      </g>
+      <g class="hero__wave hero__wave--3">
+        <path d="M-240 688.2L-228 690.2L-216 691.6L-204 692.2L-192 692L-180 691L-168 689.2L-156 686.8L-144 684L-132 680.9L-120 677.7L-108 674.5L-96 671.6L-84 669.1L-72 667L-60 665.5L-48 664.4L-36 663.7L-24 663.4L-12 663.3L0 663.2L12 663.2L24 663.1L36 662.8L48 662.3L60 661.6L72 660.8L84 659.9L96 659.2L108 658.6L120 658.4L132 658.7L144 659.5L156 661L168 663.1L180 665.7L192 668.9L204 672.3L216 676L228 679.6L240 683L252 686L264 688.5L276 690.2L288 691.2L300 691.3L312 690.7L324 689.4L336 687.6L348 685.4L360 682.9L372 680.4L384 678L396 675.8L408 673.9L420 672.4L432 671.2L444 670.3L456 669.7L468 669.1L480 668.6L492 668.1L504 667.3L516 666.3L528 665L540 663.5L552 661.7L564 659.9L576 658.2L588 656.6L600 655.5L612 654.8L624 654.7L636 655.3L648 656.7L660 658.8L672 661.5L684 664.7L696 668.4L708 672.1L720 675.9L732 679.4L744 682.6L756 685.1L768 687.1L780 688.3L792 688.8L804 688.6L816 687.9L828 686.7L840 685.2L852 683.6L864 682L876 680.5L888 679.2L900 678.1L912 677.3L924 676.7L936 676.3L948 675.8L960 675.3L972 674.6L984 673.5L996 672.2L1008 670.4L1020 668.3L1032 665.9L1044 663.3L1056 660.6L1068 658.1L1080 655.8L1092 654L1104 652.8L1116 652.4L1128 652.7L1140 653.8L1152 655.6L1164 658.2L1176 661.3L1188 664.7L1200 668.3L1212 671.9L1224 675.2L1236 678.2L1248 680.7L1260 682.6L1272 683.9L1284 684.6L1296 684.8L1308 684.6L1320 684.1L1332 683.4L1344 682.7L1356 682.1L1368 681.7L1380 681.4L1392 681.3L1404 681.4L1416 681.5L1428 681.6L1440 681.5L1452 681.2L1464 680.4L1476 679.2L1488 677.4L1500 675.1L1512 672.4L1524 669.3L1536 666.1L1548 662.8L1560 659.6L1572 656.8L1584 654.5L1596 652.8L1608 651.9L1620 651.8L1632 652.6L1644 654.1L1656 656.2L1668 658.9L1680 661.8 L1680 900 L-240 900 Z" fill="url(#sea3)"/>
+        <path d="M-240 688.2L-228 690.2L-216 691.6L-204 692.2L-192 692L-180 691L-168 689.2L-156 686.8L-144 684L-132 680.9L-120 677.7L-108 674.5L-96 671.6L-84 669.1L-72 667L-60 665.5L-48 664.4L-36 663.7L-24 663.4L-12 663.3L0 663.2L12 663.2L24 663.1L36 662.8L48 662.3L60 661.6L72 660.8L84 659.9L96 659.2L108 658.6L120 658.4L132 658.7L144 659.5L156 661L168 663.1L180 665.7L192 668.9L204 672.3L216 676L228 679.6L240 683L252 686L264 688.5L276 690.2L288 691.2L300 691.3L312 690.7L324 689.4L336 687.6L348 685.4L360 682.9L372 680.4L384 678L396 675.8L408 673.9L420 672.4L432 671.2L444 670.3L456 669.7L468 669.1L480 668.6L492 668.1L504 667.3L516 666.3L528 665L540 663.5L552 661.7L564 659.9L576 658.2L588 656.6L600 655.5L612 654.8L624 654.7L636 655.3L648 656.7L660 658.8L672 661.5L684 664.7L696 668.4L708 672.1L720 675.9L732 679.4L744 682.6L756 685.1L768 687.1L780 688.3L792 688.8L804 688.6L816 687.9L828 686.7L840 685.2L852 683.6L864 682L876 680.5L888 679.2L900 678.1L912 677.3L924 676.7L936 676.3L948 675.8L960 675.3L972 674.6L984 673.5L996 672.2L1008 670.4L1020 668.3L1032 665.9L1044 663.3L1056 660.6L1068 658.1L1080 655.8L1092 654L1104 652.8L1116 652.4L1128 652.7L1140 653.8L1152 655.6L1164 658.2L1176 661.3L1188 664.7L1200 668.3L1212 671.9L1224 675.2L1236 678.2L1248 680.7L1260 682.6L1272 683.9L1284 684.6L1296 684.8L1308 684.6L1320 684.1L1332 683.4L1344 682.7L1356 682.1L1368 681.7L1380 681.4L1392 681.3L1404 681.4L1416 681.5L1428 681.6L1440 681.5L1452 681.2L1464 680.4L1476 679.2L1488 677.4L1500 675.1L1512 672.4L1524 669.3L1536 666.1L1548 662.8L1560 659.6L1572 656.8L1584 654.5L1596 652.8L1608 651.9L1620 651.8L1632 652.6L1644 654.1L1656 656.2L1668 658.9L1680 661.8" fill="none" stroke="#F4FBF8" stroke-width="3.1" stroke-linecap="round" opacity="0.7" stroke-dasharray="120 30"/>
+      </g>
+      <g class="hero__wave hero__wave--4">
+        <path d="M-240 748L-228 748.1L-216 748.7L-204 749.7L-192 751.3L-180 753.5L-168 756.1L-156 759.3L-144 762.8L-132 766.6L-120 770.6L-108 774.7L-96 778.7L-84 782.6L-72 786.2L-60 789.5L-48 792.2L-36 794.4L-24 796L-12 797L0 797.4L12 797.1L24 796.3L36 795L48 793.3L60 791.3L72 789L84 786.6L96 784.1L108 781.8L120 779.5L132 777.5L144 775.6L156 774.1L168 772.8L180 771.7L192 770.8L204 770.1L216 769.5L228 768.9L240 768.3L252 767.5L264 766.7L276 765.6L288 764.2L300 762.7L312 760.9L324 758.9L336 756.7L348 754.4L360 752.1L372 749.9L384 747.8L396 746.1L408 744.6L420 743.6L432 743.2L444 743.3L456 744L468 745.3L480 747.3L492 749.8L504 752.8L516 756.3L528 760L540 764L552 768.2L564 772.2L576 776.2L588 779.9L600 783.2L612 786.2L624 788.6L636 790.5L648 791.8L660 792.6L672 792.8L684 792.6L696 792L708 791.1L720 789.9L732 788.5L744 787.1L756 785.7L768 784.3L780 783.1L792 782.1L804 781.2L816 780.5L828 780L840 779.6L852 779.2L864 778.9L876 778.5L888 778L900 777.3L912 776.3L924 775.1L936 773.4L948 771.5L960 769.2L972 766.6L984 763.8L996 760.7L1008 757.6L1020 754.4L1032 751.3L1044 748.5L1056 745.9L1068 743.8L1080 742.1L1092 741.1L1104 740.6L1116 740.8L1128 741.7L1140 743.2L1152 745.3L1164 748L1176 751.1L1188 754.5L1200 758.2L1212 761.9L1224 765.7L1236 769.4L1248 772.8L1260 776L1272 778.8L1284 781.1L1296 783L1308 784.5L1320 785.5L1332 786.1L1344 786.4L1356 786.4L1368 786.1L1380 785.8L1392 785.4L1404 784.9L1416 784.6L1428 784.4L1440 784.3L1452 784.4L1464 784.6L1476 785L1488 785.4L1500 785.8L1512 786.2L1524 786.5L1536 786.5L1548 786.3L1560 785.8L1572 784.8L1584 783.4L1596 781.6L1608 779.3L1620 776.6L1632 773.5L1644 770.1L1656 766.4L1668 762.6L1680 758.8 L1680 900 L-240 900 Z" fill="url(#sea4)"/>
+        <path d="M-240 748L-228 748.1L-216 748.7L-204 749.7L-192 751.3L-180 753.5L-168 756.1L-156 759.3L-144 762.8L-132 766.6L-120 770.6L-108 774.7L-96 778.7L-84 782.6L-72 786.2L-60 789.5L-48 792.2L-36 794.4L-24 796L-12 797L0 797.4L12 797.1L24 796.3L36 795L48 793.3L60 791.3L72 789L84 786.6L96 784.1L108 781.8L120 779.5L132 777.5L144 775.6L156 774.1L168 772.8L180 771.7L192 770.8L204 770.1L216 769.5L228 768.9L240 768.3L252 767.5L264 766.7L276 765.6L288 764.2L300 762.7L312 760.9L324 758.9L336 756.7L348 754.4L360 752.1L372 749.9L384 747.8L396 746.1L408 744.6L420 743.6L432 743.2L444 743.3L456 744L468 745.3L480 747.3L492 749.8L504 752.8L516 756.3L528 760L540 764L552 768.2L564 772.2L576 776.2L588 779.9L600 783.2L612 786.2L624 788.6L636 790.5L648 791.8L660 792.6L672 792.8L684 792.6L696 792L708 791.1L720 789.9L732 788.5L744 787.1L756 785.7L768 784.3L780 783.1L792 782.1L804 781.2L816 780.5L828 780L840 779.6L852 779.2L864 778.9L876 778.5L888 778L900 777.3L912 776.3L924 775.1L936 773.4L948 771.5L960 769.2L972 766.6L984 763.8L996 760.7L1008 757.6L1020 754.4L1032 751.3L1044 748.5L1056 745.9L1068 743.8L1080 742.1L1092 741.1L1104 740.6L1116 740.8L1128 741.7L1140 743.2L1152 745.3L1164 748L1176 751.1L1188 754.5L1200 758.2L1212 761.9L1224 765.7L1236 769.4L1248 772.8L1260 776L1272 778.8L1284 781.1L1296 783L1308 784.5L1320 785.5L1332 786.1L1344 786.4L1356 786.4L1368 786.1L1380 785.8L1392 785.4L1404 784.9L1416 784.6L1428 784.4L1440 784.3L1452 784.4L1464 784.6L1476 785L1488 785.4L1500 785.8L1512 786.2L1524 786.5L1536 786.5L1548 786.3L1560 785.8L1572 784.8L1584 783.4L1596 781.6L1608 779.3L1620 776.6L1632 773.5L1644 770.1L1656 766.4L1668 762.6L1680 758.8" fill="none" stroke="#F4FBF8" stroke-width="3.9000000000000004" stroke-linecap="round" opacity="0.8" stroke-dasharray="22 40"/>
+      </g>
+      <!-- tiny surfer on the third wave -->
+      <g class="hero__surfer" transform="translate(452 640)">
+        <path d="M-26 22 Q0 30 30 18 Q2 16 -26 22 Z" fill="#F7B267"/>
+        <path d="M-2 18 L-6 4 M4 18 L6 5 M-6 4 L0 -10 L6 5 M0 -10 L-12 -4 M0 -10 L13 -12" stroke="#0D2433" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+        <circle cx="1" cy="-16" r="4.6" fill="#0D2433"/>
+      </g>
+    </svg>
+
+    <nav class="nav">
+      <a href="#" class="nav__logo" aria-label="Tidal — home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#0D2433"/><path d="M5 18 C9 13 13 13 16 17 C19 21 23 21 27 16 L27 24 C23 28 9 28 5 22 Z" fill="#7FD1C7"/><circle cx="21" cy="10" r="3.4" fill="#F2674A"/></svg>
+        Tidal
+      </a>
+      <div class="nav__links">
+        <a href="#" aria-current="page">Forecast</a>
+        <a href="#">Spots</a>
+        <a href="#">Live cams</a>
+        <a href="#">Tide tables</a>
+      </div>
+      <a href="#" class="nav__cta">Dawn-patrol alerts</a>
+    </nav>
+
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Silver Coast, Portugal · updated 05:40</p>
+      <h1 class="hero__title">Read the <em>ocean.</em></h1>
+      <p class="hero__text">Swell, wind and tide for 240 breaks — explained like a friend who checked the buoys before you woke up. No surf-speak required.</p>
+    </div>
+
+    <aside class="hero__now" aria-label="Conditions right now">
+      <p class="hero__now-label"><i></i> Now at Praia do Norte</p>
+      <p class="hero__now-height">2.4<span>m</span></p>
+      <ul>
+        <li><span>Period</span>14 s</li>
+        <li><span>Wind</span>E 8 kn</li>
+        <li><span>Water</span>16 °C</li>
+      </ul>
+    </aside>
+  </header>
+
+  <!-- ───────────── This week's swells ───────────── -->
+  <section class="swells" aria-labelledby="swells-title">
+    <div class="swells__head">
+      <div>
+        <p class="swells__eyebrow">Five-day outlook · Praia do Norte</p>
+        <h2 class="swells__title" id="swells-title">This week’s <em>swells</em></h2>
+      </div>
+      <div class="swells__aside">
+        <p>Wave height is the face you’ll actually ride, not the buoy reading. Period tells you how much push is behind it.</p>
+        <div class="swells__bar" aria-hidden="true"><div class="swells__bar-fill"></div></div>
+      </div>
+    </div>
+    <div class="swells__track">
+        <article class="swell swell--epic">
+          <header class="swell__top">
+            <p class="swell__day">Mon <span>19 Oct</span></p>
+            <span class="swell__rating"><i></i>Epic</span>
+          </header>
+          <p class="swell__height">2.4<span>m</span></p>
+          <p class="swell__dir">WNW 290° · long-period groundswell</p>
+          <svg class="swell__chart" viewBox="0 0 240 78" aria-hidden="true"><rect class="swell__bar" x="6" y="29.5" width="20" height="34.5" rx="3"/><rect class="swell__bar" x="35" y="23.1" width="20" height="40.9" rx="3"/><rect class="swell__bar" x="64" y="16.6" width="20" height="47.4" rx="3"/><rect class="swell__bar" x="93" y="12.3" width="20" height="51.7" rx="3"/><rect class="swell__bar" x="122" y="12.3" width="20" height="51.7" rx="3"/><rect class="swell__bar" x="151" y="14.5" width="20" height="49.5" rx="3"/><rect class="swell__bar" x="180" y="20.9" width="20" height="43.1" rx="3"/><rect class="swell__bar" x="209" y="25.2" width="20" height="38.8" rx="3"/><line x1="0" y1="64.5" x2="240" y2="64.5"/><text x="6" y="77">06</text><text x="93" y="77">12</text><text x="180" y="77">18</text></svg>
+          <dl class="swell__stats">
+            <div><dt>Period</dt><dd>14 s</dd></div>
+            <div><dt>Wind</dt><dd>E 8 kn <em>offshore</em></dd></div>
+            <div><dt>Tide</dt><dd>High 14:52</dd></div>
+          </dl>
+          <p class="swell__note">Dawn patrol. Bring the step-up and a friend who can swim.</p>
+        </article>
+        <article class="swell swell--good">
+          <header class="swell__top">
+            <p class="swell__day">Tue <span>20 Oct</span></p>
+            <span class="swell__rating"><i></i>Good</span>
+          </header>
+          <p class="swell__height">1.8<span>m</span></p>
+          <p class="swell__dir">W 275° · building through the day</p>
+          <svg class="swell__chart" viewBox="0 0 240 78" aria-hidden="true"><rect class="swell__bar" x="6" y="36" width="20" height="28" rx="3"/><rect class="swell__bar" x="35" y="33.8" width="20" height="30.2" rx="3"/><rect class="swell__bar" x="64" y="29.5" width="20" height="34.5" rx="3"/><rect class="swell__bar" x="93" y="25.2" width="20" height="38.8" rx="3"/><rect class="swell__bar" x="122" y="25.2" width="20" height="38.8" rx="3"/><rect class="swell__bar" x="151" y="27.4" width="20" height="36.6" rx="3"/><rect class="swell__bar" x="180" y="27.4" width="20" height="36.6" rx="3"/><rect class="swell__bar" x="209" y="31.7" width="20" height="32.3" rx="3"/><line x1="0" y1="64.5" x2="240" y2="64.5"/><text x="6" y="77">06</text><text x="93" y="77">12</text><text x="180" y="77">18</text></svg>
+          <dl class="swell__stats">
+            <div><dt>Period</dt><dd>12 s</dd></div>
+            <div><dt>Wind</dt><dd>NE 11 kn <em>cross-off</em></dd></div>
+            <div><dt>Tide</dt><dd>High 15:31</dd></div>
+          </dl>
+          <p class="swell__note">Clean until lunch, then the wind remembers it exists.</p>
+        </article>
+        <article class="swell swell--fair">
+          <header class="swell__top">
+            <p class="swell__day">Wed <span>21 Oct</span></p>
+            <span class="swell__rating"><i></i>Fair</span>
+          </header>
+          <p class="swell__height">1.1<span>m</span></p>
+          <p class="swell__dir">NW 310° · short-period windswell</p>
+          <svg class="swell__chart" viewBox="0 0 240 78" aria-hidden="true"><rect class="swell__bar" x="6" y="38.2" width="20" height="25.8" rx="3"/><rect class="swell__bar" x="35" y="40.3" width="20" height="23.7" rx="3"/><rect class="swell__bar" x="64" y="40.3" width="20" height="23.7" rx="3"/><rect class="swell__bar" x="93" y="42.5" width="20" height="21.5" rx="3"/><rect class="swell__bar" x="122" y="44.6" width="20" height="19.4" rx="3"/><rect class="swell__bar" x="151" y="42.5" width="20" height="21.5" rx="3"/><rect class="swell__bar" x="180" y="40.3" width="20" height="23.7" rx="3"/><rect class="swell__bar" x="209" y="40.3" width="20" height="23.7" rx="3"/><line x1="0" y1="64.5" x2="240" y2="64.5"/><text x="6" y="77">06</text><text x="93" y="77">12</text><text x="180" y="77">18</text></svg>
+          <dl class="swell__stats">
+            <div><dt>Period</dt><dd>8 s</dd></div>
+            <div><dt>Wind</dt><dd>N 16 kn <em>cross-shore</em></dd></div>
+            <div><dt>Tide</dt><dd>High 16:12</dd></div>
+          </dl>
+          <p class="swell__note">Lumpy. Good day to wax the board and pretend.</p>
+        </article>
+        <article class="swell swell--good">
+          <header class="swell__top">
+            <p class="swell__day">Thu <span>22 Oct</span></p>
+            <span class="swell__rating"><i></i>Good</span>
+          </header>
+          <p class="swell__height">1.6<span>m</span></p>
+          <p class="swell__dir">WNW 295° · new pulse arriving</p>
+          <svg class="swell__chart" viewBox="0 0 240 78" aria-hidden="true"><rect class="swell__bar" x="6" y="44.6" width="20" height="19.4" rx="3"/><rect class="swell__bar" x="35" y="42.5" width="20" height="21.5" rx="3"/><rect class="swell__bar" x="64" y="38.2" width="20" height="25.8" rx="3"/><rect class="swell__bar" x="93" y="33.8" width="20" height="30.2" rx="3"/><rect class="swell__bar" x="122" y="29.5" width="20" height="34.5" rx="3"/><rect class="swell__bar" x="151" y="29.5" width="20" height="34.5" rx="3"/><rect class="swell__bar" x="180" y="31.7" width="20" height="32.3" rx="3"/><rect class="swell__bar" x="209" y="31.7" width="20" height="32.3" rx="3"/><line x1="0" y1="64.5" x2="240" y2="64.5"/><text x="6" y="77">06</text><text x="93" y="77">12</text><text x="180" y="77">18</text></svg>
+          <dl class="swell__stats">
+            <div><dt>Period</dt><dd>13 s</dd></div>
+            <div><dt>Wind</dt><dd>SE 6 kn <em>offshore</em></dd></div>
+            <div><dt>Tide</dt><dd>High 16:58</dd></div>
+          </dl>
+          <p class="swell__note">The pulse lands mid-morning. Sets every ten minutes.</p>
+        </article>
+        <article class="swell swell--poor">
+          <header class="swell__top">
+            <p class="swell__day">Fri <span>23 Oct</span></p>
+            <span class="swell__rating"><i></i>Flat-ish</span>
+          </header>
+          <p class="swell__height">0.6<span>m</span></p>
+          <p class="swell__dir">W 270° · fading</p>
+          <svg class="swell__chart" viewBox="0 0 240 78" aria-hidden="true"><rect class="swell__bar" x="6" y="42.5" width="20" height="21.5" rx="3"/><rect class="swell__bar" x="35" y="44.6" width="20" height="19.4" rx="3"/><rect class="swell__bar" x="64" y="46.8" width="20" height="17.2" rx="3"/><rect class="swell__bar" x="93" y="48.9" width="20" height="15.1" rx="3"/><rect class="swell__bar" x="122" y="51.1" width="20" height="12.9" rx="3"/><rect class="swell__bar" x="151" y="51.1" width="20" height="12.9" rx="3"/><rect class="swell__bar" x="180" y="53.2" width="20" height="10.8" rx="3"/><rect class="swell__bar" x="209" y="53.2" width="20" height="10.8" rx="3"/><line x1="0" y1="64.5" x2="240" y2="64.5"/><text x="6" y="77">06</text><text x="93" y="77">12</text><text x="180" y="77">18</text></svg>
+          <dl class="swell__stats">
+            <div><dt>Period</dt><dd>9 s</dd></div>
+            <div><dt>Wind</dt><dd>SW 19 kn <em>onshore</em></dd></div>
+            <div><dt>Tide</dt><dd>High 17:49</dd></div>
+          </dl>
+          <p class="swell__note">Go for a coffee instead. The ocean needs a nap too.</p>
+        </article>
+    </div>
+  </section>
+
+  <!-- ───────────── Spots ───────────── -->
+  <section class="spots" aria-labelledby="spots-title">
+    <div class="spots__head">
+      <h2 class="spots__title" id="spots-title">Where it’s <em>working</em></h2>
+      <p>Six breaks on the Silver Coast, ranked by how loud you’ll shout in the car park.</p>
+    </div>
+    <ol class="spots__list">
+        <li class="spot">
+          <span class="spot__num">01</span>
+          <div class="spot__name"><strong>Praia do Norte</strong><span>Nazaré</span></div>
+          <span class="spot__type">Beach break · canyon-fed</span>
+          <span class="spot__tide">Best tide · Mid</span>
+          <span class="spot__size">2.4 m</span>
+          <span class="spot__rating spot__rating--epic"><i></i>Epic</span>
+        </li>
+        <li class="spot">
+          <span class="spot__num">02</span>
+          <div class="spot__name"><strong>Supertubos</strong><span>Peniche</span></div>
+          <span class="spot__type">Beach break · barrels</span>
+          <span class="spot__tide">Best tide · Low</span>
+          <span class="spot__size">1.9 m</span>
+          <span class="spot__rating spot__rating--good"><i></i>Good</span>
+        </li>
+        <li class="spot">
+          <span class="spot__num">03</span>
+          <div class="spot__name"><strong>Ribeira d’Ilhas</strong><span>Ericeira</span></div>
+          <span class="spot__type">Right-hand point</span>
+          <span class="spot__tide">Best tide · Mid–high</span>
+          <span class="spot__size">1.7 m</span>
+          <span class="spot__rating spot__rating--good"><i></i>Good</span>
+        </li>
+        <li class="spot">
+          <span class="spot__num">04</span>
+          <div class="spot__name"><strong>Coxos</strong><span>Ericeira</span></div>
+          <span class="spot__type">Right reef · experts</span>
+          <span class="spot__tide">Best tide · Mid</span>
+          <span class="spot__size">2.0 m</span>
+          <span class="spot__rating spot__rating--epic"><i></i>Epic</span>
+        </li>
+        <li class="spot">
+          <span class="spot__num">05</span>
+          <div class="spot__name"><strong>Carcavelos</strong><span>Lisbon</span></div>
+          <span class="spot__type">Beach break · after-work</span>
+          <span class="spot__tide">Best tide · Mid</span>
+          <span class="spot__size">1.0 m</span>
+          <span class="spot__rating spot__rating--fair"><i></i>Fair</span>
+        </li>
+        <li class="spot">
+          <span class="spot__num">06</span>
+          <div class="spot__name"><strong>Arrifana</strong><span>Algarve</span></div>
+          <span class="spot__type">Cove · sheltered</span>
+          <span class="spot__tide">Best tide · Low–mid</span>
+          <span class="spot__size">0.8 m</span>
+          <span class="spot__rating spot__rating--fair"><i></i>Fair</span>
+        </li>
+    </ol>
+  </section>
+
+  <!-- ───────────── Footer ───────────── -->
+  <footer class="foot">
+    <p class="foot__big">Paddle <em>out.</em></p>
+    <div class="foot__row">
+      <p>Forecasts are our best guess from 31 buoys and a lot of coffee. The ocean always has the final say.</p>
+      <p class="foot__small">Tidal · Ericeira · 39.0° N, 9.4° W</p>
+    </div>
+  </footer>
+
+<script src="ref.js"></script>
+</body>
+</html>

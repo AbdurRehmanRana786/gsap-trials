@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citrus &amp; Co. — Small-batch lemonade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,800;9..144,900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    gsap.set('sapli iiner' {
+    visibility: visible,
+    })
+    let =
+    gasp.from{}
+  <!-- ───────────── Splash / preloader ───────────── -->
+  <div class="splash">
+    <div class="splash__inner">
+      <svg class="splash__lemon" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <radialGradient id="flesh" cx="50%" cy="50%" r="55%">
+            <stop offset="0" stop-color="#FFF3A3"/>
+            <stop offset="1" stop-color="#FFD43B"/>
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="100" r="97" fill="#F2B705"/>
+        <circle cx="100" cy="100" r="90" fill="#FFE070"/>
+        <circle cx="100" cy="100" r="84" fill="#FFF8DC"/>
+        <g fill="url(#flesh)">
+          <path d="M101.60 91.14 L104.35 22.12 A78 78 0 0 1 142.25 34.44 L103.91 91.89 Z"/>
+          <path d="M106.50 93.78 L149.30 39.55 A78 78 0 0 1 172.72 71.79 L107.93 95.74 Z"/>
+          <path d="M108.92 98.78 L175.41 80.08 A78 78 0 0 1 175.41 119.92 L108.92 101.22 Z"/>
+          <path d="M107.93 104.26 L172.72 128.21 A78 78 0 0 1 149.30 160.45 L106.50 106.22 Z"/>
+          <path d="M103.91 108.11 L142.25 165.56 A78 78 0 0 1 104.35 177.88 L101.60 108.86 Z"/>
+          <path d="M98.40 108.86 L95.65 177.88 A78 78 0 0 1 57.75 165.56 L96.09 108.11 Z"/>
+          <path d="M93.50 106.22 L50.70 160.45 A78 78 0 0 1 27.28 128.21 L92.07 104.26 Z"/>
+          <path d="M91.08 101.22 L24.59 119.92 A78 78 0 0 1 24.59 80.08 L91.08 98.78 Z"/>
+          <path d="M92.07 95.74 L27.28 71.79 A78 78 0 0 1 50.70 39.55 L93.50 93.78 Z"/>
+          <path d="M96.09 91.89 L57.75 34.44 A78 78 0 0 1 95.65 22.12 L98.40 91.14 Z"/>
+        </g>
+        <g fill="#FFF8DC" opacity=".9">
+          <ellipse cx="109.27" cy="71.47" rx="3.2" ry="6" transform="rotate(18 109.27 71.47)"/>
+          <ellipse cx="130.00" cy="100.00" rx="3.2" ry="6" transform="rotate(90 130.00 100.00)"/>
+          <ellipse cx="109.27" cy="128.53" rx="3.2" ry="6" transform="rotate(162 109.27 128.53)"/>
+          <ellipse cx="75.73" cy="117.63" rx="3.2" ry="6" transform="rotate(234 75.73 117.63)"/>
+          <ellipse cx="75.73" cy="82.37" rx="3.2" ry="6" transform="rotate(306 75.73 82.37)"/>
+        </g>
+        <circle cx="100" cy="100" r="6" fill="#FFF8DC"/>
+        <path d="M38 52 A78 78 0 0 1 70 27" stroke="#fff" stroke-width="5" stroke-linecap="round" fill="none" opacity=".55"/>
+      </svg>
+
+      <div class="mask">
+        <h1 class="splash__title">Citrus &amp; Co.</h1>
+      </div>
+      <p class="splash__tagline">Small-batch lemonade · Squeezed daily</p>
+
+      <div class="splash__bar"><div class="splash__bar-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- ───────────── The website underneath ───────────── -->
+  <header class="nav">
+    <a href="#" class="nav__logo">Citrus<span>&amp;</span>Co.</a>
+    <nav class="nav__links">
+      <a href="#">Flavours</a>
+      <a href="#">Our grove</a>
+      <a href="#">Stockists</a>
+    </nav>
+    <a href="#" class="nav__cta">Order</a>
+  </header>
+
+  <main class="hero">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Summer batch · No. 26</p>
+      <h2 class="hero__title">Squeezed<br>this <em>morning.</em></h2>
+      <p class="hero__text">Hand-pressed Amalfi lemons, a whisper of wildflower honey and nothing you can't pronounce. Bottled the same day, on your doorstep tomorrow.</p>
+      <a href="#" class="hero__cta">Order a crate <span aria-hidden="true">→</span></a>
+    </div>
+
+    <svg class="hero__glass" viewBox="0 0 320 420" aria-hidden="true">
+      <defs>
+        <linearGradient id="juice" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFE873"/>
+          <stop offset="1" stop-color="#FFC21A"/>
+        </linearGradient>
+        <clipPath id="glassClip"><path d="M70 110 L250 110 L228 390 Q226 404 212 404 L108 404 Q94 404 92 390 Z"/></clipPath>
+      </defs>
+      <ellipse cx="160" cy="408" rx="120" ry="10" fill="#1E3A2A" opacity=".08"/>
+      <rect x="196" y="18" width="14" height="240" rx="7" fill="#F26B5B" transform="rotate(14 203 140)"/>
+      <g clip-path="url(#glassClip)">
+        <rect x="60" y="150" width="200" height="270" fill="url(#juice)"/>
+        <rect x="104" y="170" width="54" height="54" rx="10" fill="#fff" opacity=".55" transform="rotate(-12 131 197)"/>
+        <rect x="158" y="196" width="50" height="50" rx="10" fill="#fff" opacity=".45" transform="rotate(18 183 221)"/>
+        <rect x="118" y="238" width="46" height="46" rx="10" fill="#fff" opacity=".4" transform="rotate(6 141 261)"/>
+        <circle cx="120" cy="330" r="6" fill="#fff" opacity=".6"/>
+        <circle cx="190" cy="300" r="4" fill="#fff" opacity=".6"/>
+        <circle cx="168" cy="356" r="7" fill="#fff" opacity=".5"/>
+        <circle cx="140" cy="372" r="3" fill="#fff" opacity=".7"/>
+      </g>
+      <path d="M70 110 L250 110 L228 390 Q226 404 212 404 L108 404 Q94 404 92 390 Z" fill="none" stroke="#1E3A2A" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M92 140 L104 370" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity=".6"/>
+      <g transform="translate(206 76)">
+        <circle r="44" fill="#F2B705"/>
+        <circle r="38" fill="#FFF8DC"/>
+        <circle r="33" fill="#FFE070"/>
+        <g stroke="#FFF8DC" stroke-width="3">
+          <line x1="0" y1="-33" x2="0" y2="33"/><line x1="-33" y1="0" x2="33" y2="0"/>
+          <line x1="-23" y1="-23" x2="23" y2="23"/><line x1="-23" y1="23" x2="23" y2="-23"/>
+        </g>
+      </g>
+      <path d="M40 210 C 10 190, 14 150, 46 150 C 62 176, 60 196, 40 210 Z" fill="#4F8A3C"/>
+      <path d="M40 210 C 34 186, 38 168, 46 150" stroke="#2F5E22" stroke-width="2" fill="none"/>
+    </svg>
+
+    <div class="hero__badge">
+      <strong>4.9</strong>
+      <span>from 2,300<br>thirsty humans</span>
+    </div>
+  </main>
+
+  <!-- Libraries -->
+  <script src="../../_vendor/gsap/gsap.min.js"></script>
+  <!-- Your code -->
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+/* ─────────────────────────────────────────────
+   Kōdo — styles are done for you.
+   Your job is the motion (main.js).
+   ───────────────────────────────────────────── */
+
+:root {
+  --washi: #F3EDE1;
+  --paper: #E9E1D1;
+  --sumi: #1D1B17;
+  --sumi-soft: #2A2721;
+  --ink-dim: rgba(29, 27, 23, .62);
+  --washi-dim: rgba(243, 237, 225, .62);
+  --matcha: #5E7430;
+  --matcha-bright: #8BA64A;
+  --shu: #C4472F;          /* vermillion, as on a torii gate */
+  --gold: #C29A55;
+  --hair: rgba(29, 27, 23, .14);
+  --hair-light: rgba(243, 237, 225, .14);
+  --serif: 'Shippori Mincho', 'Hiragino Mincho ProN', Georgia, serif;
+  --sans: 'Zen Kaku Gothic New', 'Hiragino Sans', system-ui, sans-serif;
+  --gutter: clamp(20px, 6vw, 96px);
+  --fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' seed='8' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .34 0 0 0 0 .24 0 0 0 .55 -.22'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: var(--washi); }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--sumi);
+  background: var(--fibre), var(--washi);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+em { font-style: normal; color: var(--matcha); }
+h1, h2, h3, h4 { font-weight: 500; }
+::selection { background: var(--shu); color: var(--washi); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--shu); outline-offset: 4px; }
+
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.eyebrow {
+  margin: 0 0 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--shu);
+}
+.footer .marquee__item, .footer .footer__brand { color: var(--washi); }
+
+.seal {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 4px;
+  background: var(--shu);
+  color: var(--washi);
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  transform: rotate(-4deg);
+}
+
+/* ───────────── Preloader ───────────── */
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--fibre), var(--washi);
+}
+.loader__inner { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+.loader__kanji { width: min(42vw, 230px); height: auto; overflow: visible; }
+.loader__stroke {
+  fill: none;
+  stroke: var(--sumi);
+  stroke-width: 15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.loader__label {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 15px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+}
+.loader__label span { color: var(--shu); }
+.loader__count {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 28px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(72px, 12vw, 176px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+.loader__hint {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 44px;
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* ───────────── Nav ───────────── */
+
+.nav {
+  position: fixed;
+  inset: 16px var(--gutter) auto;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px 10px 16px;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  background: rgba(243, 237, 225, .82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav__logo { display: flex; align-items: center; font-family: var(--serif); font-size: 22px; font-weight: 700; }
+.nav__links { display: flex; gap: 34px; font-size: 14px; font-weight: 500; }
+.nav__links a { color: var(--ink-dim); transition: color .25s; }
+.nav__links a:hover { color: var(--sumi); }
+.nav__cta {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--sumi);
+  color: var(--washi);
+  font-size: 14px;
+  font-weight: 700;
+  transition: background .25s;
+}
+.nav__cta:hover { background: var(--shu); }
+
+/* ───────────── Hero ───────────── */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  align-items: center;
+  gap: 2vw;
+  padding: 120px var(--gutter) 80px;
+  overflow: hidden;
+}
+.hero__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(56px, 7.4vw, 120px);
+  line-height: 1.04;
+  letter-spacing: -.02em;
+}
+.hero__text { max-width: 440px; margin: 30px 0 36px; font-size: 17px; line-height: 1.75; color: var(--ink-dim); }
+.hero__actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.hero__art { position: relative; justify-self: center; width: min(40vw, 560px); }
+.bowl { display: block; width: 100%; height: auto; overflow: visible; }
+.bowl__seal { font-family: var(--serif); font-size: 24px; font-weight: 700; fill: var(--washi); }
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.hero__scroll span { width: 46px; height: 1px; background: currentColor; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 17px 30px;
+  border-radius: 999px;
+  background: var(--sumi);
+  color: var(--washi);
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 14px 30px rgba(29, 27, 23, .18);
+  transition: background .25s, transform .25s;
+}
+.btn:hover { background: var(--shu); transform: translateY(-2px); }
+.link { font-size: 15px; font-weight: 500; border-bottom: 1px solid var(--sumi); padding-bottom: 3px; }
+
+/* ───────────── The Ceremony ───────────── */
+
+.ceremony {
+  position: relative;
+  min-height: 100vh;
+  background: var(--sumi);
+  color: var(--washi);
+}
+.ceremony::before { /* faint washi fibres even on the dark section */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--fibre);
+  opacity: .1;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.ceremony__inner {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 5vw;
+  padding: 110px var(--gutter) 70px;
+}
+.ceremony .eyebrow { color: var(--gold); }
+.ceremony__title {
+  margin: 0 0 34px;
+  font-family: var(--serif);
+  font-size: clamp(40px, 4.4vw, 68px);
+  line-height: 1.05;
+}
+.ceremony__title em { color: var(--gold); white-space: nowrap; }
+
+.steps { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--hair-light); }
+.step {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  padding: 16px 0;
+  border-top: 1px solid var(--hair-light);
+  transition: opacity .5s;
+}
+.step__num { font-family: var(--serif); font-size: 15px; color: var(--washi-dim); padding-top: 9px; transition: color .5s; }
+.step__title { margin: 0; font-family: var(--serif); font-size: 27px; }
+.step__title span { margin-left: 8px; font-size: 15px; color: var(--gold); }
+.step__text { max-width: 470px; margin: 6px 0 0; font-size: 14.5px; line-height: 1.65; color: var(--washi-dim); }
+
+/* states you can toggle from JS if you like classes better than tweens */
+.step.is-dim { opacity: .26; }
+.step.is-active { opacity: 1; }
+.step.is-active .step__num { color: var(--shu); }
+
+.ceremony__dial { position: relative; justify-self: center; width: min(32vw, 430px); aspect-ratio: 1; }
+.dial { width: 100%; height: 100%; overflow: visible; }
+.dial__track { fill: none; stroke: var(--hair-light); stroke-width: 2; }
+.dial__progress { fill: none; stroke: var(--shu); stroke-width: 4; stroke-linecap: round; }
+.dial__ticks circle { fill: var(--sumi); stroke: var(--washi-dim); stroke-width: 2; }
+.dial__icons { position: absolute; inset: 22%; color: var(--washi); }
+.dial__icon { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+.dial__icon.is-current { opacity: 1; }
+.dial__count {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -54px;
+  margin: 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 17px;
+  letter-spacing: .2em;
+  color: var(--washi-dim);
+}
+.dial__current { color: var(--washi); }
+
+/* ───────────── Our Teas ───────────── */
+
+/* By default the gallery is a plain grid (phones, reduced motion, no JS).
+   Add .is-sliding to .teas to turn it into one long horizontal track
+   that you can pin and slide. */
+.teas { position: relative; padding: 130px var(--gutter) 110px; }
+.teas__track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 70px 4vw;
+  align-items: start;
+}
+.teas__intro { max-width: 480px; align-self: center; }
+.teas__title { margin: 0; font-family: var(--serif); font-size: clamp(40px, 4.4vw, 68px); line-height: 1.05; }
+.teas__lede { margin: 26px 0 0; max-width: 380px; font-size: 16px; line-height: 1.7; color: var(--ink-dim); }
+
+.tin { display: grid; grid-template-rows: auto 1fr; gap: 18px; }
+.tin__art { display: block; height: 40vh; max-height: 360px; width: 100%; }
+.tin__glyph { font-family: var(--serif); font-weight: 700; fill: var(--sumi); text-anchor: middle; dominant-baseline: middle; }
+.tin__sealglyph { font-family: var(--serif); font-weight: 700; font-size: 13px; fill: #F3ECDA; text-anchor: middle; dominant-baseline: middle; }
+.tin__info { padding-top: 16px; border-top: 1px solid var(--hair); }
+.tin__index { margin: 0 0 6px; font-family: var(--serif); font-size: 14px; color: var(--shu); }
+.tin__index span { color: var(--ink-dim); }
+.tin__name { margin: 0; font-family: var(--serif); font-size: 30px; }
+.tin__name span { margin-left: 6px; font-size: 17px; color: var(--matcha); }
+.tin__meta { margin: 6px 0 10px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
+.tin__text { margin: 0; font-size: 14.5px; line-height: 1.65; color: var(--ink-dim); }
+.tin__price { margin: 14px 0 0; font-size: 13px; color: var(--ink-dim); }
+.tin__price strong { margin-right: 6px; font-family: var(--serif); font-size: 22px; color: var(--sumi); }
+
+/* the horizontal version (any screen size — only add it where you want it) */
+.teas.is-sliding { height: 100vh; padding: 0; overflow: hidden; }
+.teas.is-sliding .teas__track {
+  display: flex;
+  align-items: center;
+  gap: 3.4vw;
+  width: max-content;
+  height: 100%;
+  padding: 90px var(--gutter) 40px;
+}
+.teas.is-sliding .teas__intro { flex: none; width: 33vw; }
+.teas.is-sliding .tin { flex: none; width: clamp(290px, 25vw, 380px); }
+.teas.is-sliding .tin__art { height: 44vh; max-height: 390px; }
+
+/* ───────────── Seasonal menu ───────────── */
+
+.menu { padding: 130px var(--gutter) 120px; background: var(--fibre), var(--paper); }
+.menu__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 46px; }
+.menu__title { margin: 0; max-width: 620px; font-family: var(--serif); font-size: clamp(40px, 4.4vw, 68px); line-height: 1.05; }
+
+.menu__tabs { display: flex; gap: 6px; padding: 6px; border-radius: 999px; background: rgba(29, 27, 23, .07); }
+.menu__tab {
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--sumi);
+  font: 500 14px var(--sans);
+  cursor: pointer;
+  transition: background .3s, color .3s;
+}
+.menu__tab span { margin-left: 4px; font-family: var(--serif); color: var(--shu); transition: color .3s; }
+.menu__tab:hover { background: rgba(29, 27, 23, .08); }
+.menu__tab.is-active { background: var(--sumi); color: var(--washi); }
+.menu__tab.is-active span { color: var(--gold); }
+
+.menu__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; min-height: 430px; align-items: start; }
+.dish {
+  border-radius: 20px;
+  background: var(--washi);
+  box-shadow: 0 1px 0 rgba(29, 27, 23, .06), 0 18px 40px -24px rgba(29, 27, 23, .35);
+  overflow: hidden;
+}
+.dish.is-hidden { display: none; }
+.dish__art { display: block; width: 100%; height: auto; background: radial-gradient(120% 90% at 50% 20%, #FBF7EE, #EDE4D2); }
+.dish__body { padding: 18px 22px 22px; }
+.dish__name { margin: 0; font-family: var(--serif); font-size: 21px; line-height: 1.25; }
+.dish__name span { display: block; margin-top: 2px; font-size: 14px; color: var(--matcha); }
+.dish__text { margin: 10px 0 14px; font-size: 13.5px; line-height: 1.6; color: var(--ink-dim); }
+.dish__price { margin: 0; font-family: var(--serif); font-size: 18px; color: var(--shu); }
+
+/* ───────────── Footer & marquee ───────────── */
+
+.footer { background: var(--sumi); color: var(--washi); padding-bottom: 36px; overflow: hidden; }
+.marquee { padding: 34px 0; border-bottom: 1px solid var(--hair-light); overflow: hidden; }
+.marquee__track { display: flex; width: max-content; }
+.footer .marquee__item { flex: none; margin: 0; padding-right: 0.6em; white-space: nowrap; font-family: var(--serif); font-size: clamp(36px, 5vw, 72px); line-height: 1.1; }
+.marquee__item span { color: var(--washi); }
+.marquee__item em { margin: 0 .4em; font-family: var(--sans); font-size: .32em; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); vertical-align: middle; }
+.marquee__item i { font-style: normal; color: var(--shu); font-size: .5em; vertical-align: middle; margin: 0 .3em; }
+
+.footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding: 56px var(--gutter) 40px; }
+.footer .footer__brand { display: flex; align-items: center; margin: 0; font-family: var(--serif); font-size: 40px; font-weight: 700; }
+.footer h4 { margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+.footer p { margin: 0; font-size: 14.5px; line-height: 1.75; color: var(--washi-dim); }
+.footer a:hover { color: var(--washi); }
+.footer__small { padding: 0 var(--gutter); font-size: 12.5px !important; }
+
+/* ───────────── Phones ───────────── */
+
+/* short desktop screens: tighten the ceremony so all four steps fit while pinned */
+@media (min-width: 768px) and (max-height: 860px) {
+  .ceremony__inner { padding-top: 96px; padding-bottom: 36px; }
+  .ceremony__title { margin-bottom: 20px; font-size: clamp(36px, 3.8vw, 56px); }
+  .step { padding: 11px 0; }
+  .step__title { font-size: 24px; }
+  .step__text { font-size: 14px; line-height: 1.55; }
+}
+
+@media (max-width: 1100px) and (min-width: 768px) {
+  .teas__track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .nav { inset: 12px 12px auto; }
+  .nav__links { display: none; }
+  .hero { grid-template-columns: 1fr; padding-top: 110px; gap: 10px; }
+  .hero__title { font-size: 50px; }
+  .hero__text { font-size: 16px; margin: 22px 0 28px; }
+  .hero__art { grid-row: 1; width: min(78vw, 340px); }
+  .hero__scroll { display: none; }
+
+  .ceremony__inner { grid-template-columns: 1fr; padding: 96px 20px 100px; gap: 40px; }
+  .ceremony__dial { width: min(64vw, 260px); grid-row: 1; }
+  .dial__count { bottom: -40px; }
+  .step__title { font-size: 23px; }
+
+  /* the plain tea grid becomes a simple vertical list */
+  .teas { padding: 90px 20px 70px; }
+  .teas__track { grid-template-columns: 1fr; gap: 54px; }
+  .tin { grid-template-columns: 120px 1fr; grid-template-rows: none; align-items: start; }
+  .tin__art { height: 180px; }
+  .tin__info { padding-top: 0; border-top: 0; }
+
+  .menu { padding: 90px 20px; }
+  .menu__head { flex-direction: column; align-items: stretch; }
+  .menu__tabs { justify-content: space-between; }
+  .menu__tab { padding: 10px 12px; white-space: nowrap; }
+  .menu__tab span { display: none; }
+  .menu__grid { grid-template-columns: 1fr; min-height: 0; }
+  .dish { display: grid; grid-template-columns: 130px 1fr; align-items: center; }
+  .dish.is-hidden { display: none; }
+  .dish__art { height: 100%; }
+  .dish__body { padding: 16px 18px; }
+
+  .footer__grid { grid-template-columns: 1fr 1fr; padding: 40px 20px; }
+  .footer__brand { grid-column: 1 / -1; }
+}

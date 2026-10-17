@@ -1,0 +1,413 @@
+/* ─────────────────────────────────────────────
+   Chroma — A History of Colour. Styles are done for you.
+   Your job is the motion (main.js).
+   ───────────────────────────────────────────── */
+
+:root {
+  --ink: #15110E;
+  --cream: #F4EDE1;
+  --cream-dim: rgba(244, 237, 225, .62);
+  --rule: rgba(244, 237, 225, .24);
+  --serif: 'Bodoni Moda', 'Didot', Georgia, serif;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--ink);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; border-radius: 4px; }
+
+/* ───────────── Header ───────────── */
+
+.nav {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 64px;
+}
+.nav__logo { font-family: var(--serif); font-style: italic; font-size: 22px; letter-spacing: -0.01em; }
+.nav__links { display: flex; gap: 36px; font-size: 14px; }
+.nav__links a { color: var(--cream-dim); transition: color .2s; }
+.nav__links a:hover { color: var(--cream); }
+.nav__cta {
+  padding: 11px 22px;
+  border: 1px solid var(--cream);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  transition: background .25s, color .25s;
+}
+.nav__cta:hover { background: var(--cream); color: var(--ink); }
+
+/* ───────────── Intro ───────────── */
+
+.intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: 24px;
+  min-height: 100vh;
+  padding: 120px 64px 96px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 78% 52%, rgba(255, 255, 255, .07), rgba(255, 255, 255, 0) 55%),
+    var(--ink);
+}
+
+.intro__kicker {
+  margin: 0 0 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+.intro__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  width: max-content; /* so the gradient covers every letter */
+  font-size: clamp(110px, 13.8vw, 230px);
+  line-height: .9;
+  letter-spacing: -0.045em;
+  padding: 0 .04em .04em 0;
+  background: linear-gradient(90deg, #E38E52 0%, #B9407B 28%, #4F72DD 52%, #3779B3 74%, #BC82CC 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.intro__sub {
+  margin: 8px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(26px, 2.6vw, 38px);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+.intro__sub em { color: var(--cream-dim); }
+
+.intro__lead {
+  max-width: 460px;
+  margin: 26px 0 34px;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--cream-dim);
+}
+
+.chips { display: flex; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.chip {
+  width: 104px;
+  padding: 0 0 10px;
+  border-radius: 6px;
+  background: var(--cream);
+  color: var(--ink);
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+}
+.chip::before { content: ''; display: block; height: 58px; margin-bottom: 9px; background: var(--c); }
+.chip span { display: block; padding: 0 10px; font-family: var(--serif); font-size: 14.5px; font-weight: 600; }
+.chip small { display: block; padding: 2px 10px 0; font-family: var(--mono); font-size: 10px; letter-spacing: .06em; opacity: .6; }
+
+.intro__prism { justify-self: end; width: min(44vw, 640px); height: auto; overflow: visible; }
+
+.intro__cue {
+  position: absolute;
+  left: 64px;
+  bottom: 34px;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+.intro__cue span { display: inline-block; margin-left: 8px; color: var(--cream); }
+
+/* ───────────── The timeline ───────────── */
+
+.chroma {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #B4612B; /* the first era's colour */
+}
+
+.chroma__bar {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 64px;
+  right: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 26px 0 16px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.chroma__mark { font-family: var(--serif); font-style: italic; font-size: 20px; letter-spacing: -0.01em; text-transform: none; }
+.chroma__room { color: var(--cream-dim); }
+
+.chroma__track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+}
+
+.panel {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden; /* keeps the track exactly five screens wide, whatever moves inside */
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  align-items: center;
+  gap: 32px;
+  padding: 104px 64px 118px;
+}
+
+.panel__era {
+  margin: 0 0 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+/* the year sits in a mask: anything pushed below it is clipped */
+.panel__mask { overflow: hidden; }
+
+.panel__year {
+  margin: 0;
+  padding: 0 .04em .04em 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(72px, 9.4vw, 150px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
+.panel__name {
+  margin: 14px 0 0;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(32px, 3.3vw, 50px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.panel__formula {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--cream-dim);
+}
+
+.panel__text {
+  max-width: 480px;
+  margin: 22px 0 26px;
+  font-size: 16.5px;
+  line-height: 1.65;
+}
+
+.panel__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 540px;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+.panel__facts dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--cream-dim); }
+.panel__facts dd { margin: 5px 0 0; font-size: 14px; font-weight: 500; line-height: 1.35; }
+
+.panel__specimen {
+  position: relative;
+  justify-self: center;
+  height: min(66vh, 580px);
+  aspect-ratio: 520 / 600;
+  margin: 0;
+}
+.panel__specimen img { display: block; width: 100%; height: 100%; }
+
+/* museum label, hung on a string */
+.tag {
+  position: absolute;
+  top: 12%;
+  right: -14px;
+  width: 168px;
+  padding: 11px 13px 12px;
+  border-radius: 3px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 11.5px;
+  line-height: 1.4;
+  transform: rotate(4deg);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .28);
+}
+.tag::before {
+  content: '';
+  position: absolute;
+  top: -34px;
+  left: 22px;
+  width: 1px;
+  height: 40px;
+  background: var(--cream);
+  opacity: .6;
+  transform: rotate(-14deg);
+}
+.tag__no { display: block; margin-bottom: 4px; font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; opacity: .6; }
+
+/* era progress */
+.era {
+  position: absolute;
+  z-index: 2;
+  left: 64px;
+  right: 64px;
+  bottom: 30px;
+}
+.era__line {
+  position: absolute;
+  top: 6px;
+  left: 50px;
+  right: 50px;
+  height: 1px;
+  background: var(--rule);
+}
+.era__fill {
+  height: 100%;
+  background: var(--cream);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.era__list { position: relative; display: flex; justify-content: space-between; margin: 0; padding: 0; list-style: none; }
+.era__item { display: flex; flex-direction: column; align-items: center; width: 100px; }
+.era__dot {
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid var(--cream);
+  border-radius: 50%;
+  background: rgba(21, 17, 14, .25);
+  transition: transform .45s cubic-bezier(.2, .7, .2, 1.2), background-color .3s, box-shadow .3s;
+}
+.era__label {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--cream-dim);
+  transition: color .3s;
+}
+/* the dot of the era in view */
+.era__dot.is-active { transform: scale(1.7); background: var(--cream); box-shadow: 0 0 0 5px rgba(244, 237, 225, .16); }
+.era__dot.is-active + .era__label { color: var(--cream); }
+
+/* ───────────── Outro ───────────── */
+
+.outro { padding: 140px 64px 120px; background: var(--ink); }
+.outro__kicker { margin: 0 0 22px; font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--cream-dim); }
+.outro__title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(46px, 6.2vw, 100px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+.outro__title em {
+  background: linear-gradient(90deg, #E38E52, #B9407B 40%, #4F72DD 70%, #BC82CC);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: .06em;
+}
+
+.outro__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 32px;
+  margin-top: 84px;
+  padding-top: 26px;
+  border-top: 1px solid var(--rule);
+}
+.info h3 { margin: 0 0 10px; font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--cream-dim); }
+.info p { margin: 0; font-size: 16px; line-height: 1.55; }
+.outro__cta {
+  padding: 18px 28px;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: transform .25s;
+}
+.outro__cta:hover { transform: translateY(-2px); }
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px 64px 34px;
+  border-top: 1px solid rgba(244, 237, 225, .1);
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(244, 237, 225, .45);
+}
+
+/* ───────────── Small screens ───────────── */
+
+@media (max-width: 760px) {
+  .nav { padding: 20px; }
+  .nav__links { display: none; }
+  .intro { grid-template-columns: minmax(0, 1fr); padding: 100px 20px 90px; }
+  .intro__title { font-size: 27vw; }
+  .chips { flex-wrap: wrap; }
+  .chip { width: calc(33.333% - 7px); }
+  .intro__prism { justify-self: center; width: 100%; }
+  .intro__cue { left: 20px; }
+
+  .chroma__bar { left: 20px; right: 20px; }
+  .chroma__room { display: none; }
+  .panel { grid-template-columns: minmax(0, 1fr); align-content: start; gap: 8px; padding: 84px 20px 100px; }
+  .panel__year { font-size: 18vw; }
+  .panel__name { font-size: 30px; }
+  .panel__text { margin: 14px 0 0; font-size: 15px; line-height: 1.55; }
+  .panel__facts { display: none; }
+  .panel__specimen { height: 32vh; }
+  .tag { display: none; }
+  .era { left: 12px; right: 12px; bottom: 22px; }
+  .era__item { width: 64px; }
+  .era__line { left: 32px; right: 32px; }
+  .era__label { font-size: 9.5px; }
+
+  .outro { padding: 90px 20px 70px; }
+  .outro__grid { grid-template-columns: 1fr; margin-top: 48px; }
+  .foot { flex-direction: column; padding: 22px 20px 30px; }
+}

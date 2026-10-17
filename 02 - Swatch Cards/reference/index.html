@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pigment &amp; Hue — The Autumn Ledger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- ───────────── Header ───────────── -->
+    <header class="top">
+      <a href="#" class="top__logo" aria-label="Pigment &amp; Hue — home">
+        <svg class="top__mark" viewBox="0 0 64 40" aria-hidden="true">
+          <circle cx="16" cy="20" r="14" fill="#C2583B"/>
+          <circle cx="32" cy="20" r="14" fill="#D49A2E" style="mix-blend-mode:multiply"/>
+          <circle cx="48" cy="20" r="14" fill="#233A5E" style="mix-blend-mode:multiply"/>
+        </svg>
+        <span>Pigment <em>&amp;</em> Hue</span>
+      </a>
+      <nav class="top__nav" aria-label="Main">
+        <a href="#" aria-current="page">Colours</a>
+        <a href="#">Finishes</a>
+        <a href="#">The Mill</a>
+        <a href="#">Stockists</a>
+      </nav>
+      <a href="#" class="top__basket">Sample basket <span class="top__count">2</span></a>
+    </header>
+
+    <!-- ───────────── Intro ───────────── -->
+    <section class="intro">
+      <div>
+        <p class="intro__eyebrow">Collection Nº 7 · Autumn 2026</p>
+        <h1 class="intro__title">The Autumn <em>Ledger</em></h1>
+      </div>
+      <div class="intro__aside">
+        <p class="intro__text">Five new pigments, stone-milled in small batches in Porto and named after the hours we mixed them.</p>
+        <p class="intro__hint"><span class="intro__dot" aria-hidden="true"></span>Hover a chip to read its story</p>
+      </div>
+    </section>
+
+    <!-- ───────────── The five paint chips ─────────────
+         Each .swatch owns: a number, a vertical name, a details block
+         (code · description · Order sample — each line inside its own
+         overflow:hidden mask) and three tint strips (top right).        -->
+    <ul class="swatches">
+
+      <li class="swatch swatch--terracotta">
+        <span class="swatch__no">Nº 014<small>LRV 21</small></span>
+        <span class="swatch__ghost" aria-hidden="true">014</span>
+        <h2 class="swatch__name">Terracotta Hour</h2>
+        <div class="swatch__details">
+          <div class="swatch__line"><span class="swatch__code">PH-014</span></div>
+          <div class="swatch__line"><p class="swatch__desc">Sun-baked Alentejo clay, warm as a Lisbon wall at six in the evening.</p></div>
+          <div class="swatch__line"><a href="#" class="swatch__pill">Order sample <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a></div>
+        </div>
+        <div class="swatch__tints" aria-hidden="true">
+          <span class="swatch__tint"><b>75</b></span>
+          <span class="swatch__tint"><b>50</b></span>
+          <span class="swatch__tint"><b>25</b></span>
+        </div>
+      </li>
+
+      <li class="swatch swatch--sage">
+        <span class="swatch__no">Nº 027<small>LRV 34</small></span>
+        <span class="swatch__ghost" aria-hidden="true">027</span>
+        <h2 class="swatch__name">Sage Smoke</h2>
+        <div class="swatch__details">
+          <div class="swatch__line"><span class="swatch__code">PH-027</span></div>
+          <div class="swatch__line"><p class="swatch__desc">The grey-green of herbs left drying on a farmhouse kitchen beam.</p></div>
+          <div class="swatch__line"><a href="#" class="swatch__pill">Order sample <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a></div>
+        </div>
+        <div class="swatch__tints" aria-hidden="true">
+          <span class="swatch__tint"><b>75</b></span>
+          <span class="swatch__tint"><b>50</b></span>
+          <span class="swatch__tint"><b>25</b></span>
+        </div>
+      </li>
+
+      <li class="swatch swatch--ochre">
+        <span class="swatch__no">Nº 031<small>LRV 42</small></span>
+        <span class="swatch__ghost" aria-hidden="true">031</span>
+        <h2 class="swatch__name">Ochre Field</h2>
+        <div class="swatch__details">
+          <div class="swatch__line"><span class="swatch__code">PH-031</span></div>
+          <div class="swatch__line"><p class="swatch__desc">Raw earth pigment, ground three times and still a little wild.</p></div>
+          <div class="swatch__line"><a href="#" class="swatch__pill">Order sample <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a></div>
+        </div>
+        <div class="swatch__tints" aria-hidden="true">
+          <span class="swatch__tint"><b>75</b></span>
+          <span class="swatch__tint"><b>50</b></span>
+          <span class="swatch__tint"><b>25</b></span>
+        </div>
+      </li>
+
+      <li class="swatch swatch--ink">
+        <span class="swatch__no">Nº 046<small>LRV 07</small></span>
+        <span class="swatch__ghost" aria-hidden="true">046</span>
+        <h2 class="swatch__name">Ink Blue</h2>
+        <div class="swatch__details">
+          <div class="swatch__line"><span class="swatch__code">PH-046</span></div>
+          <div class="swatch__line"><p class="swatch__desc">Deep as a fountain pen left uncapped on the desk overnight.</p></div>
+          <div class="swatch__line"><a href="#" class="swatch__pill">Order sample <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a></div>
+        </div>
+        <div class="swatch__tints" aria-hidden="true">
+          <span class="swatch__tint"><b>75</b></span>
+          <span class="swatch__tint"><b>50</b></span>
+          <span class="swatch__tint"><b>25</b></span>
+        </div>
+      </li>
+
+      <li class="swatch swatch--plum">
+        <span class="swatch__no">Nº 052<small>LRV 09</small></span>
+        <span class="swatch__ghost" aria-hidden="true">052</span>
+        <h2 class="swatch__name">Plum Velvet</h2>
+        <div class="swatch__details">
+          <div class="swatch__line"><span class="swatch__code">PH-052</span></div>
+          <div class="swatch__line"><p class="swatch__desc">A dusky theatre-curtain purple with a stubborn red heart.</p></div>
+          <div class="swatch__line"><a href="#" class="swatch__pill">Order sample <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a></div>
+        </div>
+        <div class="swatch__tints" aria-hidden="true">
+          <span class="swatch__tint"><b>75</b></span>
+          <span class="swatch__tint"><b>50</b></span>
+          <span class="swatch__tint"><b>25</b></span>
+        </div>
+      </li>
+
+    </ul>
+
+    <footer class="foot">
+      <span>Free A5 painted samples</span>
+      <span>Mixed to order · ships in 48 h</span>
+      <span>Zero-VOC, made in Porto since 1931</span>
+    </footer>
+  </div>
+
+<script src="ref.js"></script>
+</body>
+</html>
